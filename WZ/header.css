@@ -9,7 +9,7 @@
 
 .main-header-wrapper{
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     background-color: aqua;
 }
 .main-header-container{
@@ -23,6 +23,7 @@
     justify-content: space-between;
     padding: 10px 60px;
     color: #fff;
+    position: fixed;
 }
 .logo-box{
     position: absolute;
@@ -56,6 +57,9 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px #999999 solid;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
 }
 .search-box .search-btn{
     display: inline-block;
@@ -66,8 +70,93 @@
     filter: invert(10);
     position: absolute;
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .account-box{
     display: flex;
     gap: 30px;
+    position: relative;
+    align-items: center;
+    min-width: 130px;
+}
+.account-box .user-profile{
+    width: 50px;
+    height: 50px;
+}
+.user-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.account-hover-box{
+    width: 170px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #999999;
+}
+.account-hover-box {
+    background: #21252B;
+    border: 1px solid #999999;
+}
+.account-hover-box .hover-box-upper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+}
+.account-hover-box .hover-box-upper img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.account-hover-box .hover-box-upper span{
+    font-size: 20px;
+}
+.hover-box-nav{
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.8;
+    padding: 0 20px;
+}
+.hover-box-nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hover-box-nav ul li a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.hover-box-nav ul li a::before{
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    filter: invert(10);
+}
+.hover-box-nav ul li:first-child a::before{
+    background: url("./source/img/icons/ico_account.png");
+    background-size: 24px 24px;
+}
+.hover-box-nav ul li:nth-child(2) a::before{
+    background: url("./source/img/icons/ico_basket.png");
+    background-size: 24px 24px;
+}
+.hover-box-nav ul li:last-child a::before{
+    background: url("./source/img/icons/ico_favorite_list.png");
+    background-size: 24px 24px;
+}
+.logout{
+    margin-top: 20px;
+    text-align: center;
+    padding: 12px 0;
+    width: 100%;
+    border-top: 1px solid #999999;
 }
