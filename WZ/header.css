@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-header-wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+}
+.main-header-container{
+    width: 100%;
+    height: 80px;
+    background-color: #21252B;
+    /* background: linear-gradient(to bottom, #555, #fff 50%); */
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 60px;
+    color: #fff;
+}
+.logo-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.logo span{
+    font-family: 'SBAggroB';
+    font-size: 60px;
+    color: #D33A3C;
+    letter-spacing: -16px;
+}
+.nav-list{
+    display: flex;
+    gap: 60px;
+}
+.nav-item a{
+    color: #fff;
+}
+.util-box{
+    display: flex;
+    gap: 70px;
+}
+.search-box{
+    position: relative;
+}
+.search-box .search-input{
+    width: 250px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px #999999 solid;
+}
+.search-box .search-btn{
+    display: inline-block;
+    background: url("./source/img/icons/ico_search.png") no-repeat center;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    filter: invert(10);
+    position: absolute;
+    right: 10px;
+}
+.account-box{
+    display: flex;
+    gap: 30px;
+}
