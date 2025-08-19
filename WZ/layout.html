@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>layout</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script src="/js/header.js" defer></script>
 </head>
 <body>
     <div class="main-layout-wrapper">
-        <header class="main-header-container">
+        <header id="mainHeader" class="main-header-container">
             <div class="logo-box">
                 <h1 class="logo">
                     <span>WZ</span>
@@ -27,18 +28,19 @@
                 </li>
             </ul>
             <div class="util-box">
-                <div class="search-box">
-                    <input class="search-input" type="text">
-                    <span class="search-btn"><span class="hidden">검색</span></span>
-                </div>
+                <form class="search-box">
+                    <label for="mainSearch">검색</label>
+                    <input id="mainSearch" class="search-input" type="text">
+                    <button class="search-btn" onclick="handleHeaderSearchBtn()"><span class="hidden">검색</span></button>
+                </form>
                 <div class="account-box">
                     <span class="user-name">user</span>
                     <span class="user-profile">
-                        <img src="./source/img/profile.png" alt="profile"/>
+                        <img src="./source/image/profile.png" alt="profile"/>
                     </span>
                     <div class="account-hover-box">
                         <div class="hover-box-upper">
-                            <img src="./source/img/profile.png" alt="profile"/>
+                            <img src="./source/image/profile.png" alt="profile"/>
                             <span>userName</span>
                         </div>
                         <div class="hover-box-nav">
@@ -55,7 +57,7 @@
                 </div>
             </div>
         </header>
-        <footer class="main-footer-wrapper">
+        <footer id="mainFooter" class="main-footer-wrapper">
             <div class="main-footer-container">
                 <ul class="social-nav">
                     <li><a href="#" class="ico_X"><span class="hidden">X</span></a></li>

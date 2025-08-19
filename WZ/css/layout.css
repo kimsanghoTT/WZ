@@ -51,6 +51,9 @@
 .search-box{
     position: relative;
 }
+.search-box label{
+    display: none;
+}
 .search-box .search-input{
     width: 250px;
     height: 30px;
@@ -60,10 +63,14 @@
     outline: none;
     color: #fff;
     font-size: 16px;
+    line-height: 45px;
+    margin: 10px 0;
+    display: inline-block;
 }
 .search-box .search-btn{
+    border: none;
     display: inline-block;
-    background: url("./source/img/icons/ico_search.png") no-repeat center;
+    background: transparent url("../source/image/icons/ico_search.png") no-repeat center;
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
@@ -72,6 +79,7 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 .account-box{
     display: flex;
@@ -97,10 +105,14 @@
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid #999999;
-}
-.account-hover-box {
+    opacity: 0;
+    pointer-events: none;
     background: #21252B;
-    border: 1px solid #999999;
+    transition: .3s;
+}
+.account-box:hover .account-hover-box{
+    opacity: 1;
+    pointer-events: all;
 }
 .account-hover-box .hover-box-upper{
     display: flex;
@@ -142,15 +154,15 @@
     filter: invert(10);
 }
 .hover-box-nav ul li:first-child a::before{
-    background: url("./source/img/icons/ico_account.png");
+    background: url("../source/image/icons/ico_account.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:nth-child(2) a::before{
-    background: url("./source/img/icons/ico_basket.png");
+    background: url("../source/image/icons/ico_basket.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:last-child a::before{
-    background: url("./source/img/icons/ico_favorite_list.png");
+    background: url("../source/image/icons/ico_favorite_list.png");
     background-size: 24px 24px;
 }
 .logout{
@@ -159,6 +171,9 @@
     padding: 12px 0;
     width: 100%;
     border-top: 1px solid #999999;
+}
+.logout span{
+    cursor: pointer;
 }
 
 
@@ -190,19 +205,19 @@
     filter: invert(10);
 }
 .social-nav .ico_X{
-    background: url(./source/img/icons/ico_X.png) no-repeat center;
+    background: url(../source/image/icons/ico_X.png) no-repeat center;
     background-size: 25px 25px;
 }
 .social-nav .ico_facebook{
-    background: url(./source/img/icons/ico_facebook.png) no-repeat center;
+    background: url(../source/image/icons/ico_facebook.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_insta{
-    background: url(./source/img/icons/ico_insta.png) no-repeat center;
+    background: url(../source/image/icons/ico_insta.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_youtube{
-    background: url(./source/img/icons/ico_youtube.png) no-repeat center;
+    background: url(../source/image/icons/ico_youtube.png) no-repeat center;
     background-size: 30px 30px;
 }
 .footer-nav{
