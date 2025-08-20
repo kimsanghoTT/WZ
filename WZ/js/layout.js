@@ -34,6 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
             postScrollPoint = currentScrollPoint;
         })
     }
+    else{
+        let postScrollPoint = window.pageYOffset;
+
+        window.addEventListener("scroll", () => {
+            const currentScrollPoint = window.pageYOffset;
+
+            if(currentScrollPoint > postScrollPoint){
+                header.classList.add("scrollDown");
+                header.classList.remove("scrollUp");
+            }
+            else if(currentScrollPoint <= postScrollPoint){
+                header.classList.add("scrollUp");
+                header.classList.remove("scrollDown");
+            }
+            postScrollPoint = currentScrollPoint;
+        })
+    }
 })
 
 
