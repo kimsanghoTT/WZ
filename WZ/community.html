@@ -65,35 +65,318 @@
         </header>
         <div class="community-container">
             <section class="content-box reels">
-                <div class="reels-title-box">
+                <div class="title-box">
                     <div class="reels-title">
-                        <span>챌린지</span>
+                        <h2>챌린지</h2>
                         <span>#내가해봄</span>
                         <span>#패러디</span>
                         <span>#시카노코노코노코코시탄탄</span>
                     </div>
                     <div class="reels-sort-btn">
                         <input type="checkbox" id="popularCheck"/>
-                        <label for="popularCheck">인기 순 정렬</label>
+                        <label for="popularCheck" class="popular-sort">인기 순 정렬</label>
                     </div>
                 </div>
                 <div class="reels-content">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper reels-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                            <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
+                        </div>
+                        <div class="swiper-scrollbar">
+                            <div class="swiper-custom-progressbar"></div>
+                        </div>
                     </div>
-                    <div class="swiper-scrollbar"></div>
-                </div>
+                    <div class="reels-btn-area">
+                        <button class="reels-btn"><span>등록하기</span></button>
+                    </div>
                 </div>
             </section>
             <section class="content-box board">
-
+                <div class="title-box">
+                    <h2>자유게시판</h2>
+                </div>
+                <div class="board-best-box">
+                    <ul class="board-best-list">
+                        <li>
+                            <div class="best-medal 1st"><span class="ico"></span></div>
+                            <div class="best-post">
+                                <div class="best-user-profile">
+                                    <img src="./source/image/profile.png" alt="프로필사진">
+                                    <span>user</span>
+                                </div>
+                                <div class="best-post-summary">
+                                    <p>post title</p>
+                                    <p>post content</p>
+                                </div>
+                                <div class="best-additional-util">
+                                    <div class="best-like">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                    <div class="best-reply">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-img">
+                                <img src="./source/image/profile.png" alt="프로필사진">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="best-medal 2nd"><span class="ico"></span></div>
+                            <div class="best-post">
+                                <div class="best-user-profile">
+                                    <img src="./source/image/profile.png" alt="프로필사진">
+                                    <span>user</span>
+                                </div>
+                                <div class="best-post-summary">
+                                    <p>post title</p>
+                                    <p>post content</p>
+                                </div>
+                                <div class="additional-util">
+                                    <div class="best-like">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                    <div class="best-reply">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-img">
+                                <img src="./source/image/profile.png" alt="프로필사진">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="best-medal 3rd"><span class="ico"></span></div>
+                            <div class="best-post">
+                                <div class="best-user-profile">
+                                    <img src="./source/image/profile.png" alt="프로필사진">
+                                    <span>user</span>
+                                </div>
+                                <div class="best-post-summary">
+                                    <p>post title</p>
+                                    <p>post content</p>
+                                </div>
+                                <div class="additional-util">
+                                    <div class="best-like">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                    <div class="best-reply">
+                                        <span class="ico"></span>
+                                        <span>숫자</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-img">
+                                <img src="./source/image/profile.png" alt="프로필사진">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="board-grid">
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-thumbnail">
+                            <img src="./source/image/profile.png" alt="프로필사진">
+                        </div>
+                        <div class="post-info">
+                            <p>title</p>
+                            <div class="best-additional-util">
+                                <span>name</span>
+                                |
+                                <span class="ico"></span>
+                                <span>number</span>
+                                |
+                                <span>조회 n</span>
+                                |
+                                <span>날짜 : HH:MM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-lower-util">
+                    <div class="board-search-box">
+                        <span class="search-condition">제목</span>
+                        <ul class="search-condition-list">
+                            <li>제목</li>
+                            <li>본문</li>
+                            <li>글쓴이</li>
+                        </ul>
+                    </div>
+                    <div class="board-pagination"></div>
+                    <button class="write-btn">글쓰기</button>
+                </div>
             </section>
         </div>
     </div>

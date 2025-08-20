@@ -24,11 +24,16 @@
 .main-header-container.atHome.onTop{
     background: linear-gradient(to bottom, #555, transparent 50%);
 }
-
 .main-header-container.atHome.scrollDown{
     transform: translateY(-80px);
 }
 .main-header-container.atHome.scrollUp{
+    transform: translateY(0);
+}
+.main-header-container.scrollDown{
+    transform: translateY(-80px);
+}
+.main-header-container.scrollUp{
     transform: translateY(0);
 }
 .logo-box{

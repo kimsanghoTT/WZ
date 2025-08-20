@@ -1,29 +1,170 @@
-    .community-wrapper{
-        width: 100%;
-        background-color: #21252B;
-    }
-    .community-container{
-        padding-top: 80px;
-        max-width: 1600px;
-        margin: 0 auto;
-    }
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
+.community-wrapper{
+    width: 100%;
+    background-color: #21252B;
+    color: #fff;
+}
+.community-container{
+    padding-top: 80px;
+    max-width: 1600px;
+    margin: 0 auto;
 
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #444;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+}
+.content-box{
+    margin-top: 100px;
+    position: relative;
+}
+.title-box{
+    position: relative;
+}
+.title-box h2{
+    font-size: 40px;
+    line-height: 1.5;
+    font-weight: 500;
+    display: inline-block;
+}
+/* 챌린지 릴스*/
+.reels-title span{
+    font-size: 20px;
+    font-style: italic;
+    opacity: 0.6;
+    display: inline-block;
+    margin-left: 10px;
+}
+.reels-sort-btn{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+.reels-sort-btn input {
+  display: none;
+}
+.reels-sort-btn label {
+  cursor: pointer;
+}
+.reels-sort-btn label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border: 1px solid #999999;
+  left: -30px;
+  bottom: 0;
+  text-align: center;
+}
+.reels-sort-btn label::after {
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: -23px;
+  width: 11px;
+  height: 6px;
+  border-bottom: 3px solid #D33A3C;
+  border-left: 3px solid #D33A3C;
+  transform: rotate(-45deg) translate(0, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+.reels-sort-btn label.checked {
+  color: #D33A3C;
+}
+.reels-sort-btn label.checked::before {
+  border: 1px solid #D33A3C;
+}
+.reels-sort-btn label.checked::after {
+  transform: rotate(-45deg) translate(0, -50%) scale(1);
+}
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+
+/* 스와이퍼 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px !important;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.reels-swiper.swiper .swiper-scrollbar{
+  left: 0;
+  width: 100%;
+  bottom: 23px;
+  height: 23px;
+  background: transparent;
+  overflow: hidden;
+}
+.swiper-scrollbar{
+    position: relative !important;
+    margin-top: 50px;
+}
+.swiper-scrollbar .swiper-scrollbar-drag{
+  background-color: #fff;
+  border: 1px solid #767676;
+  border-radius: 23px;
+  overflow: hidden;
+  width: 50px !important;
+}
+.swiper-scrollbar .swiper-scrollbar-drag::before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 6px;
+}
+.swiper-scrollbar::after{
+  content: '';
+  width: 100%;
+  display: inline-block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+.swiper-scrollbar .swiper-scrollbar-drag::after{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 6px;
+}
+.swiper-custom-progressbar{
+  height: 1px;
+  background-color: #D33A3C;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+/*자유 게시판*/
+.board img{
+    width: 300px;
+    height: 200px;
+}
+.board-best-list li{
+    display: flex;
+}
+.board-grid{
+    padding: 50px 0;
+    border-bottom: 1px solid #999999;
+    display: flex;
+    flex-wrap: wrap;
+}
