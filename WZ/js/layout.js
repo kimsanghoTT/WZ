@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if(currentPage.includes("home.html")){
         header.classList.add("atHome");
 
+        if(window.pageYOffset === 0){
+            header.classList.add("onTop");
+        }
+        else{
+            header.classList.remove("onTop");
+        }
+
         let postScrollPoint = window.pageYOffset;
 
         window.addEventListener("scroll", () => {
