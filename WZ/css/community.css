@@ -1,0 +1,29 @@
+    .community-wrapper{
+        width: 100%;
+        background-color: #21252B;
+    }
+    .community-container{
+        padding-top: 80px;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }

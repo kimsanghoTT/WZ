@@ -8,9 +8,9 @@ body {
   word-break: keep-all;
 }
 /* 스크롤 바 안보이게 하는 css 불필요시 제거할 것 */
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   display: none;
-}
+} */
 * {
   box-sizing: border-box;
   padding: 0;

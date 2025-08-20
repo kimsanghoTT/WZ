@@ -7,23 +7,28 @@
     font-style: normal;
 }
 
-.main-layout-wrapper{
-    width: 100%;
-    height: 200vh;
-    background-color: aqua;
-}
+
 .main-header-container{
     width: 100%;
     height: 80px;
-    background-color: #21252B;
-    /* background: linear-gradient(to bottom, #555, #fff 50%); */
+    background: #21252B;
     display: flex;
-    position: relative;
+    position: fixed;
     align-items: center;
     justify-content: space-between;
     padding: 10px 60px;
     color: #fff;
-    position: fixed;
+    transition: .5s;
+    transform: translateY(0);
+}
+.main-header-container.atHome.onTop{
+    background: linear-gradient(to bottom, #555, transparent 50%);
+}
+.main-header-container.atHome.scrollDown{
+    transform: translateY(-80px);
+}
+.main-header-container.atHome.scrollUp{
+    transform: translateY(0);
 }
 .logo-box{
     position: absolute;

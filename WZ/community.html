@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>layout</title>
+    <title>커뮤니티</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/community.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/layout.js" defer></script>
+    <script src="./js/community.js" defer></script>
 </head>
 <body>
-    <div class="main-layout-wrapper">
+    <div class="community-wrapper">
         <header id="mainHeader" class="main-header-container">
             <div class="logo-box">
                 <h1 class="logo">
@@ -58,39 +63,39 @@
                 </div>
             </div>
         </header>
-        <footer id="mainFooter" class="main-footer-wrapper">
-            <div class="main-footer-container">
-                <ul class="social-nav">
-                    <li><a href="#" class="ico_X"><span class="hidden">X</span></a></li>
-                    <li><a href="#" class="ico_facebook"><span class="hidden">페이스북</span></a></li>
-                    <li><a href="#" class="ico_insta"><span class="hidden">인스타그램</span></a></li>
-                    <li><a href="#" class="ico_youtube"><span class="hidden">유튜브</span></a></li>
-                </ul>
-                <ul class="footer-nav">
-                    <li>회사 정보</li>
-                    <li>법적 고지</li>
-                    <li>이용 약관</li>
-                    <li>쿠키 설정</li>
-                </ul>
-                <ul class="footer-nav">
-                    <li>개인정보</li>
-                    <li>고객 센터</li>
-                    <li>문의하기</li>
-                    <li>청소년보호정책</li>
-                </ul>
-                <ul class="footer-nav">
-                    <li>공지사항</li>
-                    <li>환불정책</li>
-                </ul>
-                <div class="company-info">
-                    <p>상호명  : 주식회사 위즈플레이 (WZPlay Inc.)</p>
-                    <p>사업자등록번호 : 123-45-67890</p>
-                    <p>통신판매업신고번호 : 제2025-서울마포-0001호</p>
-                    <p>주소    : 서울특별시 마포구 와우산로 123, 5층 (04000)</p>
-                    <p>이메일  : contact@wzplay.com</p>
+        <div class="community-container">
+            <section class="content-box reels">
+                <div class="reels-title-box">
+                    <div class="reels-title">
+                        <span>챌린지</span>
+                        <span>#내가해봄</span>
+                        <span>#패러디</span>
+                        <span>#시카노코노코노코코시탄탄</span>
+                    </div>
+                    <div class="reels-sort-btn">
+                        <input type="checkbox" id="popularCheck"/>
+                        <label for="popularCheck">인기 순 정렬</label>
+                    </div>
                 </div>
-            </div>
-        </footer>
+                <div class="reels-content">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 4</div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+                </div>
+            </section>
+            <section class="content-box board">
+
+            </section>
+        </div>
     </div>
 </body>
 </html>
