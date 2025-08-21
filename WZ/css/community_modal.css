@@ -3,7 +3,7 @@
     height: 100vh;
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -11,6 +11,8 @@
     left: 0;
     bottom: 0;
     right: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 .close-btn{
     width: 20px;
@@ -28,9 +30,34 @@
     height: 100%;
     filter: invert(1);
 }
-
+.community-modal-wrapper .post-write-modal, 
+.community-modal-wrapper .post-detail-modal, 
+.community-modal-wrapper .post-update-modal{
+    width: 83.33%;
+    height: 900px;
+    background-color: #222;
+    border-radius: 10px;
+    position: absolute; 
+    top: 50%;          
+    left: 50%;
+    transform: translate(-50%, 100%); 
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+.community-modal-wrapper.active .post-write-modal,
+.community-modal-wrapper.active .post-detail-modal,
+.community-modal-wrapper.active .post-update-modal{
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
 /*글쓰기 모달*/
-
+.post-write-modal{
+    overflow-y: scroll;
+}
+.post-write-modal > div{
+    width: 100%;
+    height: 200vh;
+}
 
 
 /*블록 모달*/

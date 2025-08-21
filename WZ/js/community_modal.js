@@ -1,84 +1,60 @@
-const blockModal = document.querySelector(".reels-btn").addEventListener("click", () => {
-    const getModal = async () => {
-        const blockModalWrapper = document.getElementById("blockModalWrapper");
-        const res = await fetch('community_modals.html');
-        const htmlText = await res.text(); 
+const handleModal = async (triggerSelector, modalWrapperId, modalContentId) => {
+    const trigger = document.querySelector(triggerSelector);
+    if (!trigger) return;
 
-        const parser = new DOMParser();
-        const parsedHTML = parser.parseFromString(htmlText, "text/html"); 
-        const blockModal = parsedHTML.getElementById("blockModal").innerHTML; 
+    trigger.addEventListener("click", async () => {
+        const modalWrapper = document.getElementById(modalWrapperId);
+        if (!modalWrapper) return;
 
-        blockModalWrapper.innerHTML = blockModal;
-        blockModalWrapper.style.display = "flex";
-
-        const closeBtn = blockModalWrapper.querySelector(".close-btn");
-        closeBtn.addEventListener("click", () => {
-            blockModalWrapper.style.display = "none";
-        });
-        
-    }
-    getModal();
-})
-
-const postWriteFormModal = document.querySelector(".write-btn").addEventListener("click", () => {
-    const getModal = async () => {
-        const postWriteModalWrapper = document.getElementById("postWriteModalWrapper");
-        const res = await fetch('community_modals.html');
-        const htmlText = await res.text();
-
+        const response = await fetch('community_modals.html');
+        const htmlText = await response.text();
         const parser = new DOMParser();
         const parsedHTML = parser.parseFromString(htmlText, "text/html");
-        const postWriteModal = parsedHTML.getElementById("postWriteModal").innerHTML;
 
-        postWriteModalWrapper.innerHTML = postWriteModal;
-        postWriteModalWrapper.style.display = "block";
+        const modalElement = parsedHTML.getElementById(modalContentId).cloneNode(true);
+        console.log(modalElement);
 
-        const closeBtn = postWriteModalWrapper.querySelector(".close-btn");
-        closeBtn.addEventListener("click", () => {
-            postWriteModalWrapper.style.display = "none";
-        });
-    }
-    getModal();
-})
+        modalWrapper.innerHTML = '';
+        modalWrapper.appendChild(modalElement);
 
-const postDetailFormModal = document.querySelector(".post-card").addEventListener("click", () => {
-    const getModal = async () => {
-        const postDetailModalWrapper = document.getElementById("postDetailModalWrapper");
-        const res = await fetch('community_modals.html');
-        const htmlText = await res.text();
+        document.body.style.overflow = "hidden";
 
-        const parser = new DOMParser();
-        const parsedHTML = parser.parseFromString(htmlText, "text/html");
-        const postDetailModal = parsedHTML.getElementById("postDetailModal").innerHTML;
+        modalWrapper.style.opacity = 1;
+        modalWrapper.style.pointerEvents = "all";
+        setTimeout(() => {
+            modalWrapper.classList.add("active");
+        }, 10);
 
-        postDetailModalWrapper.innerHTML = postDetailModal;
-        postDetailModalWrapper.style.display = "block";
+        modalElement.addEventListener("wheel", (e) => {
+            if (modalElement) {
+                const isAtTop = modalElement.scrollTop === 0;
+                const isAtBottom = modalElement.scrollHeight - modalElement.scrollTop === modalElement.clientHeight;
 
-        const closeBtn = postDetailModalWrapper.querySelector(".close-btn");
-        closeBtn.addEventListener("click", () => {
-            postDetailModalWrapper.style.display = "none";
-        });
-    }
-    getModal();
-})
+                if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+                    e.preventDefault(); 
+                    e.stopPropagation();
+                } else {
+                    e.stopPropagation();
+                }
+            } else {
+                e.stopPropagation();
+            }
+        }, { passive: false });
 
-const postUpdateFormModal = document.querySelector(".update-btn").addEventListener("click", () => {
-    const getModal = async () => {
-        const postUpdateModalWrapper = document.getElementById("postUpdateModalWrapper");
-        const res = await fetch('community_modals.html');
-        const htmlText = await res.text();
+        const closeBtn = modalElement.querySelector(".close-btn");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                modalWrapper.classList.remove("active");
+                modalWrapper.style.opacity = 0;
+                modalWrapper.style.pointerEvents = "none";
+                document.body.style.overflow = ""; 
+            });
+        }
+    });
+};
 
-        const parser = new DOMParser();
-        const parsedHTML = parser.parseFromString(htmlText, "text/html");
-        const postUpdateModal = parsedHTML.getElementById("postUpdateModal").innerHTML;
-
-        postUpdateModalWrapper.innerHTML = postUpdateModal;
-        postUpdateModalWrapper.style.display = "block";
-
-        const closeBtn = postUpdateModalWrapper.querySelector(".close-btn");
-        closeBtn.addEventListener("click", () => {
-            postUpdateModalWrapper.style.display = "none";
-        });
-    }
-    getModal();
-})
+// 모든 모달 적용
+handleModal(".reels-btn", "blockModalWrapper", "blockModal");
+handleModal(".write-btn", "postWriteModalWrapper", "postWriteModal");
+handleModal(".post-card", "postDetailModalWrapper", "postDetailModal");
+handleModal(".update-btn", "postUpdateModalWrapper", "postUpdateModal");
