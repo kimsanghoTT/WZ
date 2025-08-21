@@ -7,61 +7,20 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/community.css">
+    <link rel="stylesheet" href="./css/community_modal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="./js/layout.js" defer></script>
-    <script src="./js/community.js" defer></script>
+    <script src="./js/community_init.js" defer></script>
+    <script src="./js/community_board.js" defer></script>
+    <script src="./js/community_modal.js" defer></script>
 </head>
 <body>
     <div class="community-wrapper">
         <header id="mainHeader" class="main-header-container">
-            <div class="logo-box">
-                <h1 class="logo">
-                    <a href="/home.html">
-                        <span>WZ</span>
-                    </a>
-                </h1>
-            </div>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="/category.html">카테고리</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/community.html">커뮤니티</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/store.html">스토어</a>
-                </li>
-            </ul>
-            <div class="util-box">
-                <form id="searchForm" action="/search.html" method="get" class="search-box">
-                    <label for="mainSearch">검색</label>
-                    <input id="mainSearch" class="search-input" name="query" type="text" placeholder="검색어를 입력하세요"/>
-                    <button class="search-btn" type="submit"><span class="hidden">검색</span></button>
-                </form>
-                <div class="account-box">
-                    <span class="user-name">user</span>
-                    <span class="user-profile">
-                        <img src="./source/image/profile.png" alt="profile"/>
-                    </span>
-                    <div class="account-hover-box">
-                        <div class="hover-box-upper">
-                            <img src="./source/image/profile.png" alt="profile"/>
-                            <span>userName</span>
-                        </div>
-                        <div class="hover-box-nav">
-                            <ul>
-                                <li><a href="#">프로필관리</a></li>
-                                <li><a href="#">구매내역 관리</a></li>
-                                <li><a href="#">관심 콘텐츠 목록</a></li>
-                            </ul>
-                        </div>
-                        <div class="logout">
-                            <span>로그아웃</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- 헤더 동적 렌더링 -->
         </header>
         <div class="community-container">
             <section class="content-box reels">
@@ -72,12 +31,12 @@
                         <span>#패러디</span>
                         <span>#시카노코노코노코코시탄탄</span>
                     </div>
+                </div>
+                <div class="reels-content">
                     <div class="reels-sort-btn">
                         <input type="checkbox" id="popularCheck"/>
                         <label for="popularCheck" class="popular-sort">인기 순 정렬</label>
                     </div>
-                </div>
-                <div class="reels-content">
                     <div class="swiper reels-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="./source/image/profile.png" alt="프로필사진"></div>
@@ -94,6 +53,9 @@
                     </div>
                     <div class="reels-btn-area">
                         <button class="reels-btn"><span>등록하기</span></button>
+                        <div id="blockModalWrapper" class="community-modal-wrapper">
+                            <!-- 모달 동적 렌더링 -->
+                        </div>
                     </div>
                 </div>
             </section>
@@ -103,279 +65,44 @@
                 </div>
                 <div class="board-best-box">
                     <ul class="board-best-list">
-                        <li>
-                            <div class="best-medal 1st"><span class="ico"></span></div>
-                            <div class="best-post">
-                                <div class="best-user-profile">
-                                    <img src="./source/image/profile.png" alt="프로필사진">
-                                    <span>user</span>
-                                </div>
-                                <div class="best-post-summary">
-                                    <p>post title</p>
-                                    <p>post content</p>
-                                </div>
-                                <div class="best-additional-util">
-                                    <div class="best-like">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                    <div class="best-reply">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="best-img">
-                                <img src="./source/image/profile.png" alt="프로필사진">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="best-medal 2nd"><span class="ico"></span></div>
-                            <div class="best-post">
-                                <div class="best-user-profile">
-                                    <img src="./source/image/profile.png" alt="프로필사진">
-                                    <span>user</span>
-                                </div>
-                                <div class="best-post-summary">
-                                    <p>post title</p>
-                                    <p>post content</p>
-                                </div>
-                                <div class="additional-util">
-                                    <div class="best-like">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                    <div class="best-reply">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="best-img">
-                                <img src="./source/image/profile.png" alt="프로필사진">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="best-medal 3rd"><span class="ico"></span></div>
-                            <div class="best-post">
-                                <div class="best-user-profile">
-                                    <img src="./source/image/profile.png" alt="프로필사진">
-                                    <span>user</span>
-                                </div>
-                                <div class="best-post-summary">
-                                    <p>post title</p>
-                                    <p>post content</p>
-                                </div>
-                                <div class="additional-util">
-                                    <div class="best-like">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                    <div class="best-reply">
-                                        <span class="ico"></span>
-                                        <span>숫자</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="best-img">
-                                <img src="./source/image/profile.png" alt="프로필사진">
-                            </div>
-                        </li>
+                       <!-- 베스트 동적 렌더링 -->
                     </ul>
                 </div>
                 <div class="board-grid">
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-card">
-                        <div class="post-thumbnail">
-                            <img src="./source/image/profile.png" alt="프로필사진">
-                        </div>
-                        <div class="post-info">
-                            <p>title</p>
-                            <div class="best-additional-util">
-                                <span>name</span>
-                                |
-                                <span class="ico"></span>
-                                <span>number</span>
-                                |
-                                <span>조회 n</span>
-                                |
-                                <span>날짜 : HH:MM</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 게시판 동적 렌더링 -->
                 </div>
                 <div class="board-lower-util">
                     <div class="board-search-box">
-                        <span class="search-condition">제목</span>
+                        <div class="search-condition">
+                            <span>제목</span>
+                            <span class="ico"></span>
+                        </div>
                         <ul class="search-condition-list">
                             <li>제목</li>
                             <li>본문</li>
                             <li>글쓴이</li>
                         </ul>
+                        <label for="boardSearchInput"></label>
+                        <input type="text" id="boardSearchInput" name="boardSearchInput">
+                        <button><span class="ico"></span></button>
                     </div>
-                    <div class="board-pagination"></div>
-                    <button class="write-btn">글쓰기</button>
+                    <div class="board-pagination">
+                        <button class="prev-btn"><span class="ico"></span></button>
+                        <ul class="pagination-list">
+                            <!-- 페이지네이션 동적 렌더링 -->
+                        </ul>
+                        <button class="next-btn"><span class="ico"></span></button>
+                    </div>
+                    <button class="write-btn"><span>글쓰기</span></button>
+                    <div id="postWriteModalWrapper" class="community-modal-wrapper">
+                        <!-- 모달 동적 렌더링 -->
+                    </div>
+                    <div id="postDetailModalWrapper" class="community-modal-wrapper">
+                        <!-- 모달 동적 렌더링 -->
+                    </div>
+                    <div id="postUpdateModalWrapper" class="community-modal-wrapper">
+                        <!-- 모달 동적 렌더링 -->
+                    </div>
                 </div>
             </section>
         </div>

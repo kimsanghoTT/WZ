@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const renderHeader = async () => {
+      const mainHeader = document.getElementById("mainHeader");
+      
+      const res = await fetch("layout.html");
+      const htmlText = await res.text(); 
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, "text/html"); 
+      const header = doc.getElementById("mainHeader").innerHTML; 
+      
+      mainHeader.innerHTML = header;
+    };
+
     const swiper = new Swiper(".reels-swiper", {
         slidesPerView: "4.5",
         spaceBetween: 30,
@@ -20,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressWidth = progress * 100;
         customProgressBar.style.width = `${progressWidth}%`;
     });
-
+    renderHeader(); 
 });
 
 const popularCheckbox = document.getElementById('popularCheck');
@@ -33,3 +46,6 @@ popularCheckbox.addEventListener('change', (e) => {
     popularCheckLabel.classList.remove("checked");
   }
 });
+
+
+

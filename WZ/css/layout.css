@@ -20,6 +20,7 @@
     color: #fff;
     transition: .5s;
     transform: translateY(0);
+    z-index: 100;
 }
 .main-header-container.atHome.onTop{
     background: linear-gradient(to bottom, #555, transparent 50%);

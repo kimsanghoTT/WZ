@@ -1,0 +1,65 @@
+.community-modal-wrapper{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.close-btn{
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+.close-btn .ico{
+    display: inline-block;
+    background: url(../source/image/icons/ico_close.png) no-repeat center/cover;
+    width: 100%;
+    height: 100%;
+    filter: invert(1);
+}
+
+/*글쓰기 모달*/
+
+
+
+/*블록 모달*/
+.block-modal{
+    width: 400px;
+    height: 240px;
+    background: #222;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #999999;
+}
+.block-modal p{
+    width: auto;
+    display: inline-block;
+    margin: 50px auto;
+}
+.block-modal a{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background: #D33A3C;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    line-height: 40px;
+    text-align: center;
+    right: 30px;
+    bottom: 30px;
+}
