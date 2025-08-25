@@ -195,6 +195,9 @@ html.modal-active{
 .board-best-box{
   margin-top: 50px;
 }
+.tag-list .hash{
+  color: aqua;
+}
 .board-best-list .board-best-item{
     display: flex;
     width: 100%;
@@ -253,7 +256,7 @@ html.modal-active{
 .best-post-summary .best-content{
     overflow: hidden;
     text-overflow: ellipsis;
-    
+    height: 50px;
 }
 .best-additional-util{
   display: flex;
@@ -378,7 +381,7 @@ html.modal-active{
   padding-left: 25px;
   position: relative;
 }
-.post-additional-util .ico.like::before{
+.post-additional-util .ico.like-count::before{
   content: '';
   border: none;
   background: url(../source/image/ico/ico_like.png) no-repeat center/cover;
@@ -390,7 +393,7 @@ html.modal-active{
   top: 50%;
   transform: translateY(-50%);
 }
-.post-additional-util .ico.comment::before{
+.post-additional-util .ico.comment-count::before{
   content: '';
   border: none;
   background: url(../source/image/ico/ico_comment.png) no-repeat center/cover;

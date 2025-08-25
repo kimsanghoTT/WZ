@@ -1,5 +1,5 @@
-import { getPost, addPost } from "./community_db.js";
-import { updatePosts } from "./community_board.js";
+import { deletePost, updatePost, getPost, addPost } from "./community_db.js";
+import { updateBoard } from "./community_board.js";
 
 document.querySelector(".reels-btn")?.addEventListener("click", () => {
     handleModal("blockModalWrapper", "blockModal");
@@ -15,10 +15,15 @@ document.body.addEventListener("click", async(e) => {
     const postNumber = Number(getPostId.split("-")[1]);
     const targetedPost = await getPost(postNumber);
 
-    handleModal("postDetailModalWrapper", "postDetailModal", targetedPost);
+    targetedPost.views++;
+    await updatePost(targetedPost);
+    document.querySelectorAll(".views").forEach(each => each.textContent = `조회 ${targetedPost.views}`);
+    handleModal("postDetailModalWrapper", "postDetailModal", {post:targetedPost});
 })
 
-const handleModal = async (modalWrapperId, modalContentId, post) => {
+const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
+    const post = options.post;
+    
     const modalWrapper = document.getElementById(modalWrapperId);
     if (!modalWrapper) return;
     modalWrapper.innerHTML = '';
@@ -35,24 +40,69 @@ const handleModal = async (modalWrapperId, modalContentId, post) => {
             modalWrapper.classList.add("active");
             document.documentElement.classList.add("modal-active");
 
-            console.log(modalContentId);
+            //글쓰기 버튼 클릭 시
+            if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper, options);
 
-            if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper);
-
+            //게시판에서 게시물 카드 클릭 시
             if(modalContentId === "postDetailModal") {
-                detailPost(modalElement, post)
+                detailPost(modalElement, post);
+
+                const commentList = modalElement.querySelector(".comment-list");
+                const getComments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+                getComments.forEach(comment => renderComments(comment, commentList, post));
 
                 const commentForm = modalElement.querySelector(".comment-input-form");
                 const commentInput = modalElement.querySelector("#commentInput");
-                
+
                 commentForm.addEventListener("submit", (e) => {
                     e.preventDefault();
                     const text = commentInput.value.trim();
-                    if (!text) return;
+                    if (!text || !post) return;
 
-                    postComment(text, modalElement); 
+                    postComment(text, modalElement, post); 
                     commentInput.value = "";
                 });
+
+                const likeBtn = modalElement.querySelector(".like-btn");
+                const dislikeBtn = modalElement.querySelector(".dislike-btn");
+                const writeBtn = modalElement.querySelector(".write-btn");
+                const updateBtn = modalElement.querySelector(".update-btn");
+                const deleteBtn = modalElement.querySelector(".delete-btn");
+
+                likeBtn.addEventListener("click", async () => {
+                    post.like++;
+                    await updatePost(post);
+                    likeBtn.querySelector("span").textContent = post.like;
+                    document.querySelectorAll(".like-count").forEach(each => {
+                        each.textContent = post.like;
+                    })
+                }, {once:true})
+
+                dislikeBtn.addEventListener("click", async () => {
+                    post.dislike++;
+                    await updatePost(post);
+                    dislikeBtn.querySelector("span").textContent = post.dislike;
+                },{once:true})
+
+                writeBtn.addEventListener("click", () => {
+                    closeModal();
+                    handleModal("postWriteModalWrapper", "postWriteModal");
+                })
+                updateBtn.addEventListener("click", () => {
+                    closeModal();
+                    handleModal("postWriteModalWrapper", "postWriteModal", {mode:"update", post:post});
+                })
+                deleteBtn.addEventListener("click", async () => {
+                    const check = confirm("게시글을 삭제하시겠습니까?");
+                    if(!check){
+                        return;
+                    }
+                    await deletePost(post.id);
+                    alert("삭제되었습니다.");
+
+                    await updateBoard();
+                    closeModal();   
+                })
             };
 
             gsap.fromTo(modalElement, {y:"100%", opacity:0}, {y:0, opacity:1, duration:0.5});
@@ -78,7 +128,7 @@ const handleModal = async (modalWrapperId, modalContentId, post) => {
     }
 };
 
-const writingPost = (modalElement, modalWrapper) => {
+const writingPost = (modalElement, modalWrapper, options) => {
     // Quill 에디터 초기화
     const quill = new Quill(modalElement.querySelector('#editor'), {
         modules: {
@@ -86,6 +136,13 @@ const writingPost = (modalElement, modalWrapper) => {
         },
         theme: 'snow'
     });
+
+    if(options.mode === "update" && options.post){
+        modalElement.querySelector("#title").value = options.post.title;
+        modalElement.querySelector("#tag").value = options.post.tag.join(", ");
+        modalElement.querySelector(".selected-category").textContent = options.post.category;
+        quill.root.innerHTML = options.post.content;
+    }
 
     const categorySelector = modalElement.querySelector(".category-selector");
     const categoryList = modalElement.querySelector(".category-list");
@@ -109,13 +166,6 @@ const writingPost = (modalElement, modalWrapper) => {
     upload.addEventListener("click", async (e) => {
         e.preventDefault();
 
-        const date = new Date();
-        const formattedTime = new Intl.DateTimeFormat('ko-KR', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        }).format(date);
-
         const img = quill.root.querySelector("img");
         const thumbnail = img ? img.getAttribute("src") : "./source/image/profile.png";
 
@@ -125,32 +175,53 @@ const writingPost = (modalElement, modalWrapper) => {
 
         const content = quill.root.innerHTML;
 
-        const tag = modalElement.querySelector("input[id='tag']").value;
+        const tag = modalElement.querySelector("#tag").value;
         const formattedTagList = tag ? tag.split(",").map(tag => `${tag.trim()}`) : [];
 
-        const newPost = {
-            title: modalElement.querySelector("input[id='title']").value,
-            profile:"./source/image/profile.png",
-            author: "user",
-            summary: summary,
-            content: content,
-            thumbnail: thumbnail,
-            like:0,
-            dislike:0,
-            comment:0,
-            views:0,
-            date: formattedTime,
-            category: selectedCategory.textContent,
-            tag:formattedTagList
-        }
+        const date = new Date();
+        const formattedTime = new Intl.DateTimeFormat('ko-KR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        }).format(date);
 
         if (!content || content.trim() === "<p><br></p>") {
             alert("내용을 입력해주세요.");
             return;
         }
 
-        await addPost(newPost);
-        await updatePosts();
+        if(options.mode === "update" && options.post){
+            options.post.title = modalElement.querySelector("#title").value,
+            options.post.summary = summary;
+            options.post.content = content,
+            options.post.thumbnail = thumbnail;
+            options.post.date = formattedTime;
+            options.post.category = selectedCategory.textContent;
+            options.post.tag = formattedTagList;
+
+            await updatePost(options.post);
+            await updateBoard();
+        }
+        else{
+            const newPost = {
+                title: modalElement.querySelector("#title").value,
+                profile:"./source/image/profile.png",
+                author: "user",
+                summary: summary,
+                content: content,
+                thumbnail: thumbnail,
+                like:0,
+                dislike:0,
+                comment:0,
+                views:0,
+                date: formattedTime,
+                category: selectedCategory.textContent,
+                tag:formattedTagList
+            }
+
+            await addPost(newPost);
+            await updateBoard();
+        }
 
         modalWrapper.classList.remove("active");
         modalWrapper.innerHTML = '';
@@ -176,7 +247,7 @@ const detailPost = (modalElement, post) => {
     const content = modalElement.querySelector(".content-main-box");
     const tagList = post.tag.map(tag => `<li class="tag"><span><span class="hash">#</span>${tag}</span></li>`).join("");
     const reactionBtns = modalElement.querySelector(".reaction-btn-list");
-    modalElement.querySelector(".comment-input-form .comment-count").textContent = `${post.comment} Comments`
+    modalElement.querySelector(".comment-input-form .comment-count").textContent = `${post.comment}`
 
     infoBox.innerHTML =
     `
@@ -189,6 +260,8 @@ const detailPost = (modalElement, post) => {
         <span>|</span>
         <span class="comment-count">${post.comment}</span>
         <span class="like-count">${post.like}</span>
+        <span>|</span>
+        <span class>조회 ${post.views}</span>
     `
 
     content.innerHTML = 
@@ -208,9 +281,8 @@ const detailPost = (modalElement, post) => {
     `
 }
 
-const postComment = (text, modalElement) => {
+const postComment = async (text, modalElement, post) => {
     const commentList = modalElement.querySelector(".comment-list");
-    const comment = document.createElement("li");
     const date = new Date();
     const formattedTime = new Intl.DateTimeFormat('ko-KR', {
         hour: '2-digit',
@@ -218,8 +290,29 @@ const postComment = (text, modalElement) => {
         hour12: false
     }).format(date);
 
-    comment.className = "comment";
-    comment.innerHTML = 
+    const comment = {
+        text,
+        time: formattedTime,
+        like:0,
+        dislike:0
+    }
+
+    const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+    comments.push(comment);
+    localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
+    renderComments(comment, commentList, post);
+
+    post.comment++; 
+    await updatePost(post);
+    document.querySelectorAll(".comment-count").forEach(each => {
+        each.textContent = `${post.comment}`;
+    });
+}
+
+const renderComments = (comment, commentList, post) => {
+    const commentItem = document.createElement("li");
+    commentItem.className = "comment";
+    commentItem.innerHTML = 
     `
         <div class="comment-content">
             <div class="comment-content-upper">
@@ -228,16 +321,39 @@ const postComment = (text, modalElement) => {
                     <span>user</span>
                 </div>
                 <span>|</span>
-                <span>${formattedTime}</span>
+                <span>${comment.time}</span>
             </div>
             <div class="comment-cotent-lower">
-                <p>${text}</p>
+                <p>${comment.text}</p>
             </div>
         </div>
         <div class="comment-util">
-            <button class="comment-like-btn"><span></span></button>
-            <button class="comment-dislike-btn"><span></span></button>
+            <button class="comment-like-btn"><span>${comment.like}</span></button>
+            <button class="comment-dislike-btn"><span>${comment.dislike}</span></button>
         </div>
     `
-    commentList.append(comment);
+    commentList.append(commentItem);
+
+    const commentLikeBtn = commentItem.querySelector(".comment-like-btn");
+    const commentDislikeBtn = commentItem.querySelector(".comment-dislike-btn");
+
+    commentLikeBtn.addEventListener("click", () => {
+        comment.like++;
+        commentLikeBtn.querySelector("span").textContent = comment.like;
+
+        const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+        const idx = comments.findIndex(target => target.time === comment.time && target.text === comment.text);
+        comments[idx].like = comment.like;
+        localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
+    }, {once:true});
+
+    commentDislikeBtn.addEventListener("click", () => {
+        comment.dislike++;
+        commentDislikeBtn.querySelector("span").textContent = comment.dislike;
+
+        const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+        const idx = comments.findIndex(target => target.time === comment.time && target.text === comment.text);
+        comments[idx].dislike = comment.dislike;
+        localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
+    }, {once:true});
 }

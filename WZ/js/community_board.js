@@ -35,12 +35,12 @@ const renderPosts = (displayPosts) => {
             <div class="tag-list">${tagList}</div>
             <p class="post-title">${post.title}</p>
             <div class="post-additional-util">
-                <span class="ico like">${post.like}</span>
-                <span class="ico comment">${post.comment}</span>
+                <span class="ico like-count">${post.like}</span>
+                <span class="ico comment-count">${post.comment}</span>
             </div>
             <div class="post-info-detail">
                 <span>${post.author}</span>|
-                <span>조회 ${post.views}</span>|
+                <span class="views">조회 ${post.views}</span>|
                 <span>날짜 ${post.date}</span>
             </div>
         </div>`;
@@ -67,7 +67,7 @@ const renderPagination = (totalPages) => {
         paginationBtn.innerHTML = `<span>${i}</span>`;
         paginationBtn.addEventListener("click", () => {
             currentPage = i;
-            updatePosts();
+            updateBoard();
         });
 
         page.append(paginationBtn);
@@ -102,11 +102,11 @@ const renderBestPosts = (bestPosts) => {
             <div class="best-additional-util">
                 <div class="best-like">
                     <span class="ico"></span>
-                    <span>${post.like}</span>
+                    <span class="like-count">${post.like}</span>
                 </div>
                 <div class="best-comment">
                     <span class="ico"></span>
-                    <span>${post.comment}</span>
+                    <span class="comment-count">${post.comment}</span>
                 </div>
                 <div class="tag-list">${tagList}</div>
             </div>
@@ -118,7 +118,7 @@ const renderBestPosts = (bestPosts) => {
     });
 };
 
-export const updatePosts = async () => {
+export const updateBoard = async () => {
     posts = await getAllPosts();
     bestPosts = [...posts].sort((a, b) => b.like - a.like).slice(0, 3);
 
@@ -138,15 +138,15 @@ export const updatePosts = async () => {
 const init = async () => {
     await initDB();
     
-    updatePosts();
+    updateBoard();
 
     document.querySelector(".prev-btn").addEventListener("click", () => {
         currentPage--;
-        updatePosts();
+        updateBoard();
     });
     document.querySelector(".next-btn").addEventListener("click", () => {
         currentPage++;
-        updatePosts();
+        updateBoard();
     });
 };
 

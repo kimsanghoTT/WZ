@@ -17,6 +17,8 @@ export const initDB = async () => {
 export const getAllPosts = async () => await boardPostsDB.getAll("posts");
 export const addPost = async (post) => await boardPostsDB.add("posts", post);
 export const getPost = async (id) => await boardPostsDB.get("posts", id);
+export const updatePost = async (post) => await boardPostsDB.put("posts", post);
+export const deletePost = async (id) => await boardPostsDB.delete("posts", id);
 
 // const clearPosts = async () => {
 //     if (!boardPostsDB) {

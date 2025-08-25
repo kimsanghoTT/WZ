@@ -148,6 +148,11 @@
     height: 400px;
     min-height: 0;
 }
+.ql-editor {
+    white-space: pre-wrap;  
+    word-break: break-word;
+    overflow-wrap: break-word; 
+}
 .post-btn-box{
     display: flex;
     justify-content: flex-end;
@@ -288,7 +293,9 @@
     color: aqua;
 }
 .content-main-box .content{
-    overflow: hidden;
+    white-space: pre-wrap;  
+    word-break: break-word;  
+    overflow-wrap: break-word; 
 }
 .content-main-box .content img{
     object-fit: cover;
@@ -357,15 +364,20 @@
 .util-btn-list .delete-btn{
     background-color: #999;
 }
-.detail-comment-area .comment-input-form > div:first-of-type span:first-child{
+.detail-comment-area .comment-input-form .comment-notice{
     opacity: 0.3;
     font-weight: 300;
 }
+.comment-input-form div:first-of-type{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .comment-input-form .comment-count{
-    float: right;
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 5px;
 }
 .comment-input-form .comment-count::before{
     width: 30px;
@@ -405,6 +417,7 @@
     height: 170px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #999;
 }
 .comment .comment-content-upper{
     display: flex;
@@ -426,7 +439,7 @@
     flex: 1;
 }
 .comment .comment-util{
-    width: 10%;
+    width: 6%;
     text-align: center;
 }
 .comment-util button{
@@ -438,20 +451,30 @@
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 20px;
+    display: block;
 }
-.comment-like-btn span::after{
+.comment-util button:last-child{
+    margin: 0;
+}
+.comment-util button span{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 10px;
+}
+.comment-like-btn span::before{
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background: url("../source/image/ico/ico_smile.png")no-repeat center/cover;
     filter: invert(1);
 }
 .comment-dislike-btn span::before{
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background: url("../source/image/ico/ico_upset.png")no-repeat center/cover;
     filter: invert(1);
 }
