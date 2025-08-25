@@ -4,18 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/community_modal.css">
 </head>
 <body>
-    <div id="postWriteModal" class="post-write-modal">
+    <div id="postWriteModal" class="post-modal">
         <button class="close-btn"><span class="ico"></span></button>
-        <div></div>
+        <div class="post-write-form">
+            <div class="form-content-box write-title-area">
+                <span class="modal-area-title">제목</span>
+                <input type="text" placeholder="제목을 입력해주세요" id="title" required>
+            </div>
+            <div class="form-content-box write-category-area">
+                <div class="tag-box">
+                    <span class="modal-area-title">태그</span>
+                    <input type="text" placeholder="태그를 입력해주세요" id="tag">
+                </div>
+                <div class="category-box">
+                    <span class="modal-area-title">카테고리</span>
+                    <div class="category-selector">
+                        <span class="selected-category">잡담</span>
+                        <span class="ico"></span>
+                    </div>
+                    <ul class="category-list">
+                        <li><span>잡담</span></li>
+                        <li><span>유머</span></li>
+                        <li><span>성지순례</span></li>
+                        <li><span>감상평</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-content-box post-write-box">
+                <span class="modal-area-title">내용</span>
+                <div id="toolbar">
+                      <select class="ql-size">
+                        <option value="small"></option>
+                        <option selected></option>
+                        <option value="large"></option>
+                        <option value="huge"></option>
+                    </select>
+                    <span class="ql-formats">
+                        <button class="ql-bold"></button>
+                        <button class="ql-italic"></button>
+                        <button class="ql-underline"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-image"></button>
+                        <button class="ql-video"></button>
+                    </span>
+                </div>
+                <div id="editor"></div>
+            </div>
+            <div class="form-content-box post-btn-box">
+                <button class="post-btn cancel-btn">취소</button>
+                <button class="post-btn upload-btn" id="uploadBtn">등록</button>
+            </div>
+        </div>
+
     </div>
-    <div id="postDetailModal" class="post-detail-modal">
+    <div id="postDetailModal" class="post-modal">
         <button class="close-btn"><span class="ico"></span></button>
         <p>프리미어 옵션을 구매해서 더 많은 혜택을 누리세요!</p>
         <a href="/store.html">결제하기</a>
     </div>
-    <div id="postUpdateModal" class="post-update-modal">
+    <div id="postUpdateModal" class="post-modal">
         <button class="close-btn"><span class="ico"></span></button>
         <p>프리미어 옵션을 구매해서 더 많은 혜택을 누리세요!</p>
         <a href="/store.html">결제하기</a>

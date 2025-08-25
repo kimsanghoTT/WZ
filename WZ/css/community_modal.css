@@ -3,7 +3,7 @@
     height: 100vh;
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -11,8 +11,13 @@
     left: 0;
     bottom: 0;
     right: 0;
-    opacity: 0;
     pointer-events: none;
+    overflow-y: auto;
+}
+.community-modal-wrapper.active{
+    display: flex;
+    pointer-events: all;
+    overflow: hidden;
 }
 .close-btn{
     width: 20px;
@@ -20,7 +25,8 @@
     background: transparent;
     border: none;
     position: absolute;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
 }
 .close-btn .ico{
@@ -30,36 +36,125 @@
     height: 100%;
     filter: invert(1);
 }
-.community-modal-wrapper .post-write-modal, 
-.community-modal-wrapper .post-detail-modal, 
-.community-modal-wrapper .post-update-modal{
+.community-modal-wrapper .post-modal{
+    overflow-y: auto;
     width: 83.33%;
-    height: 900px;
+    height: 90%;
     background-color: #222;
     border-radius: 10px;
-    position: absolute; 
-    top: 50%;          
-    left: 50%;
-    transform: translate(-50%, 100%); 
-    opacity: 0;
-    transition: transform 0.5s, opacity 0.5s;
+    top: 0;
+    left: 0;
 }
-.community-modal-wrapper.active .post-write-modal,
-.community-modal-wrapper.active .post-detail-modal,
-.community-modal-wrapper.active .post-update-modal{
-    transform: translate(-50%, -50%);
-    opacity: 1;
+.post-modal .close-btn{
+    width: 30px;
+    height: 30px;
 }
+.form-content-box{
+    margin-bottom: 40px;
+}
+#toolbar {
+    background-color: #ccc;
+}
+
 /*글쓰기 모달*/
-.post-write-modal{
-    overflow-y: scroll;
+.post-write-form{
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
 }
-.post-write-modal > div{
+.modal-area-title{
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+}
+.write-title-area input, .write-category-area input{
     width: 100%;
-    height: 200vh;
+    background: transparent;
+    border: #999999 1px solid;
+    height: 40px;
+    color: #fff;
+    padding: 0 10px;
 }
-
-
+.write-category-area{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+.write-category-area .tag-box{
+    flex: 1;
+}
+.write-category-area .category-box{
+    flex-basis: 150px;
+    position: relative;
+}
+.category-selector{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #999999;
+    text-align: center;
+    line-height: 40px;
+    background: #32373F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    cursor: pointer;
+}
+.category-selector .ico{
+    background: url(../source/image/icons/ico_arrow_down.png)no-repeat center/cover;
+    width: 13px;
+    height: 8px;
+    display: inline-block;
+    filter: invert(0.8);
+    transition: .3s;
+}
+.category-selector.active .ico{
+    background: url(../source/image/icons/ico_arrow_up.png)no-repeat center/cover;
+}
+.category-list{
+    background: #32373F;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #999;
+    z-index: 10;
+    display: none;
+}
+.category-list.active{
+    display: block;
+}
+.category-list li{
+    padding: 10px;
+    cursor: pointer;
+}
+.post-write-box{
+    flex: 1;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+#editor{
+    height: 400px;
+    min-height: 0;
+}
+.post-btn-box{
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin-bottom: 0;
+}
+.post-btn{
+    padding: 10px 70px;
+    border-radius: 10px;
+    border: none;
+    background-color: #D33A3C;
+    color: #fff;
+    cursor: pointer;
+}
+.cancel-btn{
+    background-color: #32373F;
+}
 /*블록 모달*/
 .block-modal{
     width: 400px;
@@ -90,3 +185,4 @@
     right: 30px;
     bottom: 30px;
 }
+

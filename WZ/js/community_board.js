@@ -1,25 +1,10 @@
-let boardPostsDB;
+import {initDB, getAllPosts} from "./community_db.js";
+
 let posts = [];
+let bestPosts = [];
 let currentPage = 1;
-const POSTS_PER_PAGE = 12;
-const MAX_PAGINATION_PER_PAGE = 10;
-
-// indexedDB 초기화
-const { openDB } = idb;
-const initDB = async () => {
-    boardPostsDB = await openDB('boardDB', 1, {
-        upgrade(db) {
-            if (!db.objectStoreNames.contains("posts")) {
-                const store = db.createObjectStore("posts", { keyPath: "id", autoIncrement: true });
-                store.createIndex('createAt', 'createAt', { unique: false });
-            }
-        }
-    });
-};
-
-const getAllPosts = async () => {
-    posts = await boardPostsDB.getAll("posts");
-};
+const postsPerPage = 12;
+const maxPaginationPerPage = 10;
 
 const renderPosts = (displayPosts) => {
     const boardGrid = document.querySelector(".board-grid");
@@ -37,13 +22,17 @@ const renderPosts = (displayPosts) => {
 
     displayPosts.forEach(post => {
         const card = document.createElement("div");
-        card.className = "post-card";
+        const tagList = post.tag.slice(0, 3).join(" ");
 
+        card.className = "post-card";
+        card.id = `post-${post.id}`;
         card.innerHTML = `
         <div class="post-thumbnail">
-            <img src="${post.thumbnail}" alt="프로필사진">
+            <span class="category-tab">${post.category}</span>
+            <img src="${post.thumbnail}" alt="썸네일">
         </div>
         <div class="post-info">
+            <div class="tag-list">${tagList}</div>
             <p class="post-title">${post.title}</p>
             <div class="post-additional-util">
                 <span class="ico like">${post.like}</span>
@@ -60,8 +49,8 @@ const renderPosts = (displayPosts) => {
 };
 
 const renderPagination = (totalPages) => {
-    const startPageNum = Math.floor((currentPage - 1) / MAX_PAGINATION_PER_PAGE) * MAX_PAGINATION_PER_PAGE + 1;
-    const endPageNum = Math.min(startPageNum + MAX_PAGINATION_PER_PAGE - 1, totalPages);
+    const startPageNum = Math.floor((currentPage - 1) / maxPaginationPerPage) * maxPaginationPerPage + 1;
+    const endPageNum = Math.min(startPageNum + maxPaginationPerPage - 1, totalPages);
 
     const paginationList = document.querySelector(".pagination-list");
     paginationList.innerHTML = '';
@@ -86,9 +75,8 @@ const renderPagination = (totalPages) => {
     }
 };
 
-const renderBestPosts = () => {
+const renderBestPosts = (bestPosts) => {
     const medals = ["gold", "silver", "bronze"];
-    const bestPosts = [...posts].sort((a, b) => b.like - a.like).slice(0, 3);
 
     const bestList = document.querySelector(".board-best-list");
     bestList.innerHTML = '';
@@ -96,7 +84,9 @@ const renderBestPosts = () => {
     bestPosts.forEach((post, index) => {
         const bestItem = document.createElement("li");
         const medal = medals[index] || "gold";
+        const tagList = post.tag.slice(0, 3).join(" ");
         bestItem.className = "board-best-item";
+        bestItem.id =`post-${post.id}`;
         bestItem.innerHTML = `
         <div class="best-medal ${medal}"><span class="ico"></span></div>
         <div class="best-post">
@@ -106,7 +96,7 @@ const renderBestPosts = () => {
             </div>
             <div class="best-post-summary">
                 <p class="best-title">${post.title}</p>
-                <p class="best-content">${post.content}</p>
+                <p class="best-content">${post.summary}</p>
             </div>
             <div class="best-additional-util">
                 <div class="best-like">
@@ -117,6 +107,7 @@ const renderBestPosts = () => {
                     <span class="ico"></span>
                     <span>${post.comment}</span>
                 </div>
+                <div class="tag-list">${tagList}</div>
             </div>
         </div>
         <div class="best-thumbnail">
@@ -126,15 +117,18 @@ const renderBestPosts = () => {
     });
 };
 
-const updatePosts = () => {
-    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-    const startPostNum = (currentPage - 1) * POSTS_PER_PAGE;
-    const endPostNum = startPostNum + POSTS_PER_PAGE;
+export const updatePosts = async () => {
+    posts = await getAllPosts();
+    bestPosts = [...posts].sort((a, b) => b.like - a.like).slice(0, 3);
+
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+    const startPostNum = (currentPage - 1) * postsPerPage;
+    const endPostNum = startPostNum + postsPerPage;
     const displayPosts = posts.slice(startPostNum, endPostNum);
 
     renderPosts(displayPosts);
     renderPagination(totalPages);
-    renderBestPosts();
+    renderBestPosts(bestPosts);
 
     document.querySelector(".prev-btn").disabled = currentPage === 1;
     document.querySelector(".next-btn").disabled = currentPage === totalPages;
@@ -142,9 +136,8 @@ const updatePosts = () => {
 
 const init = async () => {
     await initDB();
-    await getAllPosts();
+    
     updatePosts();
-    console.log(posts);
 
     document.querySelector(".prev-btn").addEventListener("click", () => {
         currentPage--;

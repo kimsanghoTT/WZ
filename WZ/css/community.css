@@ -1,3 +1,7 @@
+html.modal-active{
+  overflow: hidden;
+}
+
 .community-wrapper{
     width: 100%;
     background-color: #21252B;
@@ -197,6 +201,7 @@
     height: 260px;
     padding: 10px;
     gap: 10px;
+    cursor: pointer;
 }
 .board-best-item .best-medal{
   flex-basis: 10%;
@@ -225,6 +230,7 @@
 }
 .board-best-item .best-post{
   flex: 1;
+  overflow: hidden;
 }
 .best-post .best-user-profile{
   display: flex;
@@ -245,10 +251,9 @@
   margin-bottom: 10px;
 }
 .best-post-summary .best-content{
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; 
-  -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 .best-additional-util{
   display: flex;
@@ -270,6 +275,10 @@
 .best-additional-util .best-comment .ico{
   background: url(../source/image/icons/ico_comment.png) no-repeat center/cover;
   filter: invert(10);
+}
+.best-additional-util .tag-list{
+  opacity: 0.7;
+  font-style: italic;
 }
 .board-best-item .best-thumbnail{
   width: 25%;
@@ -316,6 +325,14 @@
 .board-grid .post-card:hover::before {
   box-shadow: inset 0 0 20px #D33A3C;
 }
+.post-card .category-tab{
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  background: rgba(0,0,0, 0.7);
+  padding: 5px 10px;
+  font-size: 14px;
+}
 .post-card .post-thumbnail{
   width: 100%;
   height: 50%;
@@ -329,11 +346,25 @@
   width: 100%;
   height: 50%;
   padding: 10px 20px;
+  position: relative;
+}
+.post-info .tag-list{
+  position: absolute;
+  right: 15px;
+  opacity: 0.7;
+  font-style: italic;
+  font-size: 13px;
+  width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: end;
 }
 .post-info .post-title{
+  width: 50%;
+  overflow: hidden;
   font-size: 20px;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 .post-additional-util{
