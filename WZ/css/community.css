@@ -140,7 +140,7 @@ html.modal-active{
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-  background: url("../source/image/icons/ico_arrow_left.png") no-repeat center/4px 6px;
+  background: url("../source/image/ico/ico_arrow_left.png") no-repeat center/4px 6px;
   width: 4px;
   height: 6px;
 }
@@ -151,7 +151,7 @@ html.modal-active{
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  background: url("../source/image/icons/ico_arrow_right.png") no-repeat center/4px 6px;
+  background: url("../source/image/ico/ico_arrow_right.png") no-repeat center/4px 6px;
   width: 4px;
   height: 6px;
 }
@@ -187,7 +187,7 @@ html.modal-active{
   display: inline-block;
   width: 15px;
   height: 15px;
-  background: url(../source/image/icons/ico_plus.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_plus.png) no-repeat center/cover;
   filter: invert(10);
 }
 
@@ -212,19 +212,19 @@ html.modal-active{
 }
 .board-best-item .best-medal.gold .ico{
   display: block;
-  background: url(../source/image/icons/ico_gold_medal.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_gold_medal.png) no-repeat center/cover;
   width: 80px;
   height: 80px;
 }
 .board-best-item .best-medal.silver .ico{
   display: block;
-  background: url(../source/image/icons/ico_silver_medal.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_silver_medal.png) no-repeat center/cover;
   width: 80px;
   height: 80px;
 }
 .board-best-item .best-medal.bronze .ico{
   display: block;
-  background: url(../source/image/icons/ico_bronze_medal.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_bronze_medal.png) no-repeat center/cover;
   width: 80px;
   height: 80px;
 }
@@ -270,10 +270,10 @@ html.modal-active{
   gap: 5px;
 }
 .best-additional-util .best-like .ico{
-  background: url(../source/image/icons/ico_like.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_like.png) no-repeat center/cover;
 }
 .best-additional-util .best-comment .ico{
-  background: url(../source/image/icons/ico_comment.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_comment.png) no-repeat center/cover;
   filter: invert(10);
 }
 .best-additional-util .tag-list{
@@ -381,7 +381,7 @@ html.modal-active{
 .post-additional-util .ico.like::before{
   content: '';
   border: none;
-  background: url(../source/image/icons/ico_like.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_like.png) no-repeat center/cover;
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -393,7 +393,7 @@ html.modal-active{
 .post-additional-util .ico.comment::before{
   content: '';
   border: none;
-  background: url(../source/image/icons/ico_comment.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_comment.png) no-repeat center/cover;
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -437,11 +437,11 @@ html.modal-active{
   height: 10px;
   display: inline-block;
   filter: invert(0.6);
-  background: url(../source/image/icons/ico_arrow_down.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_arrow_down.png) no-repeat center/cover;
   transition: .3s;
 }
 .search-condition.active .ico{
-  background: url(../source/image/icons/ico_arrow_up.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_arrow_up.png) no-repeat center/cover;
 }
 .board-search-box .search-condition-list{
   display: none;
@@ -470,7 +470,7 @@ html.modal-active{
   width: 100%;
   height: 100%;
   display: inline-block;
-  background: url(../source/image/icons/ico_search.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_search.png) no-repeat center/cover;
   filter: invert(0.6);
 
 }
@@ -497,7 +497,7 @@ html.modal-active{
   display: inline-block;
   width: 15px;
   height: 15px;
-  background: url(../source/image/icons/ico_plus.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_plus.png) no-repeat center/cover;
   filter: invert(10);
 }
 .board-pagination{
@@ -523,10 +523,10 @@ html.modal-active{
   display: inline-block;
 }
 .prev-btn .ico{
-  background: url(../source/image/icons/ico_arrow_left.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_arrow_left.png) no-repeat center/cover;
 }
 .next-btn .ico{
-  background: url(../source/image/icons/ico_arrow_right.png) no-repeat center/cover;
+  background: url(../source/image/ico/ico_arrow_right.png) no-repeat center/cover;
 }
 .pagination-list{
   display: flex;

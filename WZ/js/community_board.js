@@ -22,7 +22,7 @@ const renderPosts = (displayPosts) => {
 
     displayPosts.forEach(post => {
         const card = document.createElement("div");
-        const tagList = post.tag.slice(0, 3).join(" ");
+        const tagList = post.tag.slice(0, 3).map(tag => `<span class="tag"><span class="hash">#</span>${tag}</span>`).join(" ");
 
         card.className = "post-card";
         card.id = `post-${post.id}`;
@@ -84,7 +84,8 @@ const renderBestPosts = (bestPosts) => {
     bestPosts.forEach((post, index) => {
         const bestItem = document.createElement("li");
         const medal = medals[index] || "gold";
-        const tagList = post.tag.slice(0, 3).join(" ");
+        const tagList = post.tag.slice(0, 3).map(tag => `<span class="tag"><span class="hash">#</span>${tag}</span>`).join(" ");
+        
         bestItem.className = "board-best-item";
         bestItem.id =`post-${post.id}`;
         bestItem.innerHTML = `

@@ -1,64 +1,82 @@
 import { getPost, addPost } from "./community_db.js";
 import { updatePosts } from "./community_board.js";
 
-const handleModal = (triggerSelector, modalWrapperId, modalContentId) => {
-    const trigger = document.querySelector(triggerSelector);
-    if (!trigger) return;
+document.querySelector(".reels-btn")?.addEventListener("click", () => {
+    handleModal("blockModalWrapper", "blockModal");
+});
+document.querySelector(".write-btn")?.addEventListener("click", () => {
+    handleModal("postWriteModalWrapper", "postWriteModal");
+});
+document.body.addEventListener("click", async(e) => {
+    const targetedCard = e.target.closest(".post-card, .board-best-item");
+    if(!targetedCard) return;
 
-    trigger.addEventListener("click", async () => {
-        const modalWrapper = document.getElementById(modalWrapperId);
-        gsap.registerPlugin(ScrollToPlugin) 
+    const getPostId = targetedCard.getAttribute("id");
+    const postNumber = Number(getPostId.split("-")[1]);
+    const targetedPost = await getPost(postNumber);
 
-        if (!modalWrapper) return;
-        modalWrapper.innerHTML = '';
+    handleModal("postDetailModalWrapper", "postDetailModal", targetedPost);
+})
 
-        try {
-            const response = await fetch('community_modals.html');
-            const htmlText = await response.text();
-            
-            const parser = new DOMParser();
-            const parsedHTML = parser.parseFromString(htmlText, "text/html");
-            const modalElement = parsedHTML.getElementById(modalContentId)?.cloneNode(true);
-            
-            if (modalElement) {
-                modalWrapper.appendChild(modalElement);
-                modalWrapper.classList.add("active");
-                document.documentElement.classList.add("modal-active");
+const handleModal = async (modalWrapperId, modalContentId, post) => {
+    const modalWrapper = document.getElementById(modalWrapperId);
+    if (!modalWrapper) return;
+    modalWrapper.innerHTML = '';
 
-                console.log(modalElement);
+    try {
+        const response = await fetch('community_modals.html');
+        const htmlText = await response.text();
+        const parser = new DOMParser();
+        const parsedHTML = parser.parseFromString(htmlText, "text/html");
+        const modalElement = parsedHTML.getElementById(modalContentId)?.cloneNode(true);
+        
+        if (modalElement) {
+            modalWrapper.appendChild(modalElement);
+            modalWrapper.classList.add("active");
+            document.documentElement.classList.add("modal-active");
 
-                if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper);
+            console.log(modalContentId);
 
-                if(modalContentId === "postDetailModal") detailPost(modalElement, modalWrapper)
+            if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper);
 
-                gsap.fromTo(modalElement, {y:"100%", opacity:0}, {y:0, opacity:1, duration:0.5});
+            if(modalContentId === "postDetailModal") {
+                detailPost(modalElement, post)
+
+                const commentForm = modalElement.querySelector(".comment-input-form");
+                const commentInput = modalElement.querySelector("#commentInput");
                 
-                const closeModal = () => {
-                    gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
-                        onComplete: () => {
-                            modalWrapper.classList.remove("active");
-                            document.documentElement.classList.remove("modal-active");
-                            modalWrapper.innerHTML = '';
-                        }
-                    });
-                };
-                
-                const closeBtn = modalElement.querySelector(".close-btn");
-                if (closeBtn) {
-                    closeBtn.addEventListener("click", closeModal);
-                }
+                commentForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const text = commentInput.value.trim();
+                    if (!text) return;
 
+                    postComment(text, modalElement); 
+                    commentInput.value = "";
+                });
+            };
+
+            gsap.fromTo(modalElement, {y:"100%", opacity:0}, {y:0, opacity:1, duration:0.5});
+            
+            const closeModal = () => {
+                gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
+                    onComplete: () => {
+                        modalWrapper.classList.remove("active");
+                        document.documentElement.classList.remove("modal-active");
+                        modalWrapper.innerHTML = '';
+                    }
+                });
+            };
+            
+            const closeBtn = modalElement.querySelector(".close-btn");
+            if (closeBtn) {
+                closeBtn.addEventListener("click", closeModal);
             }
-        } catch (error) {
-            console.error(error);
-        }
-    });
-};
 
-// 모든 모달 적용
-handleModal(".reels-btn", "blockModalWrapper", "blockModal");
-handleModal(".write-btn", "postWriteModalWrapper", "postWriteModal");
-handleModal(".update-btn", "postUpdateModalWrapper", "postUpdateModal");
+        }
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 const writingPost = (modalElement, modalWrapper) => {
     // Quill 에디터 초기화
@@ -108,7 +126,7 @@ const writingPost = (modalElement, modalWrapper) => {
         const content = quill.root.innerHTML;
 
         const tag = modalElement.querySelector("input[id='tag']").value;
-        const formattedTagList = tag ? tag.split(",").map(tag => `#${tag.trim()}`) : [];
+        const formattedTagList = tag ? tag.split(",").map(tag => `${tag.trim()}`) : [];
 
         const newPost = {
             title: modalElement.querySelector("input[id='title']").value,
@@ -118,6 +136,7 @@ const writingPost = (modalElement, modalWrapper) => {
             content: content,
             thumbnail: thumbnail,
             like:0,
+            dislike:0,
             comment:0,
             views:0,
             date: formattedTime,
@@ -139,24 +158,86 @@ const writingPost = (modalElement, modalWrapper) => {
     const cancel = modalElement.querySelector(".cancel-btn");
 
     cancel.addEventListener("click", () => {
-        modalWrapper.classList.remove("active");
-        document.documentElement.classList.remove("modal-active");
-        modalWrapper.innerHTML = '';
+        gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
+            onComplete: () => {
+                modalWrapper.classList.remove("active");
+                document.documentElement.classList.remove("modal-active");
+                modalWrapper.innerHTML = '';
+            }
+        });
     })
 
 }
 
-const detailPost = (modalElement, modalWrapper) => {
-    document.body.addEventListener("click", async (e) => {
-        const card = e.target.closest(".post-card, .board-best-item");
-        if (!card) return;
+const detailPost = (modalElement, post) => {
+    modalElement.querySelector(".post-category").textContent = post.category;
+    modalElement.querySelector(".detail-title-area .modal-area-title").textContent = post.title;
+    const infoBox = modalElement.querySelector(".content-info-box");
+    const content = modalElement.querySelector(".content-main-box");
+    const tagList = post.tag.map(tag => `<li class="tag"><span><span class="hash">#</span>${tag}</span></li>`).join("");
+    const reactionBtns = modalElement.querySelector(".reaction-btn-list");
+    modalElement.querySelector(".comment-input-form .comment-count").textContent = `${post.comment} Comments`
 
-        const getPostId = card.getAttribute("id");
-        const postNumber = Number(getPostId.split("-")[1]);
-        const targetPost = await getPost(postNumber);
-        console.log(targetPost);
-    });
+    infoBox.innerHTML =
+    `
+        <div class="user-profile">
+            <img src="${post.profile}" alt="profile">
+            <span>${post.author}</span> 
+        </div>
+        <span>|</span>
+        <span>${post.date}</span>
+        <span>|</span>
+        <span class="comment-count">${post.comment}</span>
+        <span class="like-count">${post.like}</span>
+    `
 
+    content.innerHTML = 
+    `
+        <ul class="tag-list">${tagList}</ul>
+        <div class="content">${post.content}</div>
+    `
+
+    reactionBtns.innerHTML = 
+    `
+        <button class="like-btn">
+            <span>${post.like}</span>
+        </button>
+        <button class="dislike-btn">
+            <span>${post.dislike}</span>
+        </button>
+    `
 }
 
+const postComment = (text, modalElement) => {
+    const commentList = modalElement.querySelector(".comment-list");
+    const comment = document.createElement("li");
+    const date = new Date();
+    const formattedTime = new Intl.DateTimeFormat('ko-KR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    }).format(date);
 
+    comment.className = "comment";
+    comment.innerHTML = 
+    `
+        <div class="comment-content">
+            <div class="comment-content-upper">
+                <div class="comment-user-profile">
+                    <img src="./source/image/profile.png" alt="프로필 사진">
+                    <span>user</span>
+                </div>
+                <span>|</span>
+                <span>${formattedTime}</span>
+            </div>
+            <div class="comment-cotent-lower">
+                <p>${text}</p>
+            </div>
+        </div>
+        <div class="comment-util">
+            <button class="comment-like-btn"><span></span></button>
+            <button class="comment-dislike-btn"><span></span></button>
+        </div>
+    `
+    commentList.append(comment);
+}
