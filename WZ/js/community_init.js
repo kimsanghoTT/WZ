@@ -1,24 +1,31 @@
-import { handleModal } from "./community_board_modal.js";
 import { updateBoard } from "./community_board.js";
-import { updatePost, getPost } from "./community_db.js";
+import { initDB } from "./community_db.js";
+import { bindModalEvent, bindPaginationEvent, bindSearchEvent, bindVideoEvent } from "./community_events.js";
+
+export let currentPage = 1;
 
 document.addEventListener('DOMContentLoaded', async () => {
+    //헤더 렌더링
     const renderHeader = async () => {
-      const mainHeader = document.getElementById("mainHeader");
-      
-      const res = await fetch("layout.html");
-      const htmlText = await res.text(); 
+        const mainHeader = document.getElementById("mainHeader");
+        
+        const res = await fetch("layout.html");
+        const htmlText = await res.text(); 
 
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlText, "text/html"); 
-      const header = doc.getElementById("mainHeader").innerHTML; 
-      
-      mainHeader.innerHTML = header;
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, "text/html"); 
+        const header = doc.getElementById("mainHeader").innerHTML; 
+        
+        mainHeader.innerHTML = header;
     };
     await renderHeader(); 
 
+    //스와이퍼 렌더링
+    const response = await fetch("./source/reels.json");
+    const reelsList = await response.json();
+
     const swiper = new Swiper(".reels-swiper", {
-        slidesPerView: "4.5",
+        slidesPerView: "4",
         spaceBetween: 30,
         freeMode: {
             enabled: true,
@@ -32,50 +39,65 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
     });
 
-    const customProgressBar = document.querySelector('.swiper-custom-progressbar');
+    reelsList.forEach(reel => {
+        const tagList = reel.tag.slice(0,3).map(tag => `#${tag}`).join(' ');
+        
+        const swiperSlide = document.createElement("div");
+        swiperSlide.className = "swiper-slide";
+        swiperSlide.id = reel.id;
 
+        swiperSlide.innerHTML = `
+            <video class="reels-thumbnail" muted src="${reel.video}"></video>
+            <div class="reels-info-summary">
+                <div class="info-left">
+                    <span class="user-name">${reel.creator}</span>
+                    <p>${reel.title}</p>
+                    <div>${tagList}</div>          
+                </div>
+                <div class="info-right">
+                    <div class="like-info">
+                        <button class="reels-like"><span class="ico"></span></button>
+                        <span class="reels-like-count">${reel.like}</span>             
+                    </div>
+                    <div class="share-info">
+                        <button class="reels-share"><span class="ico"></span></button>
+                        <span class="reels-share-count">${reel.share}</span>  
+                    </div>
+                    <img src="./source/image/profile.png">
+                </div>
+            </div>
+        `;
+
+        swiper.appendSlide(swiperSlide); 
+    });
+
+    const customProgressBar = document.querySelector('.swiper-custom-progressbar');
     swiper.on('progress', (swiper, progress) => {
         const progressWidth = progress * 100;
         customProgressBar.style.width = `${progressWidth}%`;
     });
 
-    document.querySelector(".reels-btn")?.addEventListener("click", () => {
-        handleModal("blockModalWrapper", "blockModal");
-    });
-    document.querySelector(".write-btn")?.addEventListener("click", () => {
-        handleModal("postWriteModalWrapper", "postWriteModal");
-    });
-    document.body.addEventListener("click", async(e) => {
-        const targetedCard = e.target.closest(".post-card, .board-best-item");
-        if(!targetedCard) return;
 
-        const getPostId = targetedCard.getAttribute("id");
-        const postNumber = Number(getPostId.split("-")[1]);
-        const targetedPost = await getPost(postNumber);
+    //게시판 초기화
+    await initDB();
+    updateBoard(currentPage);
 
-        targetedPost.views++;
-        await updatePost(targetedPost);
-        const card = document.getElementById(`post-${targetedPost.id}`);
-
-        if(card){
-            card.querySelectorAll(".views").forEach(each => {
-                each.textContent = `조회 ${targetedPost.views}`;
-            })
-        }
-        await updateBoard();
-        handleModal("postDetailModalWrapper", "postDetailModal", {post:targetedPost});
-    })
+    //이벤트 바인딩
+    bindModalEvent();
+    bindPaginationEvent();
+    bindSearchEvent();
+    bindVideoEvent();
 });
 
 const popularCheckbox = document.getElementById('popularCheck');
 const popularCheckLabel = document.querySelector('.reels-sort-btn label');
 
 popularCheckbox.addEventListener('change', (e) => {
-  if (e.target.checked) {
-    popularCheckLabel.classList.add("checked");
-  } else {
-    popularCheckLabel.classList.remove("checked");
-  }
+    if (e.target.checked) {
+        popularCheckLabel.classList.add("checked");
+    } else {
+        popularCheckLabel.classList.remove("checked");
+    }
 });
 
 

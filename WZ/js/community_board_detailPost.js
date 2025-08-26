@@ -1,7 +1,8 @@
-import { updatePost, deletePost, getPost } from "./community_db.js";
-import { updateBoard } from "./community_board.js";
+import { updatePost, deletePost } from "./community_db.js";
+import { filteredPosts, updateBoard } from "./community_board.js";
 import { handleModal } from "./community_board_modal.js";
 import { postComment, renderComments } from "./community_board_comment.js";
+import { currentPage } from "./community_init.js";
 
 export const detailPost = (modalElement, post, closeModal) => {
     modalElement.querySelector(".post-category").textContent = post.category;
@@ -37,12 +38,14 @@ export const detailPost = (modalElement, post, closeModal) => {
     `;
     commentCount.textContent = post.comment;
 
-    // 댓글 렌더링
+    //댓글 렌더링
     const commentList = modalElement.querySelector(".comment-list");
+    commentList.innerHTML = '';
+
     const getComments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
     getComments.forEach(comment => renderComments(comment, commentList, post));
 
-    // 댓글 입력
+    //댓글 입력
     const commentForm = modalElement.querySelector(".comment-input-form");
     const commentInput = modalElement.querySelector("#commentInput");
     commentForm.addEventListener("submit", e => {
@@ -53,6 +56,7 @@ export const detailPost = (modalElement, post, closeModal) => {
         commentInput.value = "";
     });
 
+    //좋아요 싫어요
     const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
     const dislikedPosts = JSON.parse(localStorage.getItem("dislikedPosts")) || [];
 
@@ -60,31 +64,40 @@ export const detailPost = (modalElement, post, closeModal) => {
     const dislikeBtn = reactionBtns.querySelector(".dislike-btn");
 
     likeBtn.addEventListener("click", async () => {
-        if (likedPosts.includes(post.id)) { 
-            alert("이미 좋아요를 누르셨습니다."); 
-            return; 
-        }
+        // if (likedPosts.includes(post.id)) { 
+        //     alert("이미 좋아요를 누르셨습니다."); 
+        //     return; 
+        // }
         post.like++;
         await updatePost(post);
+
         likedPosts.push(post.id);
         localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
+        modalElement.querySelector(".like-count").textContent = post.like;
         likeBtn.querySelector("span").textContent = post.like;
-        await updateBoard();
+        await updateBoard(currentPage, filteredPosts);
+
     });
 
     dislikeBtn.addEventListener("click", async () => {
-        if (dislikedPosts.includes(post.id)) { 
-            alert("이미 싫어요를 누르셨습니다."); 
-            return; 
-        }
+        // if (dislikedPosts.includes(post.id)) { 
+        //     alert("이미 싫어요를 누르셨습니다."); 
+        //     return; 
+        // }
         post.dislike++;
         await updatePost(post);
+
         dislikedPosts.push(post.id);
         localStorage.setItem("dislikedPosts", JSON.stringify(dislikedPosts));
+
         dislikeBtn.querySelector("span").textContent = post.dislike;
     });
 
-    // 글 수정/삭제
+    modalElement.querySelector(".write-btn")?.addEventListener("click", () => {
+        closeModal();
+        handleModal("postWriteModalWrapper", "postWriteModal");
+    })
     modalElement.querySelector(".update-btn")?.addEventListener("click", () => {
         closeModal();
         handleModal("postWriteModalWrapper", "postWriteModal", { mode:"update", post });
@@ -94,7 +107,7 @@ export const detailPost = (modalElement, post, closeModal) => {
         if (!isConfirmed) return;
 
         await deletePost(post.id);
-        await updateBoard();
+        await updateBoard(currentPage, filteredPosts);
 
         alert("게시글이 삭제되었습니다.");
         closeModal();

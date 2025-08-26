@@ -1,0 +1,93 @@
+import { handleModal } from "./community_board_modal.js";
+import { filteredPosts, searchPost, updateBoard } from "./community_board.js";
+import { updatePost, getPost } from "./community_db.js";
+import { currentPage } from "./community_init.js";
+
+//검색 이벤트
+export const bindSearchEvent = () => {
+    const searchConditionSelector = document.querySelector(".search-condition-selector");
+    const searchCondition = document.querySelectorAll(".search-condition");
+    searchConditionSelector.addEventListener("click", () => {
+        searchConditionSelector.classList.toggle("active");
+        document.querySelector(".search-condition-list").classList.toggle("active");
+    })
+    searchCondition.forEach(each => {
+        each.addEventListener("click", () => {
+            searchConditionSelector.querySelector(".search-condition-display").textContent = each.textContent;
+            searchConditionSelector.classList.remove("active");
+            document.querySelector(".search-condition-list").classList.remove("active");
+        })
+    })
+    document.querySelector(".board-search-btn").addEventListener("click", async () => {
+        await searchPost();
+    })
+}
+
+//페이지네이션 이벤트
+export const bindPaginationEvent = () => {
+    document.querySelector(".prev-btn").addEventListener("click", () => {
+        currentPage--;
+        updateBoard(currentPage);
+    });
+    document.querySelector(".next-btn").addEventListener("click", () => {
+        currentPage++;
+        updateBoard(currentPage);
+    });
+}
+
+//모달관련 이벤트
+export const bindModalEvent = () => {
+    document.body.addEventListener("click", async (e) => {
+        const targetedReelCard = e.target.closest(".reels-swiper .swiper-slide");
+        if(!targetedReelCard) return;
+
+        const response = await fetch("./source/reels.json");
+        const reels = await response.json();
+
+        const reelId = Number(targetedReelCard.id);
+        const targetedReel = reels.find(reel => reel.id === reelId);
+        if(!targetedReel) return;
+
+        handleModal("reelsDetailModalWrapper", "reelsDetailModal", { reels: targetedReel });
+    });
+    document.querySelector(".reels-btn")?.addEventListener("click", () => {
+        handleModal("blockModalWrapper", "blockModal");
+    });
+    document.querySelector(".write-btn")?.addEventListener("click", () => {
+        handleModal("postWriteModalWrapper", "postWriteModal");
+    });
+    document.body.addEventListener("click", async(e) => {
+        const targetedCard = e.target.closest(".post-card, .board-best-item");
+        if(!targetedCard) return;
+
+        const getPostId = targetedCard.getAttribute("id");
+        const postNumber = Number(getPostId.split("-")[1]);
+        const targetedPost = await getPost(postNumber);
+
+        targetedPost.views++;
+        await updatePost(targetedPost);
+        const card = document.getElementById(`post-${targetedPost.id}`);
+
+        if(card){
+            card.querySelectorAll(".views").forEach(each => {
+                each.textContent = `조회 ${targetedPost.views}`;
+            })
+        }
+        await updateBoard(currentPage, filteredPosts);
+        handleModal("postDetailModalWrapper", "postDetailModal", {post:targetedPost});
+    })
+}
+
+//동영상 이벤트
+export const bindVideoEvent = () => {
+    const reels = document.querySelectorAll(".swiper-slide video");
+    reels.forEach(each => {
+        each.addEventListener("mouseenter", () => {
+            each.play();
+        })
+        each.addEventListener("mouseleave", () => {
+            each.pause();
+            each.currentTime = 0;
+        })
+    })
+}

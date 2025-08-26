@@ -120,7 +120,7 @@
     transition: .3s;
 }
 .category-selector.active .ico{
-    background: url(../source/image/ico/ico_arrow_up.png)no-repeat center/cover;
+    transform: rotate(180deg);
 }
 .category-list{
     background: #32373F;
@@ -254,7 +254,7 @@
     width: 40px;
     height: 40px;
     object-fit: cover;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 .content-info-box .comment-count,
 .content-info-box .like-count{
@@ -300,8 +300,8 @@
 }
 .content-main-box .content img{
     object-fit: cover;
-    width: 100%;
     height: auto;
+    max-width: 100%;
 }
 .detail-btn-area .reaction-btn-list{
     display: flex;
@@ -434,7 +434,7 @@
 .comment-user-profile img{
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 .comment .comment-content{
     flex: 1;
@@ -478,4 +478,92 @@
     height: 20px;
     background: url("../source/image/ico/ico_upset.png")no-repeat center/cover;
     filter: invert(1);
+}
+
+/* 릴스 모달 */
+.reels-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 40px;
+    gap: 50px;
+}
+.reels-form .reels-form-left{
+    width: 30%;
+}
+.reels-form-left .video-container{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.video-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.reels-form .reels-form-right{
+    flex: 1;
+    overflow-y: auto;
+}
+.reels-form-right .reels-form-content{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+.reels-form-content .user-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.reels-form-content .user-info img{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+.reels-form-content .reels-content-text{
+    margin-bottom: 30px;
+}
+.reels-form-content .tag-list{
+    display: flex;
+    gap: 10px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 50px;
+}
+.reels-form-content .reels-form-util{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.reels-form-util .reels-form-util-box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.reels-form-util-box button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #222;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reels-form-like .ico{
+  display: inline-block;
+  background: url(../source/image/ico/ico_reels_like.png) no-repeat center/cover;
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+.reels-form-share .ico{
+  display: inline-block;
+  background: url(../source/image/ico/ico_share.png) no-repeat center/cover;
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
 }

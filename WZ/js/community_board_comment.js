@@ -1,5 +1,6 @@
 import { updatePost } from "./community_db.js";
-import { updateBoard } from "./community_board.js";
+import { filteredPosts, updateBoard } from "./community_board.js";
+import { currentPage } from "./community_init.js";
 
 export const postComment = async (text, modalElement, post) => {
     const commentList = modalElement.querySelector(".comment-list");
@@ -28,7 +29,7 @@ export const postComment = async (text, modalElement, post) => {
     if(card) {
         card.querySelectorAll(".comment-count").forEach(each => each.textContent = post.comment)
     };
-    await updateBoard();
+    await updateBoard(currentPage, filteredPosts);
 };
 
 export const renderComments = (comment, commentList, post) => {

@@ -1,8 +1,9 @@
 import { writingPost } from "./community_board_writingPost.js";
 import { detailPost } from "./community_board_detailPost.js";
+import { reelsDetail } from "./community_reels.js";
 
 export const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
-    const post = options.post;
+    const data = options.post || options.reels;
     const modalWrapper = document.getElementById(modalWrapperId);
     if (!modalWrapper) return;
     modalWrapper.innerHTML = '';
@@ -32,7 +33,8 @@ export const handleModal = async (modalWrapperId, modalContentId, options = {}) 
             document.documentElement.classList.add("modal-active");
 
             if (modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper, options, closeModal);
-            if (modalContentId === "postDetailModal") detailPost(modalElement, post, closeModal);
+            if (modalContentId === "postDetailModal") detailPost(modalElement, data, closeModal);
+            if (modalContentId === "reelsDetailModal") reelsDetail(modalElement, modalWrapper, data);
 
             const closeBtn = modalElement.querySelector(".close-btn");
             if (closeBtn) closeBtn.addEventListener("click", closeModal);

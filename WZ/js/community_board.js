@@ -1,8 +1,7 @@
-import {initDB, getAllPosts} from "./community_db.js";
+import { getAllPosts } from "./community_db.js";
 
 let posts = [];
 let bestPosts = [];
-let currentPage = 1;
 const postsPerPage = 12;
 const maxPaginationPerPage = 10;
 
@@ -48,7 +47,9 @@ const renderPosts = (displayPosts) => {
     });
 };
 
-const renderPagination = (totalPages) => {
+const renderPagination = (totalPages, currentPage) => {
+    if(!totalPages || !currentPage) return;
+
     const startPageNum = Math.floor((currentPage - 1) / maxPaginationPerPage) * maxPaginationPerPage + 1;
     const endPageNum = Math.min(startPageNum + maxPaginationPerPage - 1, totalPages);
 
@@ -66,8 +67,7 @@ const renderPagination = (totalPages) => {
         }
         paginationBtn.innerHTML = `<span>${i}</span>`;
         paginationBtn.addEventListener("click", () => {
-            currentPage = i;
-            updateBoard();
+            updateBoard(i);
         });
 
         page.append(paginationBtn);
@@ -118,36 +118,45 @@ const renderBestPosts = (bestPosts) => {
     });
 };
 
-export const updateBoard = async () => {
-    posts = await getAllPosts();
-    bestPosts = [...posts].sort((a, b) => b.like - a.like).slice(0, 3);
+export let filteredPosts = null;
+
+export const searchPost = async () => {
+    const searchInput = document.querySelector("#boardSearchInput").value;
+    const searchCondition = document.querySelector(".search-condition-display").textContent;
+    const posts = await getAllPosts();
+    filteredPosts = posts;
+
+    if(searchInput){
+        if(searchCondition === "제목"){
+            filteredPosts = posts.filter(post => post.title.includes(searchInput));
+        }
+        else if(searchCondition === "본문"){
+            filteredPosts = posts.filter(post => post.content.includes(searchInput));
+        }
+        else if(searchCondition === "글쓴이"){
+            filteredPosts = posts.filter(post => post.author === searchInput);
+        }
+    }
+
+    updateBoard(1, filteredPosts);
+}
+
+export const updateBoard = async (currentPage, filteredPosts) => {
+    if(!currentPage) return;
+    const originPosts = await getAllPosts();
+    posts = filteredPosts ? filteredPosts : originPosts;
+    bestPosts = [...originPosts].sort((a, b) => b.like - a.like).slice(0, 3);
 
     const totalPages = Math.ceil(posts.length / postsPerPage);
     const startPostNum = (currentPage - 1) * postsPerPage;
     const endPostNum = startPostNum + postsPerPage;
     const displayPosts = posts.slice(startPostNum, endPostNum);
 
+
     renderPosts(displayPosts);
-    renderPagination(totalPages);
+    renderPagination(totalPages, currentPage);
     renderBestPosts(bestPosts);
 
     document.querySelector(".prev-btn").disabled = currentPage === 1;
     document.querySelector(".next-btn").disabled = currentPage === totalPages;
 };
-
-const init = async () => {
-    await initDB();
-    
-    updateBoard();
-
-    document.querySelector(".prev-btn").addEventListener("click", () => {
-        currentPage--;
-        updateBoard();
-    });
-    document.querySelector(".next-btn").addEventListener("click", () => {
-        currentPage++;
-        updateBoard();
-    });
-};
-
-init();
