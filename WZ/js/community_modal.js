@@ -1,25 +1,7 @@
 import { deletePost, updatePost, getPost, addPost } from "./community_db.js";
 import { updateBoard } from "./community_board.js";
 
-document.querySelector(".reels-btn")?.addEventListener("click", () => {
-    handleModal("blockModalWrapper", "blockModal");
-});
-document.querySelector(".write-btn")?.addEventListener("click", () => {
-    handleModal("postWriteModalWrapper", "postWriteModal");
-});
-document.body.addEventListener("click", async(e) => {
-    const targetedCard = e.target.closest(".post-card, .board-best-item");
-    if(!targetedCard) return;
 
-    const getPostId = targetedCard.getAttribute("id");
-    const postNumber = Number(getPostId.split("-")[1]);
-    const targetedPost = await getPost(postNumber);
-
-    targetedPost.views++;
-    await updatePost(targetedPost);
-    document.querySelectorAll(".views").forEach(each => each.textContent = `조회 ${targetedPost.views}`);
-    handleModal("postDetailModalWrapper", "postDetailModal", {post:targetedPost});
-})
 
 const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
     const post = options.post;
@@ -34,6 +16,18 @@ const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
         const parser = new DOMParser();
         const parsedHTML = parser.parseFromString(htmlText, "text/html");
         const modalElement = parsedHTML.getElementById(modalContentId)?.cloneNode(true);
+
+        gsap.fromTo(modalElement, {y:"100%", opacity:0}, {y:0, opacity:1, duration:0.5});
+        
+        const closeModal = () => {
+            gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
+                onComplete: () => {
+                    modalWrapper.classList.remove("active");
+                    document.documentElement.classList.remove("modal-active");
+                    modalWrapper.innerHTML = '';
+                }
+            });
+        };
         
         if (modalElement) {
             modalWrapper.appendChild(modalElement);
@@ -41,7 +35,7 @@ const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
             document.documentElement.classList.add("modal-active");
 
             //글쓰기 버튼 클릭 시
-            if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper, options);
+            if(modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper, options, closeModal);
 
             //게시판에서 게시물 카드 클릭 시
             if(modalContentId === "postDetailModal") {
@@ -68,21 +62,45 @@ const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
                 const writeBtn = modalElement.querySelector(".write-btn");
                 const updateBtn = modalElement.querySelector(".update-btn");
                 const deleteBtn = modalElement.querySelector(".delete-btn");
+                const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
+                const dislikedPosts = JSON.parse(localStorage.getItem("dislikedPosts")) || [];
 
                 likeBtn.addEventListener("click", async () => {
+                    if(likedPosts.includes(post.id)){
+                        alert("이미 좋아요를 누르셨습니다.");
+                        return;
+                    }
                     post.like++;
                     await updatePost(post);
+
+                    likedPosts.push(post.id);
+                    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
                     likeBtn.querySelector("span").textContent = post.like;
-                    document.querySelectorAll(".like-count").forEach(each => {
-                        each.textContent = post.like;
-                    })
+                    const card = document.getElementById(`post-${post.id}`);
+
+                    if(card){
+                        card.querySelectorAll(".like-count").forEach(each => {
+                            each.textContent = post.like;
+                        })
+                        modalElement.querySelector(".like-count").textContent = post.like;
+                    }
+                    await updateBoard();
                 }, {once:true})
 
                 dislikeBtn.addEventListener("click", async () => {
+                    if(dislikedPosts.includes(post.id)){
+                        alert("이미 싫어요를 누르셨습니다.");
+                        return;
+                    }
                     post.dislike++;
                     await updatePost(post);
+
+                    dislikedPosts.push(post.id);
+                    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
                     dislikeBtn.querySelector("span").textContent = post.dislike;
-                },{once:true})
+                })
 
                 writeBtn.addEventListener("click", () => {
                     closeModal();
@@ -105,18 +123,6 @@ const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
                 })
             };
 
-            gsap.fromTo(modalElement, {y:"100%", opacity:0}, {y:0, opacity:1, duration:0.5});
-            
-            const closeModal = () => {
-                gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
-                    onComplete: () => {
-                        modalWrapper.classList.remove("active");
-                        document.documentElement.classList.remove("modal-active");
-                        modalWrapper.innerHTML = '';
-                    }
-                });
-            };
-            
             const closeBtn = modalElement.querySelector(".close-btn");
             if (closeBtn) {
                 closeBtn.addEventListener("click", closeModal);
@@ -128,7 +134,7 @@ const handleModal = async (modalWrapperId, modalContentId, options = {}) => {
     }
 };
 
-const writingPost = (modalElement, modalWrapper, options) => {
+const writingPost = (modalElement, modalWrapper, options, closeModal) => {
     // Quill 에디터 초기화
     const quill = new Quill(modalElement.querySelector('#editor'), {
         modules: {
@@ -168,16 +174,12 @@ const writingPost = (modalElement, modalWrapper, options) => {
 
         const img = quill.root.querySelector("img");
         const thumbnail = img ? img.getAttribute("src") : "./source/image/profile.png";
-
         const plainText = quill.getText().trim();
         const lines = plainText.split("\n").filter(line => line.trim() !== "");
         const summary = lines.slice(0, 2).join(" ")
-
         const content = quill.root.innerHTML;
-
         const tag = modalElement.querySelector("#tag").value;
         const formattedTagList = tag ? tag.split(",").map(tag => `${tag.trim()}`) : [];
-
         const date = new Date();
         const formattedTime = new Intl.DateTimeFormat('ko-KR', {
             hour: '2-digit',
@@ -201,6 +203,11 @@ const writingPost = (modalElement, modalWrapper, options) => {
 
             await updatePost(options.post);
             await updateBoard();
+
+            const directToDetail = await getPost(options.post.id);
+            closeModal();
+            handleModal("postDetailModalWrapper", "postDetailModal", {post:directToDetail});
+
         }
         else{
             const newPost = {
@@ -219,23 +226,31 @@ const writingPost = (modalElement, modalWrapper, options) => {
                 tag:formattedTagList
             }
 
-            await addPost(newPost);
+            const newPostId = await addPost(newPost);
             await updateBoard();
-        }
 
-        modalWrapper.classList.remove("active");
-        modalWrapper.innerHTML = '';
+            const directToDetail = await getPost(newPostId);
+            closeModal();
+            handleModal("postDetailModalWrapper", "postDetailModal", {post:directToDetail});
+        }
     })
     const cancel = modalElement.querySelector(".cancel-btn");
 
     cancel.addEventListener("click", () => {
-        gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
-            onComplete: () => {
-                modalWrapper.classList.remove("active");
-                document.documentElement.classList.remove("modal-active");
-                modalWrapper.innerHTML = '';
-            }
-        });
+        if(options.mode === "update"){
+            closeModal();
+            handleModal("postDetailModalWrapper", "postDetailModal", {post:options.post});
+        }
+        else{
+            gsap.to(modalElement, {y:"100%", opacity:0, duration:0.3,
+                onComplete: () => {
+                    modalWrapper.classList.remove("active");
+                    document.documentElement.classList.remove("modal-active");
+                    modalWrapper.innerHTML = '';
+                }
+            });
+        }
+
     })
 
 }
@@ -304,9 +319,17 @@ const postComment = async (text, modalElement, post) => {
 
     post.comment++; 
     await updatePost(post);
-    document.querySelectorAll(".comment-count").forEach(each => {
-        each.textContent = `${post.comment}`;
-    });
+    const card = document.getElementById(`post-${post.id}`);
+
+    if(card){
+        card.querySelectorAll(".comment-count").forEach(each => {
+            each.textContent = `${post.comment}`;
+        });
+        modalElement.querySelectorAll(".comment-count").forEach(each => {
+            each.textContent = `${post.comment}`;
+        })
+    }
+    await updateBoard();
 }
 
 const renderComments = (comment, commentList, post) => {

@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { handleModal } from "./community_board_modal.js";
+import { updateBoard } from "./community_board.js";
+import { updatePost, getPost } from "./community_db.js";
+
+document.addEventListener('DOMContentLoaded', async () => {
     const renderHeader = async () => {
       const mainHeader = document.getElementById("mainHeader");
       
@@ -11,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       mainHeader.innerHTML = header;
     };
+    await renderHeader(); 
 
     const swiper = new Swiper(".reels-swiper", {
         slidesPerView: "4.5",
@@ -33,7 +38,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressWidth = progress * 100;
         customProgressBar.style.width = `${progressWidth}%`;
     });
-    renderHeader(); 
+
+    document.querySelector(".reels-btn")?.addEventListener("click", () => {
+        handleModal("blockModalWrapper", "blockModal");
+    });
+    document.querySelector(".write-btn")?.addEventListener("click", () => {
+        handleModal("postWriteModalWrapper", "postWriteModal");
+    });
+    document.body.addEventListener("click", async(e) => {
+        const targetedCard = e.target.closest(".post-card, .board-best-item");
+        if(!targetedCard) return;
+
+        const getPostId = targetedCard.getAttribute("id");
+        const postNumber = Number(getPostId.split("-")[1]);
+        const targetedPost = await getPost(postNumber);
+
+        targetedPost.views++;
+        await updatePost(targetedPost);
+        const card = document.getElementById(`post-${targetedPost.id}`);
+
+        if(card){
+            card.querySelectorAll(".views").forEach(each => {
+                each.textContent = `조회 ${targetedPost.views}`;
+            })
+        }
+        await updateBoard();
+        handleModal("postDetailModalWrapper", "postDetailModal", {post:targetedPost});
+    })
 });
 
 const popularCheckbox = document.getElementById('popularCheck');
