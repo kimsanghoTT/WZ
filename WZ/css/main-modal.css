@@ -1,0 +1,189 @@
+@charset "utf-8";
+.main-modal-wrapper {
+  width: 400px;
+  height: 360px;
+  border-radius: 10px;
+  border: 1px solid #999999;
+  overflow: hidden;
+  background-color:#21252B;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.modal-video-section {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, #21252B, transparent);
+}
+.modal-video-section video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2); /* 확대 배율 조절 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.main-modal-container {
+  height: 50%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #21252b;
+}
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.title-row h3 {
+  font-size: 34px;
+  font-weight: 500;
+}
+
+/* 재생 아이콘 */
+.play-icon {
+  cursor: pointer;
+}
+.title-row .play-icon img {
+  width: 33px;
+  opacity: 0.7;
+  transition: filter 0.6s ease, opacity 0.6s ease, transform 0.5s ease;
+}
+.title-row .play-icon:hover img {
+  opacity: 1; /* 완전한 흰색 */
+  filter:
+    drop-shadow(0 0 3px #ffffff48)
+    drop-shadow(0 0 2px #ffffff48)
+    drop-shadow(0 0 2px #ffffff48);
+}
+.play-icon path {
+  transition: fill 0.3s ease;
+}
+.play-icon:hover path {
+  fill: #d16a6a;
+}
+.main-modal-wrapper .main-modal-container .inner-plus {
+  display: inline-block;
+}
+.main-modal-wrapper .main-modal-container .inner-plus a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main-modal-wrapper .main-modal-container .inner-plus h4 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff79;
+}
+/* + 아이콘 원형 */
+.main-modal-wrapper .main-modal-container .inner-plus .plus {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff79;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* + 가로줄 */
+.main-modal-wrapper .main-modal-container .inner-plus .plus::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  width: 70%;
+  height: 1px;
+  background-color: #ffffff79;
+  transform: translateY(-50%);
+}
+/* + 세로줄 */
+.main-modal-wrapper .main-modal-container .inner-plus .plus::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 1px;
+  height: 70%;
+  background-color: #ffffff79;
+  transform: translateX(-50%);
+}
+
+/* .inner-plus hover시 */
+.main-modal-wrapper .main-modal-container .inner-plus a:hover h4 {
+  color: #d33a3d;
+  text-shadow:
+    0 0 3px #d33a3d88,
+    0 0 3px #d33a3d88,
+    0 0 3px #d33a3d88;
+}
+
+.main-modal-wrapper .main-modal-container .inner-plus a:hover .plus {
+  border-color: #d33a3d;
+}
+
+/* + 기호 막대 색 변경 */
+.main-modal-wrapper .main-modal-container .inner-plus a:hover .plus::before,
+.main-modal-wrapper .main-modal-container .inner-plus a:hover .plus::after {
+  background-color: #d33a3d;
+}
+.plus,
+.plus::before,
+.plus::after,
+.inner-plus h4 {
+  transition: all 0.3s ease;
+}
+
+
+
+/* 에피소드 정보 및 태그 줄 */
+.content-tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.content-tags .content-inner {
+  display: flex;
+  align-items: center;
+}
+/* '15' 나이 콘텐츠 표시 */
+.content {
+  background-color: #DD8100;
+  color: white;
+  font-size: 24px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 6px;
+}
+.content-tags .content-inner p {
+  font-size: 16px;
+}
+/* 태그 스타일 */
+.tags {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.tag >.tag-color {
+  color: #d16a6a;
+}
