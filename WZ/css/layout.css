@@ -11,13 +11,13 @@
 .main-header-container{
     width: 100%;
     height: 80px;
-    background: #21252B;
+    background: rgba(33, 37, 43,0);
     display: flex;
     position: fixed;
     align-items: center;
     justify-content: space-between;
     padding: 10px 60px;
-    color: #fff;
+    color: #21252B;
     transition: .5s;
     transform: translateY(0);
     z-index: 100;
@@ -73,16 +73,17 @@
     border: none;
     border-bottom: 1px #999999 solid;
     outline: none;
-    color: #fff;
+    color: #121212;
     font-size: 16px;
     line-height: 45px;
     margin: 10px 0;
     display: inline-block;
+    opacity: 0;
 }
 .search-box .search-btn{
     border: none;
-    display: inline-block;
-    background: transparent url("../source/image/ico/ico_search.png") no-repeat center;
+    display: none;
+    background: transparent url("../source/image/icons/ico_search.png") no-repeat center;
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
@@ -119,7 +120,7 @@
     border: 1px solid #999999;
     opacity: 0;
     pointer-events: none;
-    background: #21252B;
+    background: #ffffff;
     transition: .3s;
 }
 .account-box:hover .account-hover-box{
@@ -153,7 +154,7 @@
     gap: 10px;
 }
 .hover-box-nav ul li a{
-    color: #fff;
+    color: #121212;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -166,15 +167,15 @@
     filter: invert(10);
 }
 .hover-box-nav ul li:first-child a::before{
-    background: url("../source/image/ico/ico_account.png");
+    background: url("../source/image/icons/ico_account.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:nth-child(2) a::before{
-    background: url("../source/image/ico/ico_basket.png");
+    background: url("../source/image/icons/ico_basket.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:last-child a::before{
-    background: url("../source/image/ico/ico_favorite_list.png");
+    background: url("../source/image/icons/ico_favorite_list.png");
     background-size: 24px 24px;
 }
 .logout{
@@ -188,9 +189,9 @@
     cursor: pointer;
 }
 
-
+/* footer */
 .main-footer-wrapper{
-    position: absolute;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
     height: 400px;
@@ -217,19 +218,19 @@
     filter: invert(10);
 }
 .social-nav .ico_X{
-    background: url(../source/image/ico/ico_X.png) no-repeat center;
+    background: url(../source/image/icons/ico_X.png) no-repeat center;
     background-size: 25px 25px;
 }
 .social-nav .ico_facebook{
-    background: url(../source/image/ico/ico_facebook.png) no-repeat center;
+    background: url(../source/image/icons/ico_facebook.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_insta{
-    background: url(../source/image/ico/ico_insta.png) no-repeat center;
+    background: url(../source/image/icons/ico_insta.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_youtube{
-    background: url(../source/image/ico/ico_youtube.png) no-repeat center;
+    background: url(../source/image/icons/ico_youtube.png) no-repeat center;
     background-size: 30px 30px;
 }
 .footer-nav{
@@ -246,4 +247,59 @@
 .company-info{
     margin-top: 40px;
     opacity: 0.7;
+}
+
+
+/* SubHeader */
+.subHeader {
+    top: 0;
+    left: -100%;
+    position: fixed;
+    padding: 65px;
+    width: 585px;
+    height: 1080px;
+    background: linear-gradient(white, #ffe6e6);
+    z-index: 101;
+}
+
+.subHeader img {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 3%;
+    right: 8%;
+}
+
+.subHeader h3 {
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.subHeader h3 span {
+    font-size: 48px;
+    color: #D33A3C;
+}
+
+.subHeader>div {
+    padding-left: 30px;
+    border-left: 1px solid #b4b4b4;
+}
+
+.subHeader>div>ul>li>a>span {
+    font-size: 30px;
+    font-weight: 600;
+    display: block;
+    margin: 30px 0;
+}
+
+.subHeader>div>ul>li>ul>li {
+    opacity: 0.5;
+    font-size: 18px;
+    line-height: 2;
+    transition: all 0.3s ease-in;
+}
+
+.subHeader>div>ul>li>ul>li:hover {
+    font-weight: 600;
+    opacity: 1;
 }

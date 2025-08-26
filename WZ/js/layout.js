@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname;
     const header = document.querySelector("#mainHeader");
@@ -52,5 +53,3 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 })
-
-
