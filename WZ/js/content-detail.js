@@ -11,7 +11,7 @@ document.querySelector("#searchForm").addEventListener("submit", function (e) {
 
     window.location.href = `search.html?query=${encodeURIComponent(WORD)}`;
 });
-
+/* json */
 const fetchData = async () => {
     const res = await fetch('./data.json');
     const data = await res.json();
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     <div class="listN">
                                         <img src="${DataAll.image_default}" alt="">
                                             <div class="list-text">
-                                                <h4>${ep.number}회차: ${ep.title}</h4>
+                                                <h4>${DataAll.title} ${ep.number}화 ${ep.title}</h4>
                                                 <div class="list-icons">
                                                 <i class="xi-star"><span>${starspan}</span></i> 
                                                 <span>${percentspan}</span>

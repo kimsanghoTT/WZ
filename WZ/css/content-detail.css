@@ -121,14 +121,6 @@
     font-size: 20px;
     margin-bottom: 50px;
 }
-.content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 1000px;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
 
 
 /* 세로 스크롤바 크기 및 디자인 (크롬/사파리/엣지용) */
@@ -139,7 +131,7 @@
 
 
 .content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     max-height: 800px;
     overflow-x: hidden;
@@ -182,12 +174,13 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+    gap: 20px;
 }
 
 .content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list>.list>.listN>.list-text {
     display: flex;
     justify-content: space-between;
-    width: 850px;
+    flex: 1;
 }
 .content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list>.list>.listN>.list-text >h4{
     font-size: 20px;

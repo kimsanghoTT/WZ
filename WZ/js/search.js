@@ -1,11 +1,22 @@
-
-
+/* json */
 
 const fetchData = async () => {
   const res = await fetch('./data.json');
   const data = await res.json();
   const dataArray = Object.values(data);  // 객체를 배열로 변환 (필요에 따라)
   return dataArray;  // 데이터를 함수가 반환
+}
+
+/* scroll 함수 */
+function scroll() {
+  setTimeout(() => {
+    const target = document.querySelector('.swiper-bottom');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.warn("'.swiper-bottom' 요소를 찾을 수 없습니다.");
+    }
+  }, 0);
 }
 
 /* 랜덤 스와이퍼 */
@@ -33,6 +44,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     loopAdditionalSlides: 5,
     preloadImages: true
   });
+
+  scroll();
 
 })
 
@@ -71,6 +84,7 @@ function popularRender(FilterItems) {
     }
   });
 
+  scroll();
 
 }
 
@@ -104,12 +118,9 @@ document.getElementById('search-button').addEventListener('click', async functio
   const FilterItems = data.filter(item => item.title.toLowerCase().includes(WORD.toLowerCase()));
   renderResults(FilterItems);
 
+  scroll();
 
-  document.getElementById('content-result').scrollIntoView({ behavior: 'smooth' });
 })
-
-
-
 
 
 
@@ -140,6 +151,8 @@ function renderResults(filteredItems) {
     Result.classList.remove('active');
 
   }
+  scroll();
+
 }
 
 
@@ -156,18 +169,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const filteredItems = data.filter(item => item.title.toLowerCase().includes(query));
 
-  renderResults(filteredItems);
 
   const contentText = document.getElementsByClassName('content-text')[0];
-  const result = document.getElementById('content-result');
-  
+  const Result = document.getElementById('content-result');
+
   if (filteredItems.length > 0) {
     contentText.style.display = "block";
   } else {
-    result.innerHTML = '<p>검색 결과가 없습니다.</p>';
+    Result.innerHTML = '<p>검색 결과가 없습니다.</p>';
     contentText.style.display = "block";
   }
+  renderResults(filteredItems);
 
-  result.scrollIntoView({ behavior: 'smooth' });
+  scroll();
 
 });
