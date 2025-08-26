@@ -303,3 +303,5 @@
     font-weight: 600;
     opacity: 1;
 }
+h3::before {display: none;
+}

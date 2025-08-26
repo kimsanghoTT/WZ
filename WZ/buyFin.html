@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제품 상세페이지</title>
+    <title>결제완료</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/storebuy.css">
-
+    <link rel="stylesheet" href="css/buyFin.css">
     <!-- 헤더 링크 -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/layout.css">
     <script src="js/layout.js" defer></script>
-    <script src="js/storeBuy.js" defer></script>
+    <script src="js/buyFin.js"></script>
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Demo styles -->
@@ -110,93 +109,61 @@
         </div>
     </div>
     <div id="wrap">
-        <section id="payBefore">
-            <h2>결제 정보 입력</h2>
-            <div class="addressArea">
-                <h3>배송지</h3>
-                <h3>상세 주소 입력</h3>
-                <div class="address">
-                    <input type="text" class="sendinfo" placeholder="00시 00구 00동 00로">
-                    <input type="text" class="sendinfo" placeholder="000동 000호">
-                </div>
-                <div class="select">
-                    <span>다음 주문시에도 이 주소 사용</span>
-                    <img src="img/ico/check-box.png" alt="" class="checkBox">
-                </div>
-            </div>
-            <div class="messageArea">
-                <h3>배송 요청사항 입력</h3>
-                <textarea type="text" id="msgInfo" placeholder="배송 요청사항을 입력하세요.(최대 100글자)" maxlength="100"></textarea>
-            </div>
-            <div class="cuponArea"><!-- 사용하기 버튼을 누르면 쿠폰이 적용되었습니다 라는 팝업창 띄우기 -->
-                <h3>쿠폰 적용하기</h3>
-                <div class="innerBox">
-                    <div class="left">
-                        <p>사용가능한 쿠폰</p>
-                        <div class="saleBtnWrap">
-                            <button class="summer sale">여름 시즌한정<span>17%</span></button>
-                            <button class="first sale">첫 신규회원 할인<span>20%</span></button>
-                        </div>
-                        <button class="use btn">적용하기</button>
-                    </div>
-                    <div class="right">
-                        <span>주문금액</span>
-                        <p><strong></strong>원</p>
-                        <span>할인적용</span>
-                        <del></del>
-                        <p class="total"><span></span>원</p>
+        <div class="orderCheck">
+            <h2>주문 내역 상세</h2>
+            <p>주문번호:<span></span></p>
+            <div class="orderWrap">
+                <div class="itemSummary">
+                    <figure></figure>
+                    <div class="itemArea">
+                        <p class="itemName"></p>
+                        <ul>
+                            <li>옵션:<span class="option"></span></li>
+                            <li>수량:<span class="quantity"></span></li>
+                            <li>주문날짜:<span class="orderNumber"></span></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="cardArea">
-                <h3>결제 수단 선택</h3>
-                <button class="carduse btn">신용카드 결제</button>
-                <button class="carduse btn">휴대폰 결제</button>
-                <button class="carduse btn">계좌이체</button>
-                <div class="selectList">
-                    <ul>
-                        <li><a href="#"><span class="blind">국민카드/1230000 00 0000000</span></a></li>
-                        <li><a href="#"><span class="blind">신한카드/604 000 00 0000</span>
-                            </a></li>
-                        <li><a href="#"><span class="blind">농협중앙회/604 000 00 0000</span>
-                                <p>결제할 카드를 추가하세요</p>
-                            </a></li>
-                    </ul>
-                    <div class="phoneSelect">
-                        <img src="img/ico/smartphone.png" alt="">
-                    <p>ARS(1234-5678)로 결제를 진행해주세요.
-                    </p>
-                </div>
-                    <button class="use btn">결제수단 확정하기</button>
+                <div class="sendmsgArea">
+                    <p>배송 요청사항</p>
+                    <textarea type="text" class="msgInfo" placeholder="배송 요청사항을 입력하세요.(최대 100글자)" maxlength="100">
+                    </textarea>
                 </div>
             </div>
-        </section>
-        <section id="payAfter">
-            <article class="calculation">
-                <h2>최종 결제 금액</h2>
-                <div>
-                    <p>정가</p><span class="price"></span>
-                </div>
-                <div>
-                    <p>쿠폰 적용</p>
-                    <div class="cpCheck">여름시즌쿠폰</div>
-                </div>
-                <div>
-                    <p>할인된 금액</p><del class="discount"></del>
-                </div>
-                <div>
-                    <p>배송비</p><span>3,000</span>
-                </div>
-            </article>
-            <article class="total">
-                <p>총 주문 금액</p>
-                <p><span></span>원</p>
-            </article>
-        </section>
+        </div>
+        <div class="schedule">
+            <img src="img/ico/package.png" alt="">
+            <p><span class="month"></span>월 <span class="day"></span>일 <span class="nthDay"></span>도착예정</p>
+        </div>
 
+        <div class="orderInfo">
+            <h3>주문정보</h3>
+            <div class="infoArea">
+                <div class="phone">
+                    <p>전화번호</p>
+                    <p>010-000-0000</p>
+                </div>
+                <div class="send">
+                    <p>배송지</p>
+                    <p class="sendMethod"></p>
+                </div>
+                <div class="sendSearch">
+                    <p>배송조회</p>
+                    <p>감자통운 GJ<span></span></p>
+                </div>
+                <div class="pay1">
+                    <p>결제수단</p>
+                    <p class="payMethod"></p>
+                </div>
+                <div class="pay2">
+                    <p>결제금액</p>
+                    <p class="payamount"></p>
+                </div>
+            </div>
+            <button class="cancel">주문취소</button>
+        </div>
     </div>
-    <div class="payBtn">결제하기</div>
-
+    <button class="review" type="button">구매후기 작성하기</button>
 </body>
 
 </html>
