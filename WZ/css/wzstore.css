@@ -2,7 +2,7 @@
 
 /* 공통 */
 section {
-    width: 1600px;
+    width: 1400px;
     height: 1080px;
     margin: 0 auto;
     margin-bottom: 100px;
@@ -305,8 +305,9 @@ section>h2+span {
 }
 
 #product .proWrap {
-    width: 1600px;
+    width: 1400px;
     height: 1080px;
+    margin: auto;
 }
 
 #product .tabMenu {
@@ -339,8 +340,8 @@ section>h2+span {
 }
 
 #product .tabOpen .productList figure a img {
-    width: 375px;
-    height: 375px;
+    width: 300px;
+    height: 300px;
     transition: all 0.4s ease;
 }
 
@@ -379,8 +380,8 @@ section>h2+span {
 }
 
 .title {
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
@@ -389,20 +390,30 @@ section>h2+span {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.ratings{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.ratings img{
+    width: 20px; height: 20px;
+    display: inline-block;
 
+}
 .ratings span {
     font-size: 16px;
+    margin-top: 5px;
 }
-
 .bedge {
     color: #D33A3C;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     margin-right: 5px;
 }
-
 .price {
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 

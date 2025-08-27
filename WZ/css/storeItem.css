@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+#wrap{
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+
+#mainItem>div{
+    padding: 80px 50px 50px;
+    position: relative;
+    height: 1080px;
+}
+#mainItem h2{
+    font-size: 52px;
+}
+#mainItem h2 span{
+    letter-spacing: -10px;
+    font-weight: 900;
+    color: #D33A3C;
+}
+#mainItem .tagArea{
+    width: 33.3%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 50px;
+}
+#mainItem .discount{
+    font-size: 38px;
+    color: #D33A3C;
+}
+#mainItem .price{
+    font-size: 44px;
+    font-weight: 600;
+    color: #121212;
+}
+#mainItem img{
+    position: absolute;
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 60%;
+}
+#mainItem button{
+    width: 200px; height: 64px;
+    padding: 10px 30px;
+    background-color: #D33A3C;
+    font-size: 24px;
+    font: 600;
+    color: #fff;
+    border-radius: 15px;
+    display: inline-block;
+}
+#mainItem .item1{
+    background-color: #e2e2e2;
+}
+#mainItem .buyOpt{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 350px 50px 0 800px;
+    /* background-color: #bbbbbb; */
+}
+#mainItem .buyOpt .optChoice{
+    display: flex;
+    gap: 30px;
+}
+#mainItem .buyOpt .optChoice dl{
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #3f3f3f;
+    text-align: center;
+    width: 230px;
+}
+#mainItem .buyOpt .optChoice dl dd{
+    padding: 12px 0;
+    border-bottom: 1px solid #3f3f3f;
+}    
+#mainItem .buyOpt .optChoice dl dt{position: relative; padding: 12px 0;}
+#mainItem .buyOpt .optChoice dl dt i{
+    position: absolute;
+    top: 50%; right: 5%;
+    transform: translateY(-50%);
+    color: #3f3f3f;
+}
+#mainItem .buyOpt .optChoice dl dd{display: none;}
+#mainItem .buyOpt .optChoice dl dd:last-child{
+    border-bottom: none;
+}
+#mainItem .buyOpt .itemSummary{
+    font-size: 18px;
+    color: #121212;
+    line-height: 1.6;
+}
+#mainItem .number span{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: #fff;
+}
+#mainItem .colorPack{
+    position: absolute;
+    bottom: 100px; left: 100px;
+    width: 17%;
+    display: flex;
+    justify-content: space-between;
+}
+#mainItem .colorPack figure{ /* 각각의 피규어를 클릭하면 border값이 생기도록 함 */
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg,rgba(255,255,255,0.6) 10%, rgba(0,0,0,0) 70%);
+    cursor: pointer;
+}

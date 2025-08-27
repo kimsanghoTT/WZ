@@ -85,11 +85,11 @@
             <ul>
                 <li><a href="#"><span>Product</span></a>
                     <ul>
-                        <li><a href="#"><span>Bag</span></a></li>
-                        <li><a href="#"><span>T-Shirts</span></a></li>
-                        <li><a href="#"><span>Rag-Doll</span></a></li>
-                        <li><a href="#"><span>ACC</span></a></li>
-                        <li><a href="#"><span>Other</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="0"><span>Bag</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="1"><span>T-Shirts</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="2"><span>Rag-Doll</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="3"><span>ACC</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="4"><span>Other</span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -155,8 +155,8 @@
                     <div class="swiper-slide">
                         <div class="bg bg4">
                             <div class="textBox">
-                                <span>모두의 귀염둥이 더피를 우리 집에 입양하기?</span>
-                                <h2>WZ x 케이팝데몬헌터스</h2>
+                                <span style="color: #fff;">모두의 귀염둥이 더피를 우리 집에 입양하기?</span>
+                                <h2 style="color: #fff;">WZ x 케이팝데몬헌터스</h2>
                                 <button class="detail">자세히 보기</button>
                                 <button class="buy">구매하기</button>
                             </div>
@@ -330,7 +330,7 @@
                                 </figure>
                                 <div class="itemTxt">
                                     <div class="title">
-                                        <em>위즈x슬램덩크 20주년티셔츠</em>
+                                        <em>위즈x슬램덩크 20주년 티셔츠</em>
                                     </div>
                                     <div class="itemInfo">
                                         <div>
@@ -785,6 +785,46 @@
                 }, 1500, 'easeOutExpo')
             })
         })
+
+        /* 서브헤더 메뉴를 클릭하면 해당 프로덕트로 이동하기 */
+        // 서브헤더의 탭 점프
+        $(function () {
+            $('#product').attr('tabindex', '-1');
+
+            $('.subHeaderOpen').on('click', 'a.jumpTab', function (e) {
+                e.preventDefault();
+
+                const tabIndex = Number($(this).data('tab')) || 0;
+                const $tabLi = $('.tabMenu li');
+                const $lists = $('.tabOpen > .productList');
+
+                // 탭 전환
+                $tabLi.removeClass('on').eq(tabIndex).addClass('on');
+                $lists.removeClass('on').eq(tabIndex).addClass('on');
+
+                // 스크롤
+                const headerH = $('#mainHeader').outerHeight() || 0;
+                const dest = Math.max(0, $('#product').offset().top - headerH);
+                $('html, body').stop().animate({ scrollTop: dest }, 700, 'easeOutCubic');
+
+                // 서브헤더 닫기
+                $('.subHeader').stop().animate({ left: '-100%' }, 600, 'easeInExpo');
+
+                // 포커스 이동
+                setTimeout(() => { $('#product').focus(); }, 750);
+            });
+        });
+
+        /* 프로덕트 메뉴 탭기능 */
+        $('.tabMenu li').on('click', function (e) {
+            e.preventDefault();
+            const i = $(this).index();
+            const $tabLi = $('.tabMenu li');
+            const $lists = $('.tabOpen > .productList');
+
+            $tabLi.removeClass('on').eq(i).addClass('on');
+            $lists.removeClass('on').eq(i).addClass('on');
+        });
 
 
         /* 베스트셀러 아코디언 */

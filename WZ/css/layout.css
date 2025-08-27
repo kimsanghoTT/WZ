@@ -83,7 +83,7 @@
 .search-box .search-btn{
     border: none;
     display: none;
-    background: transparent url("../source/image/icons/ico_search.png") no-repeat center;
+    background: transparent url("../img/ico/ico_search.png") no-repeat center;
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
@@ -164,18 +164,18 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    filter: invert(10);
+    /* filter: invert(10); */
 }
 .hover-box-nav ul li:first-child a::before{
-    background: url("../source/image/icons/ico_account.png");
+    background: url("../img/ico/ico_account.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:nth-child(2) a::before{
-    background: url("../source/image/icons/ico_basket.png");
+    background: url("../img/ico/ico_basket.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:last-child a::before{
-    background: url("../source/image/icons/ico_favorite_list.png");
+    background: url("../img/ico/ico_favorite_list.png");
     background-size: 24px 24px;
 }
 .logout{
@@ -218,19 +218,19 @@
     filter: invert(10);
 }
 .social-nav .ico_X{
-    background: url(../source/image/icons/ico_X.png) no-repeat center;
+    background: url(../img/ico/ico_X.png) no-repeat center;
     background-size: 25px 25px;
 }
 .social-nav .ico_facebook{
-    background: url(../source/image/icons/ico_facebook.png) no-repeat center;
+    background: url(../img/ico/ico_facebook.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_insta{
-    background: url(../source/image/icons/ico_insta.png) no-repeat center;
+    background: url(../img/ico/ico_insta.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_youtube{
-    background: url(../source/image/icons/ico_youtube.png) no-repeat center;
+    background: url(../img/ico/you) no-repeat center;
     background-size: 30px 30px;
 }
 .footer-nav{
