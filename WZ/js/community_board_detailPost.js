@@ -52,13 +52,13 @@ export const detailPost = (modalElement, post, closeModal) => {
         e.preventDefault();
         const text = commentInput.value.trim();
         if (!text) return;
-        postComment(text, modalElement, post);
+        postComment(text, modalElement, post, "post");
         commentInput.value = "";
     });
 
     //좋아요 싫어요
-    const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
-    const dislikedPosts = JSON.parse(localStorage.getItem("dislikedPosts")) || [];
+    //const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
+    //const dislikedPosts = JSON.parse(localStorage.getItem("dislikedPosts")) || [];
 
     const likeBtn = reactionBtns.querySelector(".like-btn");
     const dislikeBtn = reactionBtns.querySelector(".dislike-btn");

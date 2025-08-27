@@ -29,9 +29,16 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
     categoryItems.forEach(item => {
         item.addEventListener("click", () => {
             selectedCategory.textContent = item.querySelector("span").textContent;
+            categorySelector.classList.remove("active");
             categoryList.classList.remove("active");
         });
     });
+    document.addEventListener("click", (e) => {
+        if(!categorySelector.contains(e.target) && !categoryList.contains(e.target)){
+            categorySelector.classList.remove("active");
+            categoryList.classList.remove("active");
+        }
+    })
 
     //업로드 버튼
     modalElement.querySelector("#uploadBtn").addEventListener("click", async e => {
@@ -72,10 +79,13 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
                 title: modalElement.querySelector("#title").value,
                 profile:"./source/image/profile.png",
                 author:"user",
-                summary,
-                content,
-                thumbnail,
-                like:0, dislike:0, comment:0, views:0,
+                summary: summary,
+                content: content,
+                thumbnail: thumbnail,
+                like:0, 
+                dislike:0, 
+                comment:0, 
+                views:0,
                 date: formattedTime,
                 category: selectedCategory.textContent,
                 tag: formattedTagList

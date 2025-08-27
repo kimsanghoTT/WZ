@@ -34,7 +34,7 @@ export const handleModal = async (modalWrapperId, modalContentId, options = {}) 
 
             if (modalContentId === "postWriteModal") writingPost(modalElement, modalWrapper, options, closeModal);
             if (modalContentId === "postDetailModal") detailPost(modalElement, data, closeModal);
-            if (modalContentId === "reelsDetailModal") reelsDetail(modalElement, modalWrapper, data);
+            if (modalContentId === "reelsDetailModal") reelsDetail(modalElement, data);
 
             const closeBtn = modalElement.querySelector(".close-btn");
             if (closeBtn) closeBtn.addEventListener("click", closeModal);

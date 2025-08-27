@@ -1,23 +1,35 @@
 import { handleModal } from "./community_board_modal.js";
 import { filteredPosts, searchPost, updateBoard } from "./community_board.js";
 import { updatePost, getPost } from "./community_db.js";
-import { currentPage } from "./community_init.js";
+import { currentPage, renderReelsSwiper } from "./community_init.js";
+import { sortReels } from "./community_reels.js";
 
 //검색 이벤트
 export const bindSearchEvent = () => {
     const searchConditionSelector = document.querySelector(".search-condition-selector");
+    const searchConditionList = document.querySelector(".search-condition-list");
     const searchCondition = document.querySelectorAll(".search-condition");
+
     searchConditionSelector.addEventListener("click", () => {
         searchConditionSelector.classList.toggle("active");
-        document.querySelector(".search-condition-list").classList.toggle("active");
+        searchConditionList.classList.toggle("active");
     })
+
     searchCondition.forEach(each => {
         each.addEventListener("click", () => {
             searchConditionSelector.querySelector(".search-condition-display").textContent = each.textContent;
             searchConditionSelector.classList.remove("active");
-            document.querySelector(".search-condition-list").classList.remove("active");
+            searchConditionList.classList.remove("active");
         })
     })
+
+    document.addEventListener("click", (e) => {
+        if(!searchConditionSelector.contains(e.target) && !searchConditionList.contains(e.target)){
+            searchConditionSelector.classList.remove("active");
+            searchConditionList.classList.remove("active");
+        }
+    })
+
     document.querySelector(".board-search-btn").addEventListener("click", async () => {
         await searchPost();
     })
@@ -89,5 +101,29 @@ export const bindVideoEvent = () => {
             each.pause();
             each.currentTime = 0;
         })
+    })
+}
+
+//정렬 이벤트
+export const bindReelsSortEvent = async () => {
+    const checkSort = document.querySelector("#popularCheck");
+    const response = await fetch("../source/reels.json");
+    const data = await response.json();
+
+    const reelsCurrentLike = () => {
+        return data.map(reel => {
+            const likeCount = Number(localStorage.getItem(`reels-${reel.id}-like-count`)) || reel.like;
+            return {...reel, like:likeCount};
+        })
+    }
+    
+    checkSort.addEventListener("change", () => {
+        if(checkSort.checked){
+            const sortedReelsList = [...reelsCurrentLike()].sort((a, b) => b.like - a.like);
+            renderReelsSwiper(sortedReelsList);
+        }
+        else{
+            renderReelsSwiper(reelsCurrentLike())
+        }
     })
 }

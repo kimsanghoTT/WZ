@@ -1,8 +1,9 @@
 import { updateBoard } from "./community_board.js";
 import { initDB } from "./community_db.js";
-import { bindModalEvent, bindPaginationEvent, bindSearchEvent, bindVideoEvent } from "./community_events.js";
+import { bindModalEvent, bindPaginationEvent, bindReelsSortEvent, bindSearchEvent, bindVideoEvent } from "./community_events.js";
 
 export let currentPage = 1;
+export let swiper;
 
 document.addEventListener('DOMContentLoaded', async () => {
     //헤더 렌더링
@@ -23,8 +24,44 @@ document.addEventListener('DOMContentLoaded', async () => {
     //스와이퍼 렌더링
     const response = await fetch("./source/reels.json");
     const reelsList = await response.json();
+    const reelsCurrentLike = reelsList.map(reel => {
+        const likeCount = Number(localStorage.getItem(`reels-${reel.id}-like-count`)) || reel.like;
+        return {...reel, like:likeCount};
+    })
+    renderReelsSwiper(reelsCurrentLike);   
 
-    const swiper = new Swiper(".reels-swiper", {
+    const customProgressBar = document.querySelector('.swiper-custom-progressbar');
+    swiper.on('progress', (swiper, progress) => {
+        const progressWidth = progress * 100;
+        customProgressBar.style.width = `${progressWidth}%`;
+    });
+
+
+    //게시판 초기화
+    await initDB();
+    updateBoard(currentPage);
+
+    //이벤트 바인딩
+    bindModalEvent();
+    bindPaginationEvent();
+    bindSearchEvent();
+    bindVideoEvent();
+    bindReelsSortEvent();
+});
+
+const popularCheckbox = document.getElementById('popularCheck');
+const popularCheckLabel = document.querySelector('.reels-sort-btn label');
+
+popularCheckbox.addEventListener('change', (e) => {
+    if (e.target.checked) {
+        popularCheckLabel.classList.add("checked");
+    } else {
+        popularCheckLabel.classList.remove("checked");
+    }
+});
+
+export const renderReelsSwiper = (reelsList) => {
+    swiper = new Swiper(".reels-swiper", {
         slidesPerView: "4",
         spaceBetween: 30,
         freeMode: {
@@ -38,11 +75,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             dragSize: 50
         },
     });
+    swiper.removeAllSlides();
 
     reelsList.forEach(reel => {
         const tagList = reel.tag.slice(0,3).map(tag => `#${tag}`).join(' ');
-        
         const swiperSlide = document.createElement("div");
+
         swiperSlide.className = "swiper-slide";
         swiperSlide.id = reel.id;
 
@@ -71,34 +109,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         swiper.appendSlide(swiperSlide); 
     });
 
-    const customProgressBar = document.querySelector('.swiper-custom-progressbar');
-    swiper.on('progress', (swiper, progress) => {
-        const progressWidth = progress * 100;
-        customProgressBar.style.width = `${progressWidth}%`;
-    });
-
-
-    //게시판 초기화
-    await initDB();
-    updateBoard(currentPage);
-
-    //이벤트 바인딩
-    bindModalEvent();
-    bindPaginationEvent();
-    bindSearchEvent();
-    bindVideoEvent();
-});
-
-const popularCheckbox = document.getElementById('popularCheck');
-const popularCheckLabel = document.querySelector('.reels-sort-btn label');
-
-popularCheckbox.addEventListener('change', (e) => {
-    if (e.target.checked) {
-        popularCheckLabel.classList.add("checked");
-    } else {
-        popularCheckLabel.classList.remove("checked");
-    }
-});
-
-
-
+    swiper.update();
+}

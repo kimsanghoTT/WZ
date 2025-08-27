@@ -182,14 +182,14 @@ html.modal-active{
   justify-content: center;
   pointer-events: none;
 }
-.reels-form-like .ico{
+.reels-like .ico{
   display: inline-block;
   background: url(../source/image/ico/ico_reels_like.png) no-repeat center/cover;
   width: 25px;
   height: 25px;
   filter: invert(1);
 }
-.reels-form-share .ico{
+.reels-share .ico{
   display: inline-block;
   background: url(../source/image/ico/ico_share.png) no-repeat center/cover;
   width: 25px;

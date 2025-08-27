@@ -56,8 +56,8 @@
   background-color: transparent;
 }
 .post-modal .close-btn{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 .form-content-box{
     margin-bottom: 40px;
@@ -506,6 +506,17 @@
 .reels-form .reels-form-right{
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+.reels-form .reels-form-right::-webkit-scrollbar {
+  width: 6px; 
+}
+.reels-form .reels-form-right::-webkit-scrollbar-thumb {
+  background-color: #D33A3C;
+  border-radius: 4px;
+}
+.reels-form .reels-form-right::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 .reels-form-right .reels-form-content{
     display: flex;
@@ -552,6 +563,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .reels-form-like .ico{
   display: inline-block;
@@ -566,4 +578,20 @@
   width: 30px;
   height: 30px;
   filter: invert(1);
+}
+.reels-form-comment{
+    width: 100%;
+}
+.reels-form-comment .comment-notice{
+    opacity: 0.3;
+    font-weight: 300;
+}
+.reels-form-comment .comment-list{
+    width: 100%;
+}
+.reels-form-comment .comment-list .comment{
+    width: 100%;
+}
+.reels-form-comment .comment-list .comment .comment-util{
+    width: 8%;
 }
