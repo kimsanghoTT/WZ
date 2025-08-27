@@ -5,47 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>modal</title>
-    <link rel="stylesheet" href="../css/main-modal.css">
-    <link rel="stylesheet" href="../css/reset.css">
 </head>
 
 <body>
     <div class="hover-modal-container" id="homeHoverModal">
         <div class="modal-video-section">
-            <video src="/source/img/main-modal-img/[아바타 불과 재] 예고편.mp4" muted autoplay></video>
-            <div class="gradient-overlay"></div>
+            <iframe id="hoverModalIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="modal-info-section">
             <div>
                 <div class="title-row">
-                    <h3>아바타 3</h3>
-                    <div class="play-icon"><a href="#"><img src="/source/image/ico/ico_play.png" alt=""></a></div>
+                    <h3><!-- 타이틀 동적 렌더링 --></h3>
+                    <div class="modal-play-icon"><span><img src="/source/image/ico/ico_play.png" alt=""></span></div>
                 </div>
-
+                <div class="hover-modal-tagBox">
+                    <ul class="hover-modal-tags">
+                        <!-- 동적 렌더링 -->
+                    </ul>
+                </div>
+                <div class="content-rating">
+                    <span class="rating"></span> 
+                    <p></p>
+                </div>
                 <div class="inner-plus">
-                    <a href="#">
-                        <h4>더보기</h4>
+                    <button>
+                        <span>더 보기</span>
                         <div class="plus"></div>
-                    </a>
-                </div>
-            </div>
-            <div class="content-tags">
-                <div class="content-inner">
-                    <span class="content">15</span> <p>에피소드 N개</p>
-                </div>
-                <div class="tags">
-                    <span class="tag">
-                        <span class="tag-color">#</span>
-                        <span>tag</span>
-                    </span>
-                    <span class="tag">
-                        <span class="tag-color">#</span>
-                        <span>tag</span>
-                    </span>
-                    <span class="tag">
-                        <span class="tag-color">#</span>
-                        <span>tag</span>
-                    </span>
+                    </button>
                 </div>
             </div>
         </div>

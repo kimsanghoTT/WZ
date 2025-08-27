@@ -1,10 +1,11 @@
 import { fetchData } from "./home_init.js";
-import { hoverModal } from "./home_modal.js";
+import { hoverModal } from "./home_hover_modal.js";
 
 export const bindCardHoverEvent = async () => {
-    const cards = document.querySelectorAll(".swiper-slide");
+    const cards = document.querySelectorAll(".swiper-slide.common");
     const data = await fetchData();
     const hoverModalWrapper = document.getElementById("homeHoverModalWrapper");
+    const container = document.querySelector(".swiper-wrapper");
 
     let showModalTimer;
     let hideModalTimer;

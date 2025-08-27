@@ -1,3 +1,4 @@
+import { bindCardHoverEvent } from "./home_event.js";
 import { renderHomeSwiper } from "./home_swiper.js";
 
 $(function () {
@@ -29,7 +30,9 @@ $(function () {
 
     listContainer.find(".filter-condition-display").text($(this).text());
 
-    renderHomeSwiper(filterCondition, targetedSwiper, listContainer);
+    renderHomeSwiper(filterCondition, targetedSwiper, listContainer)
+    .then(() => bindCardHoverEvent());
+    ;
   });
 
   $('.sub').on('click', function (e) {
