@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         MainDiv.innerHTML = `
                     <h2>${DataAll.title}</h2>
-                    <img src="source/image/content-detail/like02.png" alt="">
-                    <img src="source/image/content-detail/top01.png" alt="">`
+                    <img src="source/image/content-detail/like01.png" alt="">
+                    <img src="source/image/content-detail/top.png" alt="">`
         InfoDive01.innerHTML = `
                 <div class="info-title">
                 <h3>줄거리</h3>
