@@ -85,7 +85,7 @@ export const renderReelsSwiper = (reelsList) => {
         swiperSlide.id = reel.id;
 
         swiperSlide.innerHTML = `
-            <video class="reels-thumbnail" muted src="${reel.video}"></video>
+            <video class="reels-thumbnail" muted src="${reel.video}" type="video/mp4"></video>
             <div class="reels-info-summary">
                 <div class="info-left">
                     <span class="user-name">${reel.creator}</span>

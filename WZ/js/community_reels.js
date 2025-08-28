@@ -12,7 +12,7 @@ export const reelsDetail = (modalElement, reels) => {
     leftSection.innerHTML = 
     `
         <div class="video-container">
-            <video src=${reels.video} loop autoplay controls type="mp4">
+            <video src=${reels.video} loop autoplay controls type="video/mp4">
         </div>
     `
 

@@ -9,13 +9,28 @@
 </head>
 <body>
     <div class="intro-wrapper">
-        <video id="introVideo" src="./source/video/Intro_sample.mp4" type="mp4" autoplay></video>
+        <video id="introVideo"  muted autoplay playsinline>
+            <source src="./source/video/Intro_sample.mp4" type="video/mp4">
+        </video>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
         const introVideo = document.getElementById("introVideo");
+
+        document.body.addEventListener("mouseenter", () => {
+            if(introVideo.muted) {
+                introVideo.muted = false;
+                introVideo.volume = 1;
+                introVideo.play();
+            }
+        });
+
         introVideo.addEventListener("ended", () => {
             window.location.replace("/home.html");
         })
+        })
+
     </script>
 </body>
 </html>

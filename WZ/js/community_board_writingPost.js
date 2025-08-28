@@ -1,6 +1,6 @@
 import { addPost, updatePost, getPost } from "./community_db.js";
 import { filteredPosts, updateBoard } from "./community_board.js";
-import { handleModal } from "./community_board_modal.js";
+import { handleModal } from "./community_modal.js";
 import { currentPage } from "./community_init.js";
 
 export const writingPost = (modalElement, modalWrapper, options, closeModal) => {

@@ -1,4 +1,4 @@
-import { handleModal } from "./community_board_modal.js";
+import { handleModal } from "./community_modal.js";
 import { filteredPosts, searchPost, updateBoard } from "./community_board.js";
 import { updatePost, getPost } from "./community_db.js";
 import { currentPage, renderReelsSwiper } from "./community_init.js";

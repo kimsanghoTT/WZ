@@ -1,6 +1,6 @@
 import { updatePost, deletePost } from "./community_db.js";
 import { filteredPosts, updateBoard } from "./community_board.js";
-import { handleModal } from "./community_board_modal.js";
+import { handleModal } from "./community_modal.js";
 import { postComment, renderComments } from "./community_board_comment.js";
 import { currentPage } from "./community_init.js";
 
