@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/category_detail.css">
     <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script type="module" src="./js/category_detail_init.js"></script>
 </head>
+
 <body>
     <div class="category-detail-wrapper">
         <header id="mainHeader" class="main-header-container">
@@ -25,17 +29,28 @@
             </div>
         </div>
         <div class="category-detail-container">
-            <section class="category-detail-content-box recommend">
+            <section class="category-detail-content-box-rank">
                 <div class="swiper reels-swiper">
+                    <div class="swiper-button-prev">
+                        <img src="source/image/cateagory-detail/left.png" alt="">
+                    </div>
+                    <div class="swiper-button-next">
+                        <img src="source/image/cateagory-detail/right.png" alt="">
+                    </div>
                     <div class="swiper-wrapper">
                         <!-- 스와이퍼 동적 렌더링 -->
                     </div>
-                    <div class="swiper-scrollbar">
-                        <div class="swiper-custom-progressbar"></div>
-                    </div>
                 </div>
             </section>
+            <section class="category-detail-content-box-recommend01">
+                <h3>이번주 추천작 리스트</h3>
+                <div class="recommend01">
+                </div>
+                    <div class="button"><img src="source/image/cateagory-detail/down.png" alt=""></div>
+            </section>
         </div>
+
     </div>
 </body>
+
 </html>

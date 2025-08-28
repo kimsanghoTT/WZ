@@ -88,30 +88,110 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
+        function renderRank() {
+            const swiperRank = document.querySelector('.swiper-wrapper');
+            swiperRank.innerHTML = "";
+
+            for (let i = 0; i < 8 && i < filteredData.length; i++) {
+                const item = filteredData[i];
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+
+                slide.innerHTML = `
+            <a href="content-detail.html?query=${item.id}">
+            <span>${i + 1}</span>
+                <img src="${item.image_poster}" alt="${item.title}">
+            </a>
+            
+        `;
+                swiperRank.appendChild(slide);
+            }
+
+            new Swiper('.reels-swiper', {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                loop: false,
+                allowTouchMove: false,
+                navigation: {
+                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next'
+                }
+            });
+        }
+
+        function renderRecommend() {
+            const recommend01 = document.querySelector('.recommend01');
+            const recommend02 = document.querySelector('.recommend02');
+            recommend01.innerHTML = '';
+
+            for (let i = 0; i < 8 && i < filteredData.length; i++) {
+                const item = filteredData[i];
+                const recommendImg = ` <a href="content-detail.html?query=${item.id}">
+                <img src="${item.image_default}" alt="${item.title}">
+                </a>`;
+
+                recommend01.innerHTML += recommendImg;
+
+            }
+        }
+
+        document.querySelector('.button').addEventListener('click', function () {
+            const recommendBox = document.querySelector('.recommend01');
+
+            if (!recommendBox.classList.contains('expanded')) {
+
+                recommendBox.classList.add('expanded');
+                recommendBox.style.height = '500px';
+                document.querySelector('.button img').style.transform = "rotate(180deg)";
+
+            } else {
+                recommendBox.classList.remove('expanded');
+                recommendBox.style.height = '230px';
+                document.querySelector('.button img').style.transform = "rotate(0deg)";
+            }
+
+
+
+        });
+
+
+
         switch (category) {
             case "animation":
                 filteredData = contentData.filter(content => content.category === category);
                 renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             case "movie":
                 filteredData = contentData.filter(content => content.category === category);
-                renderContent()
+                renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             case "documentary":
                 filteredData = contentData.filter(content => content.category === category);
-                renderContent()
+                renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             case "varietyShow":
                 filteredData = contentData.filter(content => content.category === category);
-                renderContent()
+                renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             case "drama":
                 filteredData = contentData.filter(content => content.category === category);
-                renderContent()
+                renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             case "musical":
                 filteredData = contentData.filter(content => content.category === category);
-                renderContent()
+                renderContent();
+                renderRank();
+                renderRecommend();
                 break;
             default:
                 break;
