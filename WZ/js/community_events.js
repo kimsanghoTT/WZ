@@ -2,7 +2,6 @@ import { handleModal } from "./community_board_modal.js";
 import { filteredPosts, searchPost, updateBoard } from "./community_board.js";
 import { updatePost, getPost } from "./community_db.js";
 import { currentPage, renderReelsSwiper } from "./community_init.js";
-import { sortReels } from "./community_reels.js";
 
 //검색 이벤트
 export const bindSearchEvent = () => {
