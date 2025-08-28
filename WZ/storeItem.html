@@ -12,13 +12,19 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/layout.css">
     <script src="js/layout.js" defer></script>
+    <script src="js/storeItem.js" defer></script>
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="https://kit.fontawesome.com/3da96badf7.js" crossorigin="anonymous"></script>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
         body {
-            background: linear-gradient(white, #ffe6e6);
+            background: linear-gradient(125deg, white 50%, #ffe6e6 60%);
         }
     </style>
 </head>
@@ -106,250 +112,148 @@
         </div>
     </div>
     <div id="wrap">
-        <section id="mainItem">
-            <div class="item1">
-                <h2>AVIOT x <span>WZ</span></h2>
-
-                <div class="tagArea">
-                    <span class="tag">#AVIOT</span>
-                    <span class="tag">#무선이어폰</span>
-                    <span class="tag">#블루투스</span>
-                    <span class="tag">#이어폰</span>
-                    <span class="tag">#시그니처 </span>
-                    <span class="tag">#Extension</span>
-                    <span class="tag">#위즈플레이</span>
-                    <span class="tag">#굿즈</span>
-                </div>
-                <p class="discount">17%</p>
-                <p class="price"><span></span>원</p>
-                <img src="img/store/기타/aviot_w.webp" alt="">
-                <div class="buyOpt">
-                    <button class="buy">구매하기</button>
-                    <div class="optChoice">
-                        <dl>
-                            <dt><a href="#"><span> 옵션선택</span><i class="fa-solid fa-angle-down"></i></a></dt>
-                            <dd>Metalic Black</dd>
-                            <dd>pure white</dd>
-                            <dd>burgundy red(+2000)</dd>
-                            <dd>melo orange(+2000)</dd>
-                        </dl>
-                        <div class="number">
-                    <span>-</span>
-                    <span>2</span>
-                    <span>+</span>
-                </div>
+        <section id="mainItem" class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item">
+                    <div class="colorPack">
+                        <figure style="background-color: #fff;" class="on"></figure>
+                        <figure style="background-color: #FF8F95;"></figure>
+                        <figure style="background-color: #056800;"></figure>
+                        <figure style="background-color: #121212;"></figure>
                     </div>
+                    <img src="img/store/기타/aviot_w.webp" alt="">
                     <div class="itemSummary">
-                    작지만 강력한 퍼포먼스! <br>
-                    프리렌 성우의 선명한 음질이 담긴 이 제품은 
-                    안정적인 블루투스 연결로
-                    당신의 하루를 더 특별하게 만들어 줍니다.
-                </div>
-                </div>
-                
-                <div class="colorPack">
-                    <figure style="background-color: #fff;"></figure>
-                    <figure style="background-color: #FF8F95;"></figure>
-                    <figure style="background-color: #056800;"></figure>
-                    <figure style="background-color: #121212;"></figure>
-                </div>
-            </div>
-            <div class="item2">
-                <h2>AVIOT x <span>WZ</span></h2>
-
-                <div class="tagArea">
-                    <span class="tag">#AVIOT</span>
-                    <span class="tag">#무선이어폰</span>
-                    <span class="tag">#블루투스</span>
-                    <span class="tag">#이어폰</span>
-                    <span class="tag">#시그니처 </span>
-                    <span class="tag">#Extension</span>
-                    <span class="tag">#위즈플레이</span>
-                    <span class="tag">#굿즈</span>
-                </div>
-                <p class="discount">17%</p>
-                <p class="price"><span></span>원</p>
-                <img src="img/store/기타/aviot_p.webp" alt="">
-                <div class="buyOpt">
-                    <button class="buy">구매하기</button>
-                    <div class="optChoice">
-                        <ul>
-                            <li> 옵션선택 </li>
-                            <li>Metalic Black</li>
-                            <li>pure white</li>
-                            <li>burgundy red(+2000)</li>
-                            <li>melo orange(+2000)</li>
-                        </ul>
-                        <div class="itemSummary">
-                    작지만 강력한 퍼포먼스! <br>
-                    프리렌 성우의 선명한 음질이 담긴 이 제품은 안정적인 블루투스 연결로 
-                    당신의 하루를 더 특별하게 만들어 줍니다.
-                </div>
+                                작지만 강력한 퍼포먼스! <br>
+                                프리렌 성우의 선명한 음질이 담긴 이 제품은
+                                안정적인 블루투스 연결로
+                                당신의 하루를 더 특별하게 만들어 줍니다.
+                                오직 위즈플레이에서만 만나볼 수 있는 특별한 아이템!
+                            </div>
+                    <div class="itemFixed">
+                        <h2>AVIOT x <span>WZ</span></h2>
+                        <div class="tagArea">
+                            <span class="tag">#AVIOT</span>
+                            <span class="tag">#무선이어폰</span>
+                            <span class="tag">#블루투스</span>
+                            <span class="tag">#이어폰</span>
+                            <span class="tag">#시그니처 </span>
+                            <span class="tag">#Extension</span>
+                            <span class="tag">#위즈플레이</span>
+                            <span class="tag">#굿즈</span>
+                        </div>
+                        <p class="discount">17%</p>
+                        <p class="price"><span>243,000</span>원</p>
+                        
+                        <div class="buyOpt">
+                            <div class="optChoice">
+                                <dl>
+                                    <dd>Metalic Black</dd>
+                                    <dd>pure white</dd>
+                                    <dd>burgundy red(+2000)</dd>
+                                    <dd>melo orange(+2000)</dd>
+                                    <dt><a href="#"><span> 옵션선택</span><i class="fa-solid fa-angle-up"></i></a></dt>
+                                </dl>
+                                <div class="number">
+                                    <span>-</span>
+                                    <span>2</span>
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <button class="buy">구매하기</button>
+                        </div>
                     </div>
-                </div>
-                <div class="number">
-                    <span>-</span>
-                    <span></span>
-                    <span>+</span>
-                </div>
-                
-                <div class="colorPack">
-                    <figure style="background-color: #fff;"></figure>
-                    <figure style="background-color: #FF8F95;"></figure>
-                    <figure style="background-color: #056800;"></figure>
-                    <figure style="background-color: #121212;"></figure>
-                </div>
-            </div>
-            <div class="item3">
-                <h2>AVIOT x <span>WZ</span></h2>
-
-                <div class="tagArea">
-                    <span class="tag">#AVIOT</span>
-                    <span class="tag">#무선이어폰</span>
-                    <span class="tag">#블루투스</span>
-                    <span class="tag">#이어폰</span>
-                    <span class="tag">#시그니처 </span>
-                    <span class="tag">#Extension</span>
-                    <span class="tag">#위즈플레이</span>
-                    <span class="tag">#굿즈</span>
-                </div>
-                <p class="discount">17%</p>
-                <p class="price"><span></span>원</p>
-                <img src="img/store/기타/aviot_g.webp" alt="">
-                <div class="buyOpt">
-                    <button class="buy">구매하기</button>
-                    <div class="optChoice">
-                        <ul>
-                            <li> 옵션선택 </li>
-                            <li>Metalic Black</li>
-                            <li>pure white</li>
-                            <li>burgundy red(+2000)</li>
-                            <li>melo orange(+2000)</li>
-                        </ul>
-                        <div class="itemSummary">
-                    작지만 강력한 퍼포먼스! <br>
-                    프리렌 성우의 선명한 음질이 담긴 이 제품은 
-                    안정적인 블루투스 연결로 
-                    당신의 하루를 더 특별하게 만들어 줍니다.
-                </div>
-                    </div>
-                </div>
-                <div class="number">
-                    <span>-</span>
-                    <span></span>
-                    <span>+</span>
-                </div>
-                
-                <div class="colorPack">
-                    <figure style="background-color: #fff;"></figure>
-                    <figure style="background-color: #FF8F95;"></figure>
-                    <figure style="background-color: #056800;"></figure>
-                    <figure style="background-color: #121212;"></figure>
-                </div>
-            </div>
-            <div class="item4">
-                <h2>AVIOT x <span>WZ</span></h2>
-
-                <div class="tagArea">
-                    <span class="tag">#AVIOT</span>
-                    <span class="tag">#무선이어폰</span>
-                    <span class="tag">#블루투스</span>
-                    <span class="tag">#이어폰</span>
-                    <span class="tag">#시그니처 </span>
-                    <span class="tag">#Extension</span>
-                    <span class="tag">#위즈플레이</span>
-                    <span class="tag">#굿즈</span>
-                </div>
-                <p class="discount">17%</p>
-                <p class="price"><span></span>원</p>
-                <img src="img/store/기타/aviot_b.webp" alt="">
-                <div class="buyOpt">
-                    <button class="buy">구매하기</button>
-                    <div class="optChoice">
-                        <ul>
-                            <li> 옵션선택 </li>
-                            <li>Metalic Black</li>
-                            <li>pure white</li>
-                            <li>burgundy red(+2000)</li>
-                            <li>melo orange(+2000)</li>
-                        </ul>
-                        <div class="itemSummary">
-                    작지만 강력한 퍼포먼스! <br>
-                    프리렌 성우의 선명한 음질이 담긴 이 제품은
-                    안정적인 블루투스 연결로 
-                    당신의 하루를 더 특별하게 만들어 줍니다.
-                </div>
-                    </div>
-                </div>
-                <div class="number">
-                    <span>-</span>
-                    <span></span>
-                    <span>+</span>
-                </div>
-                
-                <div class="colorPack">
-                    <figure style="background-color: #fff;"></figure>
-                    <figure style="background-color: #FF8F95;"></figure>
-                    <figure style="background-color: #056800;"></figure>
-                    <figure style="background-color: #121212;"></figure>
                 </div>
             </div>
         </section>
         <section id="oneSentense">
-            <div class="coment1">
-                <figure class="comProfile"></figure>
-                <p class="name">아이돌 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! <br>전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+            <div class="senWrap">
+                <div class="coment coment1">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="coment coment2">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="coment coment3">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="coment coment4">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="coment coment5">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="coment coment6">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
             </div>
-            <div class="coment2">
-                <figure class="comProfile"></figure>
-                <p class="name">잠자는 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>수면 전 ASMR 트랙 듣고 바로 취침. <br>노이즈 적고 샤샤삭 소리도 부담 없어요.</p>
-            </div>
-            <div class="coment3">
-                <figure class="comProfile"></figure>
-                <p class="name">화가난 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>가격 대비 만족도 높음. <br>지갑은 잠깐 울었지만 귀와 심장은 크게 웃음.</p>
-            </div>
-            <div class="coment4">
-                <figure class="comProfile"></figure>
-                <p class="name">이상한 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>운동 중에도 끊김 없이 재생. <br>“할 수 있어요!” 한마디에 1세트 더 했습니다.</p>
-            </div>
-            <div class="coment5">
-                <figure class="comProfile"></figure>
-                <p class="name">새침한 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>배터리 반나절 써도 여유. <br>롱테이크 대사도 끝까지 안정적입니다.</p>
-            </div>
-            <div class="coment6">
-                <figure class="comProfile"></figure>
-                <p class="name">행복한 푸린님</p>
-                <span><img src="img/ico/ico_star.svg" alt="">5.0</span>
-                <p>케이스 작고 마감 깔끔. <br>꺼내자마자 연결—첫 대사부터 음장감 좋네요.</p>
-            </div>
+
+
         </section>
         <section id="itemInfo">
             <div class="itemAS">
                 <ul>
-                    <li>상품번호</li>
-                    <li><span class="random10"></span></li>
-                    <li>제조사</li>
-                    <li><span class="company"></span></li>
-                    <li>원산지</li>
-                    <li><span class="naturalNation"></span></li>
+                    <li>
+                        <p>상품번호</p><span class="random10">12332165</span>
+                    </li>
+                    <li>
+                        <p>제조사</p><span class="company">대한민국</span>
+                    </li>
+                    <li>
+                        <p>원산지</p><span class="naturalNation">일본</span>
+                    </li>
                 </ul>
                 <ul>
-                    <li>출시일자</li>
-                    <li><span class="oneYearLater"></span></li>
-                    <li>A/S</li>
-                    <li>구매 후 6개월 이내 무상 수리 가능</li>
-                    <li>반품여부</li>
-                    <li>반품 불가 상품입니다.</li>
+                    <li>
+                        <p>출시일자</p><span class="oneYearLater"></span>
+                    </li>
+                    <li>
+                        <p>A/S</p><span>구매 후 6개월 이내 무상 수리 가능</span>
+                    </li>
+                    <li>
+                        <p>반품여부</p><span>반품 불가 상품입니다.</span>
+                    </li>
                 </ul>
             </div>
             <div class="sendDay">
@@ -357,21 +261,21 @@
                 <p>평균 배송기간은 3일 이내입니다.</p>
                 <p>*주말/공휴일을 제외한 영업 기준</p>
             </div>
-            <article class="ItemTxt1">
+            <article class="itemTxt1">
                 <img src="img/store/기타/aviot_w.webp" alt="아비오트이어폰">
-                <p>콜라보 전문기업 아비오트에서 새롭게 선보이는 아비오트x장송의 프리렌 블루투스 이어폰!
-                    더욱 향상된 음질과 깔끔하고 세련된 디자인으로 찾아왔습니다.
-                </p>
+                <p>콜라보 전문기업 아비오트에서 새롭게 선보이는 아비오트x장송의 프리렌 블루투스 이어폰! </p>
+                <P>더욱 향상된 음질과 깔끔하고 세련된 디자인으로 찾아왔습니다.</P>
+
             </article>
-            <article class="ItemTxt2">
+            <article class="itemTxt2">
                 <img src="img/store/기타/aviot_2.webp" alt="아비오트이어폰">
-                <p> 마법의 책 형태로 디자인된 패키지 속에는 전용 충전기, 대사 모음 책자, 사용 메뉴얼이 동봉되어 있습니다.</p>
+                <p> 마법의 책 형태로 디자인된 패키지 속에는 전용 충전기, 대사 모음 책자, </p>
+                <p>사용 메뉴얼이 동봉되어 있습니다.</p>
             </article>
-            <article class="ItemTxt3">
+            <article class="itemTxt3">
                 <img src="img/store/기타/aviot_3.webp" alt="아비오트이어폰">
-                <p>세계적인 지휘자 알렌 그레고리가 함께한 오케스트라의 음악을 샘플로 담겨있습니다.
-                    <br> 아비오트는 여러분의 일상 속 품격을 높여드리기 위해 최선을 다하겠습니다.
-                </p>
+                <p>세계적인 지휘자 알렌 그레고리가 함께한 오케스트라의 음악을 샘플로 담겨있습니다.</p>
+                <p>아비오트는 여러분의 일상 속 품격을 높여드리기 위해 최선을 다하겠습니다.</p>
             </article>
             <div class="itemPoint">
                 <div class="play24">
@@ -386,17 +290,20 @@
                     <img src="img/ico/cficonsp_radar.png" alt="블루투스 위치추적">
                     <p>위치 추적 기능 탑재</p>
                 </div>
+            </div>
+            <div class="pint">
                 <p>아비오트만의 기술로 최대 47시간동안 사용이 가능합니다. 앰비오트 마이크를 통해 통화시 주변 소음을 차단하며, 분실 시에도 탑재된 gps를 통해 찾을 수 있습니다.</p>
-                <div class="caution">
-                    <ul>
-                        <li>Ultrices aliquam faucibus adipiscing nulla et. Congue etiam neque volutpat orci nibh neque
-                            enim adipiscing. </li>
-                        <li>Eget id commodo etiam proin iaculis feugiat proin id aliquam. Amet aenean fermentum id
-                            vulputate. </li>
-                        <li>Egestas commodo nisi amet viverra dictumst odio eget nunc sit. </li>
-                        <li>Ornare arcu luctus nec morbi ac sed ullamcorper.</li>
-                    </ul>
-                </div>
+            </div>
+            <div class="caution">
+                <h3>⚠ Caution</h3>
+                <ul>
+                    <li>Ultrices aliquam faucibus adipiscing nulla et. Congue etiam neque volutpat orci nibh neque
+                        enim adipiscing. </li>
+                    <li>Eget id commodo etiam proin iaculis feugiat proin id aliquam. Amet aenean fermentum id
+                        vulputate. </li>
+                    <li>Egestas commodo nisi amet viverra dictumst odio eget nunc sit. </li>
+                    <li>Ornare arcu luctus nec morbi ac sed ullamcorper.</li>
+                </ul>
             </div>
         </section>
         <footer id="mainFooter" class="main-footer-wrapper">
