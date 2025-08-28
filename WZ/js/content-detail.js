@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div class="list">
                         </div>           
                         </div>`
-                        
+
 
         // 별점,% 랜덤
         function randomstar(min, max) {

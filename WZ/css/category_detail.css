@@ -1,0 +1,27 @@
+
+
+.category-detail-main-visual {
+    position: relative;
+    height: 800px;
+    padding-top: 80px;
+}
+
+
+.category-detail-main-visual > .overlay-text {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    color: #fff;
+}
+
+
+.category-detail-main-visual > .overlay-text >.category-detail-main-visual-title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.category-detail-main-visual > .overlay-text >.category-detail-main-visual-text {
+    font-size: 20px;
+    font-weight: 400;
+}
