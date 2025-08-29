@@ -28,8 +28,7 @@
 .category-detail-container {
     position: relative;
     width: 1600px;
-    margin: 50px auto;
-    height: 200vh;
+    margin: 50px auto 300px;
 }
 
 .category-detail-container>.category-detail-content-box-rank {
@@ -140,4 +139,34 @@
     left: 48.2%;
     top: -20px;
     background: #21252B;
+}
+
+/* fixed */
+
+.fixed {
+    width: 120px;
+    height: 350px;
+    background: #21252B;
+    border: 1px solid #ffffff;
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.fixed > span {
+    display: block;
+    font-size: 20px;
+    margin: 20px 0 30px;
+    font-weight: 500;
+    color: #fff;
+}
+.fixed > .menu > a > p {
+    line-height: 2.5;
+    color: #fff;
+}
+.fixed > .menu > a > p:hover {
+    font-weight: 500;
+    color: #D33A3C;
 }

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 desc: "진실과 깊은 통찰이 담긴, 다큐멘터리의 세계로 초대합니다."
             },
             {
-                category: "varietyshow",
+                category: "varietyShow",
                 title: "예능",
                 desc: "즐거움과 웃음이 넘치는, 예능의 세계로 초대합니다."
             },
@@ -144,14 +144,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (slideHeight01 === "240px") {
                     recommendImg01.style.height = "480px";
                     this.style.transform = "rotate(180deg)";
+                    document.querySelector('.category-detail-content-box-recommend').scrollIntoView({behavior: "smooth", block: "end"});
+                return;
                 } else {
                     recommendImg01.style.height = "240px";
                     this.style.transform = "rotate(0deg)";
                 }
-                return;
+                
+                
 
             })
 
+            
             document.querySelector('.recommend02 > .button > img').addEventListener('click', function () {
                 const recommendImg02 = document.querySelector('.recommendImg02');
                 const slideHeight02 = window.getComputedStyle(recommendImg02).height;
@@ -159,12 +163,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (slideHeight02 === "240px") {
                     recommendImg02.style.height = "480px";
                     this.style.transform = "rotate(180deg)";
+                    document.querySelector('.recommend02').scrollIntoView({behavior: "smooth"});
                 } else {
                     recommendImg02.style.height = "240px";
                     this.style.transform = "rotate(0deg)";
                 }
+                
                 return;
-
             })
 
         }
