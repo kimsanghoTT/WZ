@@ -76,12 +76,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
 
+        const korCategory =  
+           { animation: "애니메이션",
+            movie: "영화",
+            drama: "드라마",
+            musical: "뮤지컬",
+            documentary: "다큐멘터리",
+            varietyShow: "예능"}
+        
+
+        const kor = korCategory[DataAll.category] || DataAll.category;
 
         InfoDiv02.innerHTML = `
                         <h3><span style="background-color: ${backgroundColor};">${DataAll.rating}</span>작품정보</h3>
                         <ul class="info02-text">
-                            <li><span>출연 :</span> ${DataAll.cast}</li>
-                            <li><span>장르 :</span> ${DataAll.category}</li>
+                            ${DataAll.cast && DataAll.cast.length > 0 ? `<li><span>출연 :</span> ${DataAll.cast}</li>` : ''}
+                            <li><span>장르 :</span> ${korCategory[DataAll.category]}</li>
                             <li><span>감독 :</span> ${DataAll.director}</li>
                             <li><span>제작사 :</span> ${DataAll.production}</li>
                             <li>${DataAll.tag.map(tag => `#${tag.trim()}`).join(' ')}</li>
