@@ -56,11 +56,11 @@
                 <div class="account-box">
                     <span class="user-name">user</span>
                     <span class="user-profile">
-                        <img src="./source/img/user.jpg" alt="profile" />
+                        <img src="./source/image/user.jpg" alt="profile" />
                     </span>
                     <div class="account-hover-box">
                         <div class="hover-box-upper">
-                            <img src="./source/img/user.jpg" alt="profile" />
+                            <img src="./source/image/user.jpg" alt="profile" />
                             <span>userName</span>
                         </div>
                         <div class="hover-box-nav">
@@ -82,12 +82,10 @@
     <!-- 메인 auto 동영상 -->
     <section>
         <div class="main-video">
-            <video autoplay muted>
-                <source src="./source/video/home_banner.mp4" type="video/mp4">
-            </video>
+            <video id="bannerVideo" src="" type="video/mp4" autoplay muted loop></video>
             <div class="main-video-inner-btn">
-                <a href="#"><img src="./source/image/ico/ico_play.png" alt="">예고보기</a>
-                <a href="#"><img class="other" src="./source/image/ico/ico_info.png" alt="">상세정보</a>
+                <a href="#" class="watch-btn"><img src="./source/image/ico/ico_play.png" alt="">예고보기</a>
+                <a href="#" class="more-btn"><img class="other" src="./source/image/ico/ico_info.png" alt="">상세정보</a>
             </div>
         </div>
     </section>
@@ -186,53 +184,7 @@
         <div class="grid-content-wrapper">
             <h2>WZ Play 독점작</h2>
             <div class="grid-container">
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_Cats_P.png" alt="">
-                        <div class="overlay-text">캣츠</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_Greatest_showman_P.png" alt="">
-                        <div class="overlay-text">위대한 쇼맨</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_Hero_P.png" alt="">
-                        <div class="overlay-text">영웅</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href=""><img src="./source/img/img_P/mu_Theform_P.png" alt="">
-                        <div class="overlay-text">더 프롬</div>
-                    </a>
-                </div>
-
-                <!-- <div class="grid-item center-logo"><span>WZ</span>play</div> -->
-                <div class="logo-wrapper">
-                    <span class="logo-wz">WZ</span>
-                    <div class="logo-play">play</div>
-                </div>
-
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_Wicked_P.png" alt="">
-                        <div class="overlay-text">위키드</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_Joker_P.png" alt="">
-                        <div class="overlay-text">조커: 폴리 아 되</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_West_side_story_P.png" alt="">
-                        <div class="overlay-text">웨스트 사이드 스토리</div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#"><img src="./source/img/img_P/mu_High_school_musical_P.png" alt="">
-                        <div class="overlay-text">하이스쿨 뮤지컬</div>
-                    </a>
-                </div>
+                <!-- 동적 렌더링 -->
             </div>
         </div>
     </section>
@@ -242,7 +194,7 @@
         <div class="community-section">
             <h2>Top 5 인기글 보러가기</h2>
             <div class="community-item">
-                <img src="../source/img/user.jpg" alt="프로필">
+                <img src="../source/image/user.jpg" alt="프로필">
                 <div class="community-post-content">
                     <div class="community-post-title"><span>탈모 완치 가능한거 앎?</span>
                         <div class="community-post-icon">
@@ -272,7 +224,7 @@
             </div>
 
             <div class="community-item">
-                <img src="./source/img/user02.jpg" alt="프로필">
+                <img src="./source/image/user02.jpg" alt="프로필">
                 <div class="community-post-content">
                     <div class="community-post-title"><span>지금 인천 물에 잠겨서 난리남</span>
                         <div class="community-post-icon">
@@ -362,7 +314,7 @@
         <!-- 동적 렌더링 -->
     </div>
 
-    <div class="home-click-modal-wrapper" id="homeClickModalWrapper">
+    <div class="home-detail-modal-wrapper" id="homeDetailModalWrapper">
         <!--동적렌더링-->
     </div>
 </body>

@@ -25,3 +25,10 @@ a {
 .hidden{
     display: none;
 }
+.blind {
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
+}

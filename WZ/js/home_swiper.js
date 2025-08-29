@@ -110,7 +110,7 @@ export const renderAutoplaySwiper = async () => {
             <h3>${item.title}</h3>
             <ul class="inner-plus">
               <li>
-                <a href="content-detail.html?query=${item.id}">
+                <a href="/content-detail.html?query=${item.id}">
                   더 보기
                   <div class="plus"></div>
                 </a>

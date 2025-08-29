@@ -8,7 +8,14 @@ export const initPlayer = (iframe, modalElement, videoId) => {
                     if (videoId) event.target.loadVideoById(videoId);
                     bindPlayButton(modalElement, player); // 모달별 player 전달
                 }
-            }
+            },
+            playerVars: {
+                autoplay: 1,
+                controls: 0,
+                loop: 1,
+                playlist: videoId,   // 루프용
+                mute: 1
+            },
         });
         modalElement.player = player; // 모달에 player 저장
     };

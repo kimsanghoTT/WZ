@@ -1,6 +1,4 @@
 @charset "utf-8";
-
-
 /*호버 모달*/
 .home-hover-modal-wrapper {
   position: fixed;
@@ -205,57 +203,114 @@
   font-style: italic;
 }
 .hover-modal-tags .tag .hash{
-  color: aqua;
+  color: #D33A3C;
 }
 
 
 /*클릭 모달*/
-.main-modal-inner-wrapper {
-    width: 900px;
-    height: 1500px;
+.home-detail-modal-wrapper{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: none;
+  z-index: 999;
+  background: rgba(0,0,0,0.5);
+  inset: 0;
+}
+.home-detail-modal-wrapper.active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail-modal-container {
+    display: block;
+    width: 1200px;
+    height: 95%;
     background-color: #21252b;
     color: white;
     border-radius: 10px;
     padding-bottom: 40px;
+    overflow-y: scroll;
 }
-
-.modal-inner-video-section {
-    position: relative;
-    height: 20%;
+.detail-modal-container::-webkit-scrollbar {
+  width: 6px; 
+}
+.detail-modal-container::-webkit-scrollbar-thumb {
+  background-color: #D33A3C;
+  border-radius: 4px;
+}
+.detail-modal-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.detail-modal-video-section {
     width: 100%;
     overflow: hidden;
-    border-radius: 10px 10px 0 0;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    height: calc(1200px * 9 / 16);
 }
 
-.modal-inner-video-section video {
+.detail-modal-video-section::before {
+    content: '';
+    display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #21252B, transparent 50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.detail-modal-video-section iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    pointer-events: none;
+    overflow: hidden;
 }
-.x-button {
+.close-button {
     position: absolute;
     top: 7px;
     right: 7px;
-}
-.x-button img {
     width: 25px;
+    height: 25px;
+}
+.close-button img {
+    width: 100%;
+    height: 100%;
     opacity: 0.6;
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
-.x-button:hover img {
+.close-button:hover img {
     transform: scale(1.1);
     opacity: 1;
-    filter: drop-shadow(0 0 6px #ffffff);
+    filter: drop-shadow(0 0 10px #D33A3C);
 }
-.modal-play-icon img {
-    width: 40px;
+
+.detail-modal-video-section .modal-play-icon{
+  position: absolute;
+  z-index: 4;
+  bottom: 10%;
+  left: 10%;
+  width: 50px;
+  height: 50px;
+}
+.detail-modal-video-section .modal-play-icon img {
+    width: 100%;
+    height: 100%;
     opacity: 0.7;
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.detail-modal-video-section .modal-play-icon:hover img {
+  opacity: 1; /* 완전한 흰색 */
+  filter:
+    drop-shadow(0 0 3px #ffffff48)
+    drop-shadow(0 0 2px #ffffff48)
+    drop-shadow(0 0 2px #ffffff48);
 }
 
 /* 
@@ -265,17 +320,17 @@
     filter: drop-shadow(0 0 6px #ffffff80);
 } */
 
-.modal-content {
+.detail-modal-content {
     padding: 30px;
 }
 
-.modal-content .icon-wrapper {
+.detail-modal-content .title-box {
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 40px;
 }
 
-.modal-content h2 {
+.detail-modal-content h2 {
     font-size: 50px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -289,7 +344,12 @@
     width: 25px;
 
 }
-.tags .tag {
+.detail-modal-tags{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.detail-modal-tags .tag {
     font-size: 14px;
     color: #ccc;
     background: #333;
@@ -298,49 +358,63 @@
     word-break: keep-all;
 }
 
-.info-tags {
-    margin-top: 20px;
+.content-info {
+    margin-bottom: 30px;
+}
+.content-info > div{
+  margin-bottom: 20px;
+}
+.content-info .rating{
+  color: white;
+  font-size: 24px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 6px;
 }
 
-.info-tags span {
-    display: block;
+.content-info p {
     font-size: 14px;
     color: #999;
     margin-bottom: 6px;
 }
 
-.text-detail {
+.content-summary {
     font-size: 18px;
     font-weight: 300;
     color: #ddd;
     line-height: 1.2;
-    margin: 20px 0;
-}
-
-.modal-inner-more-info {
     margin-bottom: 50px;
-    color: white;
-
 }
 
-.modal-inner-more-info a {
+.detail-modal-more-info {
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+.detail-modal-more-info a {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-size: 30px;
+    font-size: 25px;
+    color: #fff;
 }
 
-.modal-inner-more-info img {
+.detail-modal-more-info img {
     width: 30px;
     transition: transform 0.5s ease;
 }
 
-.modal-inner-more-info:hover a img {
+.detail-modal-more-info:hover a img {
     transform: translateX(20px);
 }
 
 /* 관련콘텐츠  */
-.inner-contentBox-title {
+.inner-contentBox-title{
+  margin-bottom: 20px;
+}
+.inner-contentBox-title span{
     display: inline-block;
     color: #ddd;
     font-size: 20px;
@@ -349,7 +423,6 @@
     padding: 10px;
     border-radius: 8px 8px 0 0;
 }
-
 .contentBox-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -358,46 +431,60 @@
 .contentBox-grid .box:hover img {
     transform: scale(1.05);
 }
-.box:first-child {
+.contentBox-grid .box:first-child {
     background-color: #1C1F25;
     border-radius: 0 8px 8px 8px;
 }
 
-.box .box-inner-contain {
+.contentBox-grid .box .box-inner-contain {
     padding: 10px;
 }
-
-.box {
+.contentBox-grid .box {
     background-color: #1C1F25;
     border-radius: 8px;
     overflow: hidden;
 }
-
-.box img {
-    border-radius: 8px 8px 0 0;
-    overflow: hidden;
-    width: 100%;
-    transition: transform 0.4s ease;
+.box-inner-img-box{
+  width: 100%;
+  height: 40%;
+  overflow: hidden;
 }
-
-.box h4 {
+.contentBox-grid .box img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    object-fit: cover;
+}
+.contentBox-grid .box a{
+  color: #fff;
+}
+.contentBox-grid .box h4 {
     font-size: 25px;
     margin-bottom: 6px;
 }
 
-.box .box-detail-tags {
+.contentBox-grid .box .box-detail-tags {
     margin-bottom: 10px;
     display: flex;
     gap: 12px;
     font-size: 15px;
     font-weight: 200;
+    font-style: italic;
+    opacity: 0.7;
 }
-
-.box p {
+.box-detail-tags .hash{
+  color: #D33A3C;
+}
+.contentBox-grid .box p {
     font-size: 13px;
     color: #bbb;
     line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.box-detail-tags-tag >.tag-color {
+.contentBox-grid .box-detail-tags-tag >.tag-color {
     color: #d16a6a;
 }
