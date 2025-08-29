@@ -72,6 +72,14 @@ body {
     color: #fff;
     font-weight: 500;
     font-size: 35px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.445)
+}
+#container h2.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 .list {
     margin-bottom: 80px;
