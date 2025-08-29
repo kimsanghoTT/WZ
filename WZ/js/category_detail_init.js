@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const item = filteredData[i];
                 const recommendImg = ` <a href="content-detail.html?query=${item.id}">
                 <img src="${item.image_default}" alt="${item.title}">
-                </a>`;
+                <span>${item.title}</span>
+                </a> `;
 
                 if (i > 7) {
                     recommendImg01.innerHTML += recommendImg;

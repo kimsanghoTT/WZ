@@ -19,6 +19,7 @@ const fetchData = async () => {
     return dataArray;
 }
 
+
 /* render */
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -37,12 +38,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const Episode = document.getElementById('episode-list');
 
         const MainDiv = document.createElement('div');
-        const InfoDive01 = document.createElement('div');
         const InfoDiv02 = document.createElement('div');
         const EpisodeDiv = document.createElement('div');
 
         MainDiv.classList.add('main-text');
-        InfoDive01.classList.add('info01');
         InfoDiv02.classList.add('info02');
         EpisodeDiv.classList.add('episodeAll');
 
@@ -59,12 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <h2>${DataAll.title}</h2>
                     <img src="source/image/content-detail/like01.png" alt="">
                     <img src="source/image/content-detail/top.png" alt="">`
-        InfoDive01.innerHTML = `
-                <div class="info-title">
-                <h3>줄거리</h3>
-                <a href="#"><img src="source/image/content-detail/share.png" alt="share"></a>
-                </div>
-                <p>${DataAll.summary}</p>`;
+        document.querySelector('.info01 > p').innerHTML = `${DataAll.summary}`;
 
 
         /* 관람가 배경색 */
@@ -72,13 +66,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         let backgroundColor = "";
         if (rating === 'ALL') {
-            backgroundColor = "#2196F3";
+            backgroundColor = "#1CA40C";
         } else if (rating === '18+') {
-            backgroundColor = "#F44336";
+            backgroundColor = "#D60000";
         } else if (rating === '15+') {
-            backgroundColor = "#FF9800";
+            backgroundColor = "#DD8100";
         } else {
-            backgroundColor = "#4CAF50";
+            backgroundColor = "#E5B200";
         }
 
 
@@ -139,7 +133,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     </div>`
         }
         Main.appendChild(MainDiv);
-        Info1.appendChild(InfoDive01);
         Info1.appendChild(InfoDiv02);
         Episode.appendChild(EpisodeDiv);
 
@@ -223,4 +216,17 @@ document.getElementById('review-button').addEventListener('click', function (e) 
         sadNum++;
         sNum.textContent = sadNum;
     }, { once: true })
+})
+
+document.querySelector('.share').addEventListener('click', function () {
+    const URL = window.location.href;
+
+    navigator.clipboard.writeText(URL)
+        .then(() => {
+            alert("링크가 복사되었습니다!");
+        })
+        .catch(err => {
+            alert("링크 복사에 실패했습니다 😢");
+            console.error(err);
+        });
 })
