@@ -89,49 +89,55 @@
 
 /* recommend */
 
-.category-detail-container>.category-detail-content-box-recommend01 {
-    border-bottom: 1px solid #585858;
-    position: relative;
-}
-
-.category-detail-container>.category-detail-content-box-recommend01>h3 {
+.category-detail-container>.category-detail-content-box-recommend>.recommend01>h3,
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>h3 {
     font-size: 35px;
     font-weight: 500;
     color: #fff;
     margin-bottom: 50px;
 }
 
-.category-detail-container>.category-detail-content-box-recommend01>.recommend01 {
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>h3 {
+    font-size: 35px;
+    font-weight: 500;
+    color: #fff;
+    margin: 150px 0 50px;
+}
+
+.category-detail-container>.category-detail-content-box-recommend>.recommend01>.recommendImg01,
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>.recommendImg02 {
     margin: 0 auto;
     width: 1500px;
     display: flex;
+    overflow: hidden;
+    height: 240px;
     gap: 30px;
     flex-wrap: wrap;
-    height: 230px;
-    overflow: hidden;
     transition: height 0.5s ease;
 }
 
-.category-detail-container>.category-detail-content-box-recommend01>.recommend01>a>img {
+.category-detail-container>.category-detail-content-box-recommend>.recommend01>.recommendImg01>a>img,
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>.recommendImg02>a>img {
     width: 350px;
     height: 200px;
     border-radius: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
 }
 
-.recommend01.expanded {
-    height: 500px;
+.category-detail-container>.category-detail-content-box-recommend>.recommend01>.button,
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>.button {
+    position: relative;
+    border: 1px solid #727272;
+    top: 20px;
 }
 
-.category-detail-container>.category-detail-content-box-recommend01>.button {
-    position: absolute;
-    left: 50%;
-    bottom: -10%;
-    transform: translateX(-51%);
-    background: #21252B;
-}
-
-.category-detail-container>.category-detail-content-box-recommend01>.button>img {
+.category-detail-container>.category-detail-content-box-recommend>.recommend01>.button>img,
+.category-detail-container>.category-detail-content-box-recommend>.recommend02>.button>img {
     width: 48px;
     height: 48px;
-    opacity: 50%;
+    position: absolute;
+    left: 48.2%;
+    top: -20px;
+    background: #21252B;
 }

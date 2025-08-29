@@ -120,39 +120,54 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         function renderRecommend() {
-            const recommend01 = document.querySelector('.recommend01');
-            const recommend02 = document.querySelector('.recommend02');
-            recommend01.innerHTML = '';
+            const recommendImg01 = document.querySelector('.recommendImg01');
+            const recommendImg02 = document.querySelector('.recommendImg02');
+            recommendImg01.innerHTML = '';
 
-            for (let i = 0; i < 8 && i < filteredData.length; i++) {
+            for (let i = 0; i < 16 && i < filteredData.length; i++) {
                 const item = filteredData[i];
                 const recommendImg = ` <a href="content-detail.html?query=${item.id}">
                 <img src="${item.image_default}" alt="${item.title}">
                 </a>`;
 
-                recommend01.innerHTML += recommendImg;
-
+                if (i > 7) {
+                    recommendImg01.innerHTML += recommendImg;
+                } else {
+                    recommendImg02.innerHTML += recommendImg;
+                }
             }
+
+            document.querySelector('.recommend01 > .button > img').addEventListener('click', function () {
+                const recommendImg01 = document.querySelector('.recommendImg01');
+                const slideHeight01 = window.getComputedStyle(recommendImg01).height;
+
+                if (slideHeight01 === "240px") {
+                    recommendImg01.style.height = "480px";
+                    this.style.transform = "rotate(180deg)";
+                } else {
+                    recommendImg01.style.height = "240px";
+                    this.style.transform = "rotate(0deg)";
+                }
+                return;
+
+            })
+
+            document.querySelector('.recommend02 > .button > img').addEventListener('click', function () {
+                const recommendImg02 = document.querySelector('.recommendImg02');
+                const slideHeight02 = window.getComputedStyle(recommendImg02).height;
+
+                if (slideHeight02 === "240px") {
+                    recommendImg02.style.height = "480px";
+                    this.style.transform = "rotate(180deg)";
+                } else {
+                    recommendImg02.style.height = "240px";
+                    this.style.transform = "rotate(0deg)";
+                }
+                return;
+
+            })
+
         }
-
-        document.querySelector('.button').addEventListener('click', function () {
-            const recommendBox = document.querySelector('.recommend01');
-
-            if (!recommendBox.classList.contains('expanded')) {
-
-                recommendBox.classList.add('expanded');
-                recommendBox.style.height = '500px';
-                document.querySelector('.button img').style.transform = "rotate(180deg)";
-
-            } else {
-                recommendBox.classList.remove('expanded');
-                recommendBox.style.height = '230px';
-                document.querySelector('.button img').style.transform = "rotate(0deg)";
-            }
-
-
-
-        });
 
 
 
