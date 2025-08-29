@@ -1,3 +1,19 @@
+//import { opttext } from "./storeItem.js";
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ... (기존 코드 상단/중단 어디든 안전한 위치에 추가)
+
+  const optionVal = localStorage.getItem('selectedOption');
+  const qtyVal    = localStorage.getItem('selectedQuantity');
+
+  const optionEl = document.querySelector('.itemArea .option');
+  const qtyEl    = document.querySelector('.itemArea .quantity');
+
+  if (optionEl && optionVal) optionEl.textContent = optionVal;
+  if (qtyEl) qtyEl.textContent = (qtyVal && /^\d+$/.test(qtyVal)) ? qtyVal : '1';
+});
+
 
 /* 주문취소 막아버리기 */
 document.addEventListener("DOMContentLoaded", () => {
@@ -44,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const deliveryNumSpan = document.querySelector(".sendSearch span");
   if (deliveryNumSpan) deliveryNumSpan.textContent = getRandomNumber(8);
+
+  /* console.log(opttext);
+  document.querySelector(".itemArea .option").textContent= opttext; */
+
 
   // 2) storeBuy의 배송요청 메모
   const msg = localStorage.getItem("msgInfo");

@@ -1,4 +1,3 @@
-
 function stripWonKeepComma(t) { return (t || '').toString().trim().replace(/[^\d,]/g, ''); }
 function uncomma(s) { return parseInt(String(s || '').replace(/,/g, ''), 10) || 0; }
 
@@ -87,7 +86,7 @@ $(function () {
     $('#wrap #payBefore .innerBox .sale').removeClass('is-active');
     $(this).addClass('is-active');
 
-    const basePrice = 69000;
+    const basePrice = 243000;
     const percent = parseInt($(this).find('span').text(), 10) || 0;
     const discount = Math.floor(basePrice * percent / 100);
     const finalPrice = basePrice - discount;
@@ -260,7 +259,7 @@ $(function () {
 
   /* 초기 금액 세팅 */
   (function () {
-    const basePrice = 69000;
+    const basePrice = 243000;
     const $right = $('#payBefore .right');
     const $calc = $('#payAfter .calculation');
 

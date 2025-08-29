@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/layout.css">
     <script src="js/layout.js" defer></script>
-    <script src="js/storeItem.js" defer></script>
+    <script type="module" src="js/storeItem.js" defer></script>
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
@@ -112,9 +112,8 @@
         </div>
     </div>
     <div id="wrap">
-        <section id="mainItem" class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide item">
+        <section id="mainItem" >
+                <div class="item">
                     <div class="colorPack">
                         <figure style="background-color: #fff;" class="on"></figure>
                         <figure style="background-color: #FF8F95;"></figure>
@@ -122,6 +121,9 @@
                         <figure style="background-color: #121212;"></figure>
                     </div>
                     <img src="img/store/기타/aviot_w.webp" alt="">
+                    <img src="img/store/기타/aviot_p.webp" alt="">
+                    <img src="img/store/기타/aviot_g.webp" alt="">
+                    <img src="img/store/기타/aviot_b.webp" alt="">
                     <div class="itemSummary">
                                 작지만 강력한 퍼포먼스! <br>
                                 프리렌 성우의 선명한 음질이 담긴 이 제품은
@@ -130,44 +132,48 @@
                                 오직 위즈플레이에서만 만나볼 수 있는 특별한 아이템!
                             </div>
                     <div class="itemFixed">
-                        <h2>AVIOT x <span>WZ</span></h2>
-                        <div class="tagArea">
-                            <span class="tag">#AVIOT</span>
-                            <span class="tag">#무선이어폰</span>
-                            <span class="tag">#블루투스</span>
-                            <span class="tag">#이어폰</span>
-                            <span class="tag">#시그니처 </span>
-                            <span class="tag">#Extension</span>
-                            <span class="tag">#위즈플레이</span>
-                            <span class="tag">#굿즈</span>
+                        <div class="itemTitle">
+                            <h2>AVIOT x <span>WZ</span></h2>
+                            <div class="tagArea">
+                                <span class="tag">#AVIOT</span>
+                                <span class="tag">#무선이어폰</span>
+                                <span class="tag">#블루투스</span>
+                                <span class="tag">#이어폰</span>
+                                <span class="tag">#시그니처 </span>
+                                <span class="tag">#Extension</span>
+                                <span class="tag">#위즈플레이</span>
+                                <span class="tag">#굿즈</span>
+                            </div>
+                            <p class="price" style="color: #d33a3c;">17%</p>
+                            <p class="price price2"><span>243,000</span>원</p>
                         </div>
-                        <p class="discount">17%</p>
-                        <p class="price"><span>243,000</span>원</p>
                         
                         <div class="buyOpt">
                             <div class="optChoice">
-                                <dl>
-                                    <dd>Metalic Black</dd>
-                                    <dd>pure white</dd>
-                                    <dd>burgundy red(+2000)</dd>
-                                    <dd>melo orange(+2000)</dd>
-                                    <dt><a href="#"><span> 옵션선택</span><i class="fa-solid fa-angle-up"></i></a></dt>
-                                </dl>
+                                <div class="optWrap">
+                                    <div>
+                                        <p>Metalic Black</p>
+                                        <p>pure white</p>
+                                        <p>burgundy red(+2000)</p>
+                                        <p>melo orange(+2000)</p>
+                                    </div>
+                                    <a href="#"><span> 옵션선택</span><i class="fa-solid fa-angle-up"></i></a>
+                
+                                </div>
                                 <div class="number">
                                     <span>-</span>
-                                    <span>2</span>
+                                    <span></span>
                                     <span>+</span>
                                 </div>
                             </div>
-                            <button class="buy">구매하기</button>
+                            <button class="buy"><a href="storeBuy.html">구매하기</a></button>
                         </div>
                     </div>
-                </div>
             </div>
         </section>
-        <section id="oneSentense">
-            <div class="senWrap">
-                <div class="coment coment1">
+        <section id="oneSentense" class="swiper">
+            <div class="swiper-wrapper senWrap">
+                <div class="swiper-slide coment coment1">
                     <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
                     <div class="proWrap">
                         <div class="prosub">
@@ -177,54 +183,54 @@
                         <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
                     </div>
                 </div>
-                <div class="coment coment2">
-                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                <div class="swiper-slide coment coment2">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_When Life Gives You Tangerines_B_02.PNG"></img>
                     <div class="proWrap">
                         <div class="prosub">
-                            <p class="name">아이돌 푸린님</p>
+                            <p class="name">슈퍼 감자님</p>
                             <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
                         </div>
-                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                        <p>가벼워서 귀가 휴가 갔어요. 통화 음질 깔끔, 바람 불어도 상대가 “어, 잘 들림”이라네요.</p>
                     </div>
                 </div>
-                <div class="coment coment3">
-                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                <div class="swiper-slide coment coment3">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Hotel_Del_Luna_10_P.png"></img>
                     <div class="proWrap">
                         <div class="prosub">
-                            <p class="name">아이돌 푸린님</p>
+                            <p class="name">이러다다죽어님</p>
                             <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
                         </div>
-                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                        <p>스와이퍼닷컴에 이 기능 있는지도 모르고 혼자 만들다 이틀 날린 나자신 손들자.</p>
                     </div>
                 </div>
-                <div class="coment coment4">
-                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                <div class="swiper-slide coment coment4">
+                    <img src="img/ott자료들/img/드라마BP/dra_7_Breaking_Bad_16_B.png"></img>
                     <div class="proWrap">
                         <div class="prosub">
-                            <p class="name">아이돌 푸린님</p>
+                            <p class="name">노이로제걸림님</p>
                             <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
                         </div>
-                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                        <p>터치 제스처 커스터마이즈가 신세계. 길게 눌러 노캔/앰비언트 전환 걸어두니 손이 행복합니다.</p>
                     </div>
                 </div>
-                <div class="coment coment5">
-                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                <div class="swiper-slide coment coment5">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_When Life Gives You Tangerines_P_02.png"></img>
                     <div class="proWrap">
                         <div class="prosub">
-                            <p class="name">아이돌 푸린님</p>
+                            <p class="name">커피가식은고객님</p>
                             <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
                         </div>
-                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                        <p>디자인 심플+케이스 매끈. 가격 대비 기능 꽉 채웠고, 유일한 단점은… 자꾸 한 쪽만 귀에 꽂고 돌아다니는 제 자신.</p>
                     </div>
                 </div>
-                <div class="coment coment6">
-                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                <div class="swiper-slide coment coment6">
+                    <img src="img/ott자료들/img/드라마BP/dra_8_Wednesday_13_P.png"></img>
                     <div class="proWrap">
                         <div class="prosub">
-                            <p class="name">아이돌 푸린님</p>
+                            <p class="name">짐은왕이니라님</p>
                             <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
                         </div>
-                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                        <p>배터리 실사용 48시간 체감. 케이스 포함 하루 출퇴근·헬스 모두 커버, 급할 땐 고속충전 도움됨.</p>
                     </div>
                 </div>
             </div>
@@ -294,8 +300,13 @@
             <div class="pint">
                 <p>아비오트만의 기술로 최대 47시간동안 사용이 가능합니다. 앰비오트 마이크를 통해 통화시 주변 소음을 차단하며, 분실 시에도 탑재된 gps를 통해 찾을 수 있습니다.</p>
             </div>
+
+        <div class="adArea">
+            <h2>굿즈의 원작이 궁금하다면?</h2>
+                <span><a href="http://127.0.0.1:5500/content-detail.html?query=ani-16">원작 보러가기🏃‍♀️</a></span>
+        </div>
             <div class="caution">
-                <h3>⚠ Caution</h3>
+                <h3>Caution</h3>
                 <ul>
                     <li>Ultrices aliquam faucibus adipiscing nulla et. Congue etiam neque volutpat orci nibh neque
                         enim adipiscing. </li>
@@ -306,6 +317,7 @@
                 </ul>
             </div>
         </section>
+        
         <footer id="mainFooter" class="main-footer-wrapper">
             <div class="main-footer-container">
                 <ul class="social-nav">
