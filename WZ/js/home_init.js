@@ -54,9 +54,9 @@ const bannerVideo = () => {
             detail: "/content-detail.html?query=show-8"
         },
         {
-            video: "./source/video/ani_11_KimetsuNoYaiba_V.mp4",
-            iframe: "https://www.youtube.com/embed/O-IWJk6K8IY?si=JVthpD0pOOobB3lD&autoplay=1&mute=1&controls=0&loop=1&playlist=O-IWJk6K8IY&vq=hd1080&enablejsapi=1",
-            detail: "/content-detail.html?query=ani-03"
+            video: "./source/video/docu_4_The_Whale_and_I_V.mp4",
+            iframe: "https://www.youtube.com/embed/AEqe7eyv6aY?si=Hl8mGM9gk6TAnWnz&autoplay=1&mute=1&controls=0&loop=1&playlist=AEqe7eyv6aY&vq=hd1080&enablejsapi=1",
+            detail: "/content-detail.html?query=docu-02"
         },
     ]
     const randomBanner = bannerVideoList[Math.floor(Math.random() * bannerVideoList.length)];
