@@ -1,6 +1,7 @@
 import { addPost, updatePost, getPost } from "./community_db.js";
-import { updateBoard } from "./community_board.js";
-import { handleModal } from "./community_board_modal.js";
+import { filteredPosts, updateBoard } from "./community_board.js";
+import { handleModal } from "./community_modal.js";
+import { currentPage } from "./community_init.js";
 
 export const writingPost = (modalElement, modalWrapper, options, closeModal) => {
     const quill = new Quill(modalElement.querySelector('#editor'), {
@@ -21,17 +22,28 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
     const selectedCategory = modalElement.querySelector(".selected-category");
     const categoryItems = modalElement.querySelectorAll(".category-list li");
 
-    categorySelector.addEventListener("click", () => categoryList.classList.toggle("active"));
+    categorySelector.addEventListener("click", () => {
+        categorySelector.classList.toggle("active");
+        categoryList.classList.toggle("active");
+    })
     categoryItems.forEach(item => {
         item.addEventListener("click", () => {
             selectedCategory.textContent = item.querySelector("span").textContent;
+            categorySelector.classList.remove("active");
             categoryList.classList.remove("active");
         });
     });
+    document.addEventListener("click", (e) => {
+        if(!categorySelector.contains(e.target) && !categoryList.contains(e.target)){
+            categorySelector.classList.remove("active");
+            categoryList.classList.remove("active");
+        }
+    })
 
     //업로드 버튼
     modalElement.querySelector("#uploadBtn").addEventListener("click", async e => {
         e.preventDefault();
+
         const img = quill.root.querySelector("img");
         const thumbnail = img ? img.getAttribute("src") : "./source/image/profile.png";
         const plainText = quill.getText().trim();
@@ -56,27 +68,34 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
                 tag: formattedTagList
             });
             await updatePost(options.post);
-            await updateBoard();
+            await updateBoard(currentPage, filteredPosts);
+
             const directToDetail = await getPost(options.post.id);
             closeModal();
+
             handleModal("postDetailModalWrapper", "postDetailModal", { post: directToDetail });
         } else {
             const newPost = {
                 title: modalElement.querySelector("#title").value,
                 profile:"./source/image/profile.png",
                 author:"user",
-                summary,
-                content,
-                thumbnail,
-                like:0, dislike:0, comment:0, views:0,
+                summary: summary,
+                content: content,
+                thumbnail: thumbnail,
+                like:0, 
+                dislike:0, 
+                comment:0, 
+                views:0,
                 date: formattedTime,
                 category: selectedCategory.textContent,
                 tag: formattedTagList
             };
             const newPostId = await addPost(newPost);
-            await updateBoard();
+            await updateBoard(currentPage, filteredPosts);
+
             const directToDetail = await getPost(newPostId);
             closeModal();
+
             handleModal("postDetailModalWrapper", "postDetailModal", { post: directToDetail });
         }
     });

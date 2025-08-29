@@ -34,3 +34,4 @@ export const deletePost = async (id) => await boardPostsDB.delete("posts", id);
 // document.addEventListener("DOMContentLoaded", async () => {
 //     await clearPosts();  
 // });
+// localStorage.clear();

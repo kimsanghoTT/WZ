@@ -1,7 +1,8 @@
 import { updatePost } from "./community_db.js";
-import { updateBoard } from "./community_board.js";
+import { filteredPosts, updateBoard } from "./community_board.js";
+import { currentPage } from "./community_init.js";
 
-export const postComment = async (text, modalElement, post) => {
+export const postComment = async (text, modalElement, target, type) => {
     const commentList = modalElement.querySelector(".comment-list");
     const date = new Date();
     const formattedTime = new Intl.DateTimeFormat('ko-KR', { 
@@ -14,27 +15,34 @@ export const postComment = async (text, modalElement, post) => {
         like:0, 
         dislike:0 
     };
-    const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+    const comments = JSON.parse(localStorage.getItem(`comment-${target.id}`)) || [];
     comments.push(comment);
-    localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
+    localStorage.setItem(`comment-${target.id}`, JSON.stringify(comments));
 
-    renderComments(comment, commentList, post);
+    renderComments(comment, commentList, target);
 
-    post.comment++;
-    await updatePost(post);
-    modalElement.querySelectorAll(".comment-count").forEach(each => each.textContent = post.comment);
+    target.comment++;
+    if(type === "post"){
+        await updatePost(target);
+        modalElement.querySelectorAll(".comment-count").forEach(each => each.textContent = target.comment);
 
-    const card = document.getElementById(`post-${post.id}`);
-    if(card) {
-        card.querySelectorAll(".comment-count").forEach(each => each.textContent = post.comment)
-    };
-    await updateBoard();
+        const card = document.getElementById(`post-${target.id}`);
+        if(card) {
+            card.querySelectorAll(".comment-count").forEach(each => each.textContent = target.comment)
+        };
+        await updateBoard(currentPage, filteredPosts);
+    }
+    if(type === "reels"){
+        modalElement.querySelector(".comment-count").textContent = comments.length;
+    }
+
 };
 
-export const renderComments = (comment, commentList, post) => {
+export const renderComments = (comment, commentList, target) => {
     const commentItem = document.createElement("li");
     commentItem.className = "comment";
-    commentItem.innerHTML = `
+    commentItem.innerHTML = 
+    `
         <div class="comment-content">
             <div class="comment-content-upper">
                 <div class="comment-user-profile">
@@ -60,22 +68,22 @@ export const renderComments = (comment, commentList, post) => {
 
         commentItem.querySelector(".comment-like-btn span").textContent = comment.like;
 
-        const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+        const comments = JSON.parse(localStorage.getItem(`comment-${target.id}`)) || [];
         const idx = comments.findIndex(c => c.time===comment.time && c.text===comment.text);
         comments[idx].like = comment.like;
 
-        localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
-    }, {once:true});
+        localStorage.setItem(`comment-${target.id}`, JSON.stringify(comments));
+    });
 
     commentItem.querySelector(".comment-dislike-btn").addEventListener("click", () => {
         comment.dislike++;
 
         commentItem.querySelector(".comment-dislike-btn span").textContent = comment.dislike;
 
-        const comments = JSON.parse(localStorage.getItem(`comment-${post.id}`)) || [];
+        const comments = JSON.parse(localStorage.getItem(`comment-${target.id}`)) || [];
         const idx = comments.findIndex(c => c.time===comment.time && c.text===comment.text);
         comments[idx].dislike = comment.dislike;
 
-        localStorage.setItem(`comment-${post.id}`, JSON.stringify(comments));
-    }, {once:true});
+        localStorage.setItem(`comment-${target.id}`, JSON.stringify(comments));
+    });
 };

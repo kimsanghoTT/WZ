@@ -88,7 +88,7 @@ html.modal-active{
     width: 100%;
     height: 100%;
 }
-.swiper-slide {
+.reels-swiper.swiper .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #444;
@@ -96,13 +96,107 @@ html.modal-active{
     justify-content: center;
     align-items: center;
     height: 600px !important;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
-.swiper-slide img {
+.reels-swiper.swiper .swiper-slide::before{
+  content: '';
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  background: none;
+  z-index: 1;
+  background: linear-gradient(to top, #000, transparent 20%);
+  opacity: 0;
+  transition: .5s;
+}
+.reels-swiper.swiper .swiper-slide:hover::before{
+  opacity: 1;
+}
+.reels-swiper.swiper .swiper-slide .reels-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 0;
 }
+.reels-swiper.swiper .swiper-slide .reels-info-summary{
+  padding: 15px;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  text-align: left;
+  font-size: 15px;
+  justify-content: space-between;
+  opacity: 0;
+  transition: .5s;
+}
+.reels-swiper.swiper .swiper-slide:hover .reels-info-summary{
+  opacity: 1;
+}
+.reels-info-summary .info-left{
+  flex: 1;
+  flex-wrap: wrap;
+  padding-top: 60px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.info-left .user-name{
+  opacity: 0.7;
+}
+.info-left > div{
+  opacity: 0.7;
+  font-style: italic;
+}
+.reels-info-summary .info-right{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+.info-right .like-info, .info-right .share-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.reels-info-summary .info-right img,
+.reels-info-summary button{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #222;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.reels-like .ico{
+  display: inline-block;
+  background: url(../source/image/ico/ico_reels_like.png) no-repeat center/cover;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+}
+.reels-share .ico{
+  display: inline-block;
+  background: url(../source/image/ico/ico_share.png) no-repeat center/cover;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+}
+
 .reels-swiper.swiper .swiper-scrollbar{
   left: 0;
   width: 100%;
@@ -244,7 +338,7 @@ html.modal-active{
 .best-post .best-user-profile img{
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 .best-post .best-post-summary{
   margin-bottom: 40px;
@@ -424,7 +518,7 @@ html.modal-active{
   position: relative;
   display: flex;
 }
-.board-search-box .search-condition{
+.board-search-box .search-condition-selector{
   display: block;
   width: 130px;
   height: 50px;
@@ -434,7 +528,7 @@ html.modal-active{
   line-height: 50px;
   cursor: pointer;
 }
-.search-condition .ico{
+.search-condition-selector .ico{
   margin-left: 15px;
   width: 12px;
   height: 10px;
@@ -443,12 +537,25 @@ html.modal-active{
   background: url(../source/image/ico/ico_arrow_down.png) no-repeat center/cover;
   transition: .3s;
 }
-.search-condition.active .ico{
-  background: url(../source/image/ico/ico_arrow_up.png) no-repeat center/cover;
+.search-condition-selector.active .ico{
+  transform: rotate(180deg);
 }
 .board-search-box .search-condition-list{
-  display: none;
+  background: #32373F;
   position: absolute;
+  width: 130px;
+  text-align: center;
+  border: 1px solid #999;
+  z-index: 10;
+  display: none;
+  top: 100%;
+}
+.board-search-box .search-condition-list.active{
+  display: block;
+}
+.search-condition-list .search-condition{
+  padding: 10px;
+  cursor: pointer;
 }
 .board-search-box input{
   flex: 1;
