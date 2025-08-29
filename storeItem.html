@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세 페이지</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/storeItem.css">
+
+    <!-- 헤더 링크 -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/layout.js" defer></script>
+    <script type="module" src="js/storeItem.js" defer></script>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="https://kit.fontawesome.com/3da96badf7.js" crossorigin="anonymous"></script>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        body {
+            background: linear-gradient(125deg, white 50%, #ffe6e6 60%);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative;"><!-- height: 200vh; background-color: aqua; -->
+        <header id="mainHeader" class="main-header-container">
+            <div class="logo-box">
+                <h1 class="logo">
+                    <a href="/home.html">
+                        <span>WZ</span>
+                    </a>
+                </h1>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#"><img src="img/ico/menu.png" alt="모달메뉴"></a>
+                </li>
+            </ul>
+            <div class="util-box">
+                <form id="searchForm" action="/search.html" method="get" class="search-box">
+                    <label for="mainSearch">검색</label>
+                    <input id="mainSearch" class="search-input" name="query" type="text" placeholder="검색어를 입력하세요" />
+                    <button class="search-btn" type="submit"><span class="hidden">검색</span></button>
+                </form>
+                <div class="account-box">
+                    <span class="user-name">user</span>
+                    <span class="user-profile">
+                        <img src="img/ico/profile_store.png" alt="profile" />
+                    </span>
+                    <div class="account-hover-box">
+                        <div class="hover-box-upper">
+                            <img src="img/ico/profile_store.png" alt="profile" />
+                            <span>userName</span>
+                        </div>
+                        <div class="hover-box-nav">
+                            <ul>
+                                <li><a href="#">프로필관리</a></li>
+                                <li><a href="#">구매내역 관리</a></li>
+                                <li><a href="#">관심 콘텐츠 목록</a></li>
+                            </ul>
+                        </div>
+                        <div class="logout">
+                            <span>로그아웃</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="subHeader">
+        <h3><span>WZ</span>play</h3>
+        <div class="headerClose"><a href="#"><img src="img/ico/close (1).png" alt="메뉴닫기"></a></div>
+        <div class="subHeaderOpen">
+            <ul>
+                <li><a href="#"><span>Product</span></a>
+                    <ul>
+                        <li><a href="#" class="jumpTab" data-tab="0"><span>Bag</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="1"><span>T-Shirts</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="2"><span>Rag-Doll</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="3"><span>ACC</span></a></li>
+                        <li><a href="#" class="jumpTab" data-tab="4"><span>Other</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="#"><span>SignitureCollab</span></a>
+                    <ul>
+                        <li><a href="#"><span>Reservation</span></a></li>
+                        <li><a href="#"><span>DramaCollab</span></a></li>
+                        <li><a href="#"><span>MovieCollab</span></a></li>
+                        <li><a href="#"><span>AnimationCollab</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="#"><span>Costomer</span></a>
+                    <ul>
+                        <li><a href="#"><span>배송문의</span></a></li>
+                        <li><a href="#"><span>콜라보제의</span></a></li>
+                        <li><a href="#"><span>Q&A</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrap">
+        <section id="mainItem" >
+                <div class="item">
+                    <div class="colorPack">
+                        <figure style="background-color: #fff;" class="on"></figure>
+                        <figure style="background-color: #FF8F95;"></figure>
+                        <figure style="background-color: #056800;"></figure>
+                        <figure style="background-color: #121212;"></figure>
+                    </div>
+                    <img src="img/store/기타/aviot_w.webp" alt="">
+                    <img src="img/store/기타/aviot_p.webp" alt="">
+                    <img src="img/store/기타/aviot_g.webp" alt="">
+                    <img src="img/store/기타/aviot_b.webp" alt="">
+                    <div class="itemSummary">
+                                작지만 강력한 퍼포먼스! <br>
+                                프리렌 성우의 선명한 음질이 담긴 이 제품은
+                                안정적인 블루투스 연결로
+                                당신의 하루를 더 특별하게 만들어 줍니다.
+                                오직 위즈플레이에서만 만나볼 수 있는 특별한 아이템!
+                            </div>
+                    <div class="itemFixed">
+                        <div class="itemTitle">
+                            <h2>AVIOT x <span>WZ</span></h2>
+                            <div class="tagArea">
+                                <span class="tag">#AVIOT</span>
+                                <span class="tag">#무선이어폰</span>
+                                <span class="tag">#블루투스</span>
+                                <span class="tag">#이어폰</span>
+                                <span class="tag">#시그니처 </span>
+                                <span class="tag">#Extension</span>
+                                <span class="tag">#위즈플레이</span>
+                                <span class="tag">#굿즈</span>
+                            </div>
+                            <p class="price" style="color: #d33a3c;">17%</p>
+                            <p class="price price2"><span>243,000</span>원</p>
+                        </div>
+                        
+                        <div class="buyOpt">
+                            <div class="optChoice">
+                                <div class="optWrap">
+                                    <div>
+                                        <p>Metalic Black</p>
+                                        <p>pure white</p>
+                                        <p>burgundy red(+2000)</p>
+                                        <p>melo orange(+2000)</p>
+                                    </div>
+                                    <a href="#"><span> 옵션선택</span><i class="fa-solid fa-angle-up"></i></a>
+                
+                                </div>
+                                <div class="number">
+                                    <span>-</span>
+                                    <span></span>
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <button class="buy"><a href="storeBuy.html">구매하기</a></button>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section id="oneSentense" class="swiper">
+            <div class="swiper-wrapper senWrap">
+                <div class="swiper-slide coment coment1">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Another_Life_14_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">아이돌 푸린님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>다른 캐릭터와의 케미가 랜덤으로 나와서 재밌어요! 전원을 켤 때마다 어떤 대사가 나올지 엄청 궁금해요.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide coment coment2">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_When Life Gives You Tangerines_B_02.PNG"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">슈퍼 감자님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>가벼워서 귀가 휴가 갔어요. 통화 음질 깔끔, 바람 불어도 상대가 “어, 잘 들림”이라네요.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide coment coment3">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_Hotel_Del_Luna_10_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">이러다다죽어님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>스와이퍼닷컴에 이 기능 있는지도 모르고 혼자 만들다 이틀 날린 나자신 손들자.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide coment coment4">
+                    <img src="img/ott자료들/img/드라마BP/dra_7_Breaking_Bad_16_B.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">노이로제걸림님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>터치 제스처 커스터마이즈가 신세계. 길게 눌러 노캔/앰비언트 전환 걸어두니 손이 행복합니다.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide coment coment5">
+                    <img src="img/ott자료들/img/드라마BP/dra_10_When Life Gives You Tangerines_P_02.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">커피가식은고객님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>디자인 심플+케이스 매끈. 가격 대비 기능 꽉 채웠고, 유일한 단점은… 자꾸 한 쪽만 귀에 꽂고 돌아다니는 제 자신.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide coment coment6">
+                    <img src="img/ott자료들/img/드라마BP/dra_8_Wednesday_13_P.png"></img>
+                    <div class="proWrap">
+                        <div class="prosub">
+                            <p class="name">짐은왕이니라님</p>
+                            <span><img src="img/ico/ico_star.svg" alt=""> 5.0</span>
+                        </div>
+                        <p>배터리 실사용 48시간 체감. 케이스 포함 하루 출퇴근·헬스 모두 커버, 급할 땐 고속충전 도움됨.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <section id="itemInfo">
+            <div class="itemAS">
+                <ul>
+                    <li>
+                        <p>상품번호</p><span class="random10">12332165</span>
+                    </li>
+                    <li>
+                        <p>제조사</p><span class="company">대한민국</span>
+                    </li>
+                    <li>
+                        <p>원산지</p><span class="naturalNation">일본</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <p>출시일자</p><span class="oneYearLater"></span>
+                    </li>
+                    <li>
+                        <p>A/S</p><span>구매 후 6개월 이내 무상 수리 가능</span>
+                    </li>
+                    <li>
+                        <p>반품여부</p><span>반품 불가 상품입니다.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="sendDay">
+                <p>🍀배송기간🍀</p>
+                <p>평균 배송기간은 3일 이내입니다.</p>
+                <p>*주말/공휴일을 제외한 영업 기준</p>
+            </div>
+            <article class="itemTxt1">
+                <img src="img/store/기타/aviot_w.webp" alt="아비오트이어폰">
+                <p>콜라보 전문기업 아비오트에서 새롭게 선보이는 아비오트x장송의 프리렌 블루투스 이어폰! </p>
+                <P>더욱 향상된 음질과 깔끔하고 세련된 디자인으로 찾아왔습니다.</P>
+
+            </article>
+            <article class="itemTxt2">
+                <img src="img/store/기타/aviot_2.webp" alt="아비오트이어폰">
+                <p> 마법의 책 형태로 디자인된 패키지 속에는 전용 충전기, 대사 모음 책자, </p>
+                <p>사용 메뉴얼이 동봉되어 있습니다.</p>
+            </article>
+            <article class="itemTxt3">
+                <img src="img/store/기타/aviot_3.webp" alt="아비오트이어폰">
+                <p>세계적인 지휘자 알렌 그레고리가 함께한 오케스트라의 음악을 샘플로 담겨있습니다.</p>
+                <p>아비오트는 여러분의 일상 속 품격을 높여드리기 위해 최선을 다하겠습니다.</p>
+            </article>
+            <div class="itemPoint">
+                <div class="play24">
+                    <img src="img/ico/cficonpc_42h.png" alt="42시간 재생가능">
+                    <p>최대 42시간 재생 가능</p>
+                </div>
+                <div class="ambiotMic">
+                    <img src="img/ico/cficonsp_mic.png" alt="앰비오트 마이크">
+                    <p>앰비오트 마이크 탑재</p>
+                </div>
+                <div class="gps">
+                    <img src="img/ico/cficonsp_radar.png" alt="블루투스 위치추적">
+                    <p>위치 추적 기능 탑재</p>
+                </div>
+            </div>
+            <div class="pint">
+                <p>아비오트만의 기술로 최대 47시간동안 사용이 가능합니다. 앰비오트 마이크를 통해 통화시 주변 소음을 차단하며, 분실 시에도 탑재된 gps를 통해 찾을 수 있습니다.</p>
+            </div>
+
+        <div class="adArea">
+            <h2>굿즈의 원작이 궁금하다면?</h2>
+                <span><a href="http://127.0.0.1:5500/content-detail.html?query=ani-16">원작 보러가기🏃‍♀️</a></span>
+        </div>
+            <div class="caution">
+                <h3>Caution</h3>
+                <ul>
+                    <li>Ultrices aliquam faucibus adipiscing nulla et. Congue etiam neque volutpat orci nibh neque
+                        enim adipiscing. </li>
+                    <li>Eget id commodo etiam proin iaculis feugiat proin id aliquam. Amet aenean fermentum id
+                        vulputate. </li>
+                    <li>Egestas commodo nisi amet viverra dictumst odio eget nunc sit. </li>
+                    <li>Ornare arcu luctus nec morbi ac sed ullamcorper.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer id="mainFooter" class="main-footer-wrapper">
+            <div class="main-footer-container">
+                <ul class="social-nav">
+                    <li><a href="#" class="ico_X"><span class="hidden">X</span></a></li>
+                    <li><a href="#" class="ico_facebook"><span class="hidden">페이스북</span></a></li>
+                    <li><a href="#" class="ico_insta"><span class="hidden">인스타그램</span></a></li>
+                    <li><a href="#" class="ico_youtube"><span class="hidden">유튜브</span></a></li>
+                </ul>
+                <ul class="footer-nav">
+                    <li>회사 정보</li>
+                    <li>법적 고지</li>
+                    <li>이용 약관</li>
+                    <li>쿠키 설정</li>
+                </ul>
+                <ul class="footer-nav">
+                    <li>개인정보</li>
+                    <li>고객 센터</li>
+                    <li>문의하기</li>
+                    <li>청소년보호정책</li>
+                </ul>
+                <ul class="footer-nav">
+                    <li>공지사항</li>
+                    <li>환불정책</li>
+                </ul>
+                <div class="company-info">
+                    <p>상호명 : 주식회사 위즈플레이 (WZPlay Inc.)</p>
+                    <p>사업자등록번호 : 123-45-67890</p>
+                    <p>통신판매업신고번호 : 제2025-서울마포-0001호</p>
+                    <p>주소 : 서울특별시 마포구 와우산로 123, 5층 (04000)</p>
+                    <p>이메일 : contact@wzplay.com</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
