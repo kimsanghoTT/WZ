@@ -128,10 +128,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const ep = DataAll.episodeGuide[i];
             const starspan = randomstar(3.8, 5.0);
             const percentspan = randompercent(45, 55);
+            
 
             episodehtml.innerHTML += `
                                     <div class="listN">
-                                        <img src="${DataAll.image_default}" alt="">
+                                        <a href="${DataAll.video}"><img src="${DataAll.image_default}" alt=""></a>
                                             <div class="list-text">
                                                 <h4>${DataAll.title} ${ep.number}화 ${ep.title}</h4>
                                                 <div class="list-icons">

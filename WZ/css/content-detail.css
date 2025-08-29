@@ -168,7 +168,7 @@
     color: #fff;
 }
 
-.content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list>.list>.listN>img {
+.content-detail-wrapper>.container>#episode-list>.episodeAll>.All-list>.list>.listN>a>img {
     width: 250px;
     height: 150px;
     border-radius: 10px;
