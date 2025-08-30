@@ -161,7 +161,7 @@ body {
     margin-top: 40px;
 }
 
-.swiper.swiper_layout .swiper-slide a {
+.swiper.swiper_layout .swiper-slide span {
     display: block;
     height: 100%
 }

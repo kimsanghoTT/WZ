@@ -1,5 +1,7 @@
+import { checkLogin } from "../layout.js";
+
 export const fetchData = async () => {
-    const res = await fetch("../data.json");
+    const res = await fetch("./source/data.json");
     const data = await res.json();
     return Object.values(data);
 }
@@ -19,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         mainHeader.innerHTML = header;
     };
     await renderHeader();
+    checkLogin();
 
 
     //타겟 컨텐츠 데이터 전달

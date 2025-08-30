@@ -35,7 +35,7 @@ export const renderHomeSwiper = async (filterCondition, targetedSwiper, listCont
   function renderSlides(container, items) {
     container.innerHTML = items.map(item => `
       <div class="swiper-slide common" id=${item.id}>
-        <a href="content-detail.html?query=${item.id}">
+        <span style="cursor:pointer;">
           <img src="${item.image_default}" alt="${item.title}">
         </a>
       </div>

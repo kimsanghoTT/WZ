@@ -100,6 +100,9 @@
     align-items: center;
     min-width: 130px;
 }
+.account-box a{
+    color: #fff;
+}
 .account-box .user-profile{
     width: 50px;
     height: 50px;
@@ -190,7 +193,6 @@
 
 /* footer */
 .main-footer-wrapper{
-    /* position: fixed; */
     bottom: 0;
     width: 100%;
     height: 400px;
@@ -217,19 +219,19 @@
     filter: invert(10);
 }
 .social-nav .ico_X{
-    background: url(../img/ico/ico_X.png) no-repeat center;
+    background: url(../source/image/ico/ico_X.png) no-repeat center;
     background-size: 25px 25px;
 }
 .social-nav .ico_facebook{
-    background: url(../img/ico/ico_facebook.png) no-repeat center;
+    background: url(../source/image/ico/ico_facebook.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_insta{
-    background: url(../img/ico/ico_insta.png) no-repeat center;
+    background: url(../source/image/ico/ico_insta.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_youtube{
-    background: url(../img/ico/you) no-repeat center;
+    background: url(../source/image/ico/ico_youtube.png) no-repeat center;
     background-size: 30px 30px;
 }
 .footer-nav{
@@ -240,12 +242,12 @@
 }
 .footer-nav li{
     width: 100px;
-    opacity: 0.7;
+    opacity: 0.4;
     cursor: pointer;
 }
 .company-info{
     margin-top: 40px;
-    opacity: 0.7;
+    opacity: 0.4;
 }
 
 

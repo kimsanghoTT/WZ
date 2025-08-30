@@ -1,7 +1,7 @@
 /* json */
 
 const fetchData = async () => {
-  const res = await fetch('./data.json');
+  const res = await fetch('./source/data.json');
   const data = await res.json();
   const dataArray = Object.values(data);  // 객체를 배열로 변환 (필요에 따라)
   return dataArray;  // 데이터를 함수가 반환

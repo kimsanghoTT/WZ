@@ -1,3 +1,4 @@
+import { checkLogin } from "../layout.js";
 import { updateBoard } from "./community_board.js";
 import { initDB } from "./community_db.js";
 import { bindModalEvent, bindPaginationEvent, bindReelsSortEvent, bindSearchEvent, bindVideoEvent } from "./community_events.js";
@@ -6,20 +7,10 @@ export let currentPage = 1;
 export let swiper;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    //헤더 렌더링
-    const renderHeader = async () => {
-        const mainHeader = document.getElementById("mainHeader");
-        
-        const res = await fetch("layout.html");
-        const htmlText = await res.text(); 
 
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlText, "text/html"); 
-        const header = doc.getElementById("mainHeader").innerHTML; 
-        
-        mainHeader.innerHTML = header;
-    };
+    //헤더 렌더링
     await renderHeader(); 
+    checkLogin();
 
     //스와이퍼 렌더링
     const response = await fetch("./source/reels.json");
@@ -48,6 +39,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     bindVideoEvent();
     bindReelsSortEvent();
 });
+
+const renderHeader = async () => {
+    const mainHeader = document.getElementById("mainHeader");
+    
+    const res = await fetch("layout.html");
+    const htmlText = await res.text(); 
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, "text/html"); 
+    const header = doc.getElementById("mainHeader").innerHTML; 
+    
+    mainHeader.innerHTML = header;
+};
+
 
 const popularCheckbox = document.getElementById('popularCheck');
 const popularCheckLabel = document.querySelector('.reels-sort-btn label');

@@ -13,7 +13,7 @@ document.querySelector("#searchForm").addEventListener("submit", function (e) {
 });
 /* json */
 const fetchData = async () => {
-    const res = await fetch('./data.json');
+    const res = await fetch('./source/data.json');
     const data = await res.json();
     const dataArray = Object.values(data);
     return dataArray;
@@ -25,7 +25,6 @@ const fetchData = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
     const URL = new URLSearchParams(window.location.search);
     const query = URL.get('query')?.toLowerCase() || '';
-    console.log(query);
 
     if (!query) return;
 
