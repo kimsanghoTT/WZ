@@ -1,4 +1,5 @@
 import { checkLogin } from "../layout.js";
+import { googleLogin } from "./firebase_auth.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -6,6 +7,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     await renderHeader(); 
     checkLogin();
     await renderFooter();
+
+    login();
+    handleGoogleLogin();
 })
 
 const renderHeader = async () => {
@@ -32,4 +36,55 @@ const renderFooter = async () => {
     const footer = doc.getElementById("mainFooter").innerHTML;
 
     mainFooter.innerHTML = footer;
+}
+
+
+
+//로그인 관련 로직
+const login = () => {
+    const loginBtn = document.querySelector(".form-content-box.login button");
+    
+    loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const inputId = document.getElementById("id").value.trim();
+        const inputPw = document.getElementById("password").value;
+
+        if(inputId === "" || inputPw === ""){
+            alert("아이디와 비밀번호를 입력해주세요");
+            return;
+        }
+
+        if(inputId === "demo@demo.com" && inputPw === "demotest123"){
+            const member = {
+                name: "User",
+                profile:"./source/image/profile.png"
+            };
+            sessionStorage.setItem("member", JSON.stringify(member));
+            window.location.href = "home.html";
+        } 
+        else {
+            alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+        }
+    });
+};
+
+const handleGoogleLogin = () => {
+    document.querySelector(".oauth-login-box .google")?.addEventListener("click", async () => {
+        try{
+            const userInfo = await googleLogin();
+            const member = {
+                name: userInfo.displayName,
+                profile:userInfo.photoURL
+            } 
+
+            sessionStorage.setItem("member", JSON.stringify(member));
+            window.location.href = "home.html";
+        }
+        catch(error){  
+            alert("예기치 못한 오류가 발생했습니다. 다시 시도해 주세요.");
+            console.log(error);
+        }
+
+    })
 }

@@ -21,6 +21,7 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
     const categoryList = modalElement.querySelector(".category-list");
     const selectedCategory = modalElement.querySelector(".selected-category");
     const categoryItems = modalElement.querySelectorAll(".category-list li");
+    const user = JSON.parse(sessionStorage.getItem("member"));
 
     categorySelector.addEventListener("click", () => {
         categorySelector.classList.toggle("active");
@@ -77,8 +78,8 @@ export const writingPost = (modalElement, modalWrapper, options, closeModal) => 
         } else {
             const newPost = {
                 title: modalElement.querySelector("#title").value,
-                profile:"./source/image/profile.png",
-                author:"user",
+                profile:user.profile,
+                author:user.name,
                 summary: summary,
                 content: content,
                 thumbnail: thumbnail,

@@ -39,6 +39,7 @@ export const postComment = async (text, modalElement, target, type) => {
 };
 
 export const renderComments = (comment, commentList, target) => {
+    const user = JSON.parse(sessionStorage.getItem("member"));
     const commentItem = document.createElement("li");
     commentItem.className = "comment";
     commentItem.innerHTML = 
@@ -46,8 +47,8 @@ export const renderComments = (comment, commentList, target) => {
         <div class="comment-content">
             <div class="comment-content-upper">
                 <div class="comment-user-profile">
-                    <img src="./source/image/profile.png" alt="프로필 사진">
-                    <span>user</span>
+                    <img src="${user.profile}" alt="프로필 사진">
+                    <span>${user.name}</span>
                 </div>
                 <span>|</span>
                 <span>${comment.time}</span>

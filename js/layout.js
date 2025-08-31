@@ -48,17 +48,19 @@ export const checkLogin = () => {
     const accountBox = document.getElementById("mainHeader").querySelector(".account-box");
     if(!accountBox) return;
 
-    if(isLogined){
+    const user = isLogined ? JSON.parse(isLogined) : null;
+
+    if(user){
         accountBox.innerHTML =
         `
-            <span class="user-name">user</span>
+            <span class="user-name">${user.name}</span>
             <span class="user-profile">
-                <img src="./source/image/profile.png" alt="profile"/>
+                <img src="${user.profile}" alt="profile"/>
             </span>
             <div class="account-hover-box">
                 <div class="hover-box-upper">
-                    <img src="./source/image/profile.png" alt="profile"/>
-                    <span>userName</span>
+                    <img src="${user.profile}" alt="profile"/>
+                    <span>${user.name}</span>
                 </div>
                 <div class="hover-box-nav">
                     <ul>
@@ -80,5 +82,9 @@ export const checkLogin = () => {
         <a href=login.html>로그인</a>
         `
     }
-}
 
+    document.querySelector(".logout")?.addEventListener("click", () => {
+        sessionStorage.clear();
+        window.location.reload();
+    })
+}
