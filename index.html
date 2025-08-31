@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="intro-wrapper">
-        <video id="introVideo"  muted autoplay playsinline>
+        <video id="introVideo" muted autoplay playsinline>
             <source src="./source/video/Intro_sample.mp4" type="video/mp4">
         </video>
     </div>
@@ -18,7 +18,7 @@
 
         const introVideo = document.getElementById("introVideo");
 
-        document.body.addEventListener("mouseenter", () => {
+        document.body.addEventListener("click", () => {
             if(introVideo.muted) {
                 introVideo.muted = false;
                 introVideo.volume = 1;
