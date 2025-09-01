@@ -1,4 +1,8 @@
 
+
+.main-layout-wrapper{
+    background: #21252B;
+}
 .content-detail-wrapper>.container {
     max-width: 1600px;
     margin: 0 auto;
@@ -223,7 +227,7 @@
 /* review */
 
 .content-detail-wrapper>.container>#review {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
 }
 .content-detail-wrapper>.container>#review>h3 {
     font-size: 34px;

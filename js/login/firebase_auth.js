@@ -7,13 +7,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBczNLHq0L2aL5CSSnAYh-KgwxT3qLeyIE",
-  authDomain: "practice-c9b9f.firebaseapp.com",
-  projectId: "practice-c9b9f",
-  storageBucket: "practice-c9b9f.firebasestorage.app",
-  messagingSenderId: "899272455522",
-  appId: "1:899272455522:web:d79eec634c7b7df5b1683b",
-  measurementId: "G-F9T9EFGBKW"
+  apiKey: "AIzaSyCFxFQ9xGmM83c4t4bT6hnS5M9qs8VzcKo",
+  authDomain: "wzplay.firebaseapp.com",
+  projectId: "wzplay",
+  storageBucket: "wzplay.firebasestorage.app",
+  messagingSenderId: "207734500469",
+  appId: "1:207734500469:web:50aa60ce05102d53d89c3c",
+  measurementId: "G-BQK9V00QZN"
 };
 
 const app = initializeApp(firebaseConfig);

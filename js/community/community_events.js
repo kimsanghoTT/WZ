@@ -65,6 +65,11 @@ export const bindModalEvent = () => {
         handleModal("blockModalWrapper", "blockModal");
     });
     document.querySelector(".write-btn")?.addEventListener("click", () => {
+        const isLogined = sessionStorage.getItem("member");
+        if(!isLogined){
+            alert("로그인 후 이용해주세요.");
+            window.location.href = "login.html";
+        }
         handleModal("postWriteModalWrapper", "postWriteModal");
     });
     document.body.addEventListener("click", async(e) => {

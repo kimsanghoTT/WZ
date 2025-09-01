@@ -139,7 +139,7 @@
     justify-content: center;
     align-items: center;
 }
-.accordion-play-icon a img {
+.accordion-wrapper02 .accordion-play-icon a img {
     margin: 5px 0 0 5px;
     width: 37px;
     height: 37px;
@@ -156,7 +156,7 @@
     font-weight: 300;
     padding-top: 4px;
     color: #ffffff;
-} */
+} 
 /* 아코디언 컨텐츠 설명글 */
 .content-more-text {
     position: absolute;

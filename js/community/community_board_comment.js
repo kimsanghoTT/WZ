@@ -39,6 +39,11 @@ export const postComment = async (text, modalElement, target, type) => {
 };
 
 export const renderComments = (comment, commentList, target) => {
+    const isLogined = sessionStorage.getItem("member");
+    if(!isLogined){
+        alert("로그인 후 이용해주세요.");
+        window.location.href = "login.html";
+    }
     const user = JSON.parse(sessionStorage.getItem("member"));
     const commentItem = document.createElement("li");
     commentItem.className = "comment";
