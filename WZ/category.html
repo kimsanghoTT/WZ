@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WZ_카테고리로 이동</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/Accordion01_Page.css">
+    <link rel="stylesheet" href="css/Accordion02_Page.css">
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="js/layout.js" defer></script>
+    <script src="js/Accordion_01.js" defer></script>
+    <script src="js/Accordion_02.js" defer></script>
+</head>
+
+<body>
+
+    <header id="mainHeader" class="main-header-container">
+        <div class="logo-box">
+            <h1 class="logo">
+                <a href="/home.html">
+                    <span>WZ</span>
+                </a>
+            </h1>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="category.html">카테고리</a>
+            </li>
+            <li class="nav-item">
+                <a href="community.html">커뮤니티</a>
+            </li>
+            <li class="nav-item">
+                <a href="wzstore.html">스토어</a>
+            </li>
+        </ul>
+        <div class="util-box">
+            <form id="searchForm" action="search.html" method="get" class="search-box">
+                <label for="mainSearch">검색</label>
+                <input id="mainSearch" class="search-input" name="query" type="text" placeholder="검색어를 입력하세요" />
+                <button class="search-btn" type="submit"><span class="hidden">검색</span></button>
+            </form>
+            <div class="account-box">
+                <span class="user-name">user</span>
+                <span class="user-profile">
+                    <img src="./source/image/user.jpg" alt="profile" />
+                </span>
+                <div class="account-hover-box">
+                    <div class="hover-box-upper">
+                        <img src="./source/image/user.jpg" alt="profile" />
+                        <span>userName</span>
+                    </div>
+                    <div class="hover-box-nav">
+                        <ul>
+                            <li><a href="#">프로필관리</a></li>
+                            <li><a href="#">구매내역 관리</a></li>
+                            <li><a href="#">관심 콘텐츠 목록</a></li>
+                        </ul>
+                    </div>
+                    <div class="logout">
+                        <span>로그아웃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <h2>카테고리</h2>
+    <section class="accordion-container accordion-section-01">
+
+        <div class="accordion-wrapper">
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/ani/ani_11_KimetsuNoYaiba.png" alt="" />
+                    <p>애니메이션</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">비주얼도 스토리도 놓칠 수 없는 매력 덩어리</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/show/show_12_A_Divorce_Decision_B_10.PNG" alt="" />
+                    <p>예능</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">웃음과 감동이 함께하는 리얼 예능</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/img_B/mu_Mamma_mia!_B.png" alt="" />
+                    <p>뮤지컬</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">화려한 무대와 감동적인 음악의 만남</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/docu/docu_4_Angry_Planet_B.png" alt="" />
+                    <p>다큐멘터리</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">세상을 이해하는 가장 깊은 시선</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_12_Dr_Romantic_B_05.PNG" alt="" />
+                    <p>드라마</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">감성과 스토리가 살아있는 드라마</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/mov/mov_TopGun_Maverick.png" alt="" />
+                    <p>영화</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">최고의 몰입감을 선사하는 명작</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="accordion-content-text">
+            <h4><span>#</span> 유형별</h4>
+            <p>매일 바뀌는 기분, 매번 달라지는 취향 <br>
+                이젠 헤매지 말고, 드라마는 드라마대로, 예능은 예능대로! <br><br>
+                보고 싶은 스타일만 쏙쏙 골라서 지금 바로 플레이하세요 <br> 취향저격 콘텐츠, 이 안에 다 있어요
+            </p>
+            <div class="textBox-tag">
+                <span class="textBox-text-tag"><span>#</span>진격의 거인</span>
+                <span class="textBox-text-tag"><span>#</span>런닝맨</span>
+                <span class="textBox-text-tag"><span>#</span>오페라의 유령</span>
+                <span class="textBox-text-tag"><span>#</span>낭만닥터 김사부</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- accordion-container02 -->
+
+    <section class="accordion-container accordion-section-02">
+        <!-- <h3>유형별</h3> -->
+        <div class="accordion-content-text02">
+            <h4><span>#</span> 장르별</h4>
+            <p>매일 바뀌는 기분, 매번 달라지는 취향 <br>
+                이젠 헤매지 말고, 드라마는 드라마대로, 예능은 예능대로! <br><br>
+                보고 싶은 스타일만 쏙쏙 골라서 지금 바로 플레이하세요 <br> 취향저격 콘텐츠, 이 안에 다 있어요
+            </p>
+            <div class="textBox-tag">
+                <span class="textBox-text-tag"><span>#</span>진격의 거인</span>
+                <span class="textBox-text-tag"><span>#</span>런닝맨</span>
+                <span class="textBox-text-tag"><span>#</span>오페라의 유령</span>
+                <span class="textBox-text-tag"><span>#</span>낭만닥터 김사부</span>
+            </div>
+        </div>
+        <div class="accordion-wrapper02">
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_12_Miserable_Heart_B_06.PNG" alt="" />
+                    <p>사극</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">비주얼도 스토리도 놓칠 수 없는 매력 덩어리</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/docu/docu_The_Lost_Children_B.png" alt="" />
+                    <p>호러</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">웃음과 감동이 함께하는 리얼 예능</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/mov/mov_Lovesick.png" alt="" />
+                    <p>로맨스</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">화려한 무대와 감동적인 음악의 만남</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/ani/ani_23_JujutsuKaisen.png" alt="" />
+                    <p>판타지</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">세상을 이해하는 가장 깊은 시선</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/show/show_8_Jangdo_Baribari_B_13.png" alt="" />
+                    <p>코미디</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">감성과 스토리가 살아있는 드라마</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_7_Breaking_Bad_16_B.png" alt="" />
+                    <p>액션</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">최고의 몰입감을 선사하는 명작</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section class="accordion-container accordion-section-01">
+
+        <div class="accordion-wrapper">
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/ani/ani_11_KimetsuNoYaiba.png" alt="" />
+                    <p>애니메이션</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">비주얼도 스토리도 놓칠 수 없는 매력 덩어리</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/show/show_12_A_Divorce_Decision_B_10.PNG" alt="" />
+                    <p>예능</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">웃음과 감동이 함께하는 리얼 예능</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/mu/mu_Mamma_mia_B.png" alt="" />
+                    <p>뮤지컬</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">화려한 무대와 감동적인 음악의 만남</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/docu/docu_4_Angry_Planet_B.png" alt="" />
+                    <p>다큐멘터리</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">세상을 이해하는 가장 깊은 시선</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_12_Dr_Romantic_B_05.PNG" alt="" />
+                    <p>드라마</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">감성과 스토리가 살아있는 드라마</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/mov/mov_TopGun_Maverick.png" alt="" />
+                    <p>영화</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">최고의 몰입감을 선사하는 명작</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="accordion-content-text">
+            <h4><span>#</span> 유형별</h4>
+            <p>매일 바뀌는 기분, 매번 달라지는 취향 <br>
+                이젠 헤매지 말고, 드라마는 드라마대로, 예능은 예능대로! <br><br>
+                보고 싶은 스타일만 쏙쏙 골라서 지금 바로 플레이하세요 <br> 취향저격 콘텐츠, 이 안에 다 있어요
+            </p>
+            <div class="textBox-tag">
+                <span class="textBox-text-tag"><span>#</span>진격의 거인</span>
+                <span class="textBox-text-tag"><span>#</span>런닝맨</span>
+                <span class="textBox-text-tag"><span>#</span>오페라의 유령</span>
+                <span class="textBox-text-tag"><span>#</span>낭만닥터 김사부</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="accordion-container accordion-section-02">
+        <!-- <h3>유형별</h3> -->
+        <div class="accordion-content-text02">
+            <h4><span>#</span> 장르별</h4>
+            <p>매일 바뀌는 기분, 매번 달라지는 취향 <br>
+                이젠 헤매지 말고, 드라마는 드라마대로, 예능은 예능대로! <br><br>
+                보고 싶은 스타일만 쏙쏙 골라서 지금 바로 플레이하세요 <br> 취향저격 콘텐츠, 이 안에 다 있어요
+            </p>
+            <div class="textBox-tag">
+                <span class="textBox-text-tag"><span>#</span>진격의 거인</span>
+                <span class="textBox-text-tag"><span>#</span>런닝맨</span>
+                <span class="textBox-text-tag"><span>#</span>오페라의 유령</span>
+                <span class="textBox-text-tag"><span>#</span>낭만닥터 김사부</span>
+            </div>
+        </div>
+        <div class="accordion-wrapper02">
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_12_Miserable_Heart_B_06.PNG" alt="" />
+                    <p>사극</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">비주얼도 스토리도 놓칠 수 없는 매력 덩어리</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/docu/docu_The_Lost_Children_B.png" alt="" />
+                    <p>호러</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">웃음과 감동이 함께하는 리얼 예능</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/mov/mov_Lovesick.png" alt="" />
+                    <p>로맨스</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">화려한 무대와 감동적인 음악의 만남</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/ani/ani_23_JujutsuKaisen.png" alt="" />
+                    <p>판타지</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">세상을 이해하는 가장 깊은 시선</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/show/show_8_Jangdo_Baribari_B_13.png" alt="" />
+                    <p>코미디</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">감성과 스토리가 살아있는 드라마</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-content-box">
+                <div class="content-box-img">
+                    <img src="./source/image/dra/dra_7_Breaking_Bad_16_B.png" alt="" />
+                    <p>액션</p>
+                    <div class="accordion-content-box-hover">
+                        <div class="accordion-play-icon">
+                            <a href="#">
+                                <img src="./source/image/ico/ico_play.png" alt="" />
+                                <div class="accordion-play-icon-text">둘러보기</div>
+                            </a>
+                        </div>
+                        <span class="content-more-text">최고의 몰입감을 선사하는 명작</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!--     <footer id="mainFooter" class="main-footer-wrapper">
+        <div class="main-footer-container">
+            <ul class="social-nav">
+                <li><a href="#" class="ico_X"><span class="hidden">X</span></a></li>
+                <li><a href="#" class="ico_facebook"><span class="hidden">페이스북</span></a></li>
+                <li><a href="#" class="ico_insta"><span class="hidden">인스타그램</span></a></li>
+                <li><a href="#" class="ico_youtube"><span class="hidden">유튜브</span></a></li>
+            </ul>
+            <ul class="footer-nav">
+                <li>회사 정보</li>
+                <li>법적 고지</li>
+                <li>이용 약관</li>
+                <li>쿠키 설정</li>
+            </ul>
+            <ul class="footer-nav">
+                <li>개인정보</li>
+                <li>고객 센터</li>
+                <li>문의하기</li>
+                <li>청소년보호정책</li>
+            </ul>
+            <ul class="footer-nav">
+                <li>공지사항</li>
+                <li>환불정책</li>
+            </ul>
+            <div class="company-info">
+                <p>상호명 : 주식회사 위즈플레이 (WZPlay Inc.)</p>
+                <p>사업자등록번호 : 123-45-67890</p>
+                <p>통신판매업신고번호 : 제2025-서울마포-0001호</p>
+                <p>주소 : 서울특별시 마포구 와우산로 123, 5층 (04000)</p>
+                <p>이메일 : contact@wzplay.com</p>
+            </div>
+        </div>
+    </footer> -->
+
+</body>
+
+</html>

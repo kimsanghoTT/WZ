@@ -7,28 +7,35 @@
     font-style: normal;
 }
 
-/* 추가요 */
-header {
-    z-index: 10;
-}
 
-
-.main-layout-wrapper{
-    width: 100%;
-    height: 200vh;
-}
 .main-header-container{
     width: 100%;
     height: 80px;
-    background-color: #21252B;
-    /* background: linear-gradient(to bottom, #555, #fff 50%); */
+    background: #21252B;
     display: flex;
-    position: relative;
+    position: fixed;
     align-items: center;
     justify-content: space-between;
     padding: 10px 60px;
     color: #fff;
-    position: fixed;
+    transition: .5s;
+    transform: translateY(0);
+    z-index: 100;
+}
+.main-header-container.atHome.onTop{
+    background: linear-gradient(to bottom, #222, transparent 50%);
+}
+.main-header-container.atHome.scrollDown{
+    transform: translateY(-80px);
+}
+.main-header-container.atHome.scrollUp{
+    transform: translateY(0);
+}
+.main-header-container.scrollDown{
+    transform: translateY(-80px);
+}
+.main-header-container.scrollUp{
+    transform: translateY(0);
 }
 .logo-box{
     position: absolute;
@@ -75,7 +82,7 @@ header {
 .search-box .search-btn{
     border: none;
     display: inline-block;
-    background: transparent url("../source/icons/ico_search.png") no-repeat center;
+    background: transparent url("../source/image/ico/ico_search.png") no-repeat center;
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
@@ -159,15 +166,15 @@ header {
     filter: invert(10);
 }
 .hover-box-nav ul li:first-child a::before{
-    background: url("../source/icons/ico_account.png");
+    background: url("../source/image/ico/ico_account.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:nth-child(2) a::before{
-    background: url("../source/icons/ico_basket.png");
+    background: url("../source/image/ico/ico_basket.png");
     background-size: 24px 24px;
 }
 .hover-box-nav ul li:last-child a::before{
-    background: url("../source/icons/ico_favorite_list.png");
+    background: url("../source/image/ico/ico_favorite_list.png");
     background-size: 24px 24px;
 }
 .logout{
@@ -183,7 +190,6 @@ header {
 
 
 .main-footer-wrapper{
-    /* position: absolute; */
     bottom: 0;
     width: 100%;
     height: 400px;
@@ -210,19 +216,19 @@ header {
     filter: invert(10);
 }
 .social-nav .ico_X{
-    background: url(../source/icons/ico_X.png) no-repeat center;
+    background: url(../source/image/ico/ico_X.png) no-repeat center;
     background-size: 25px 25px;
 }
 .social-nav .ico_facebook{
-    background: url(../source/icons/ico_facebook.png) no-repeat center;
+    background: url(../source/image/ico/ico_facebook.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_insta{
-    background: url(../source/icons/ico_insta.png) no-repeat center;
+    background: url(../source/image/ico/ico_insta.png) no-repeat center;
     background-size: 30px 30px;
 }
 .social-nav .ico_youtube{
-    background: url(../source/icons/ico_youtube.png) no-repeat center;
+    background: url(../source/image/ico/ico_youtube.png) no-repeat center;
     background-size: 30px 30px;
 }
 .footer-nav{
