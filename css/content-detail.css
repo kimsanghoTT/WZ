@@ -107,12 +107,19 @@
 .content-detail-wrapper>.container>#work-info>.info02>.info02-text>li {
     line-height: 1.5;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 .content-detail-wrapper>.container>#work-info>.info02>.info02-text>li>span {
     font-size: 22px;
     margin-right: 10px;
 }
-
+.info02-text .tag-list{
+    font-style: italic;
+    opacity: 0.7;
+}
+.info02-text .tag-list .hash{
+    color: #D33A3C;
+}
 
 
 /* episode-list */

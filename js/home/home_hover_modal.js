@@ -1,7 +1,7 @@
 import { initPlayer } from "./home_iframe_player.js";
 import { fetchData } from "./home_init.js";
 
-export const hoverModal = async (data, id, e) => {
+export const hoverModal = async (data, id, card) => {
     const hoveredContent = data.find(item => item.id === id);
     if(!hoveredContent) {
         hoverModalWrapper.classList.remove("active");
@@ -44,10 +44,17 @@ export const hoverModal = async (data, id, e) => {
                     break;
             }
 
+            //getBoundingClientRect : DOM 요소의 화면상 크기와 위치 반환
+            const cardPosition = card.getBoundingClientRect(); 
+            const modalPosition = modalElement.getBoundingClientRect();
 
-            // 커서 기준 위치
-            modalElement.style.left = `${e.clientX}px`;
-            modalElement.style.top = `${e.clientY}px`;
+            //카드의 중앙 좌표
+            const cardCenterX = cardPosition.left + cardPosition.width / 2;
+            const cardCenterY = cardPosition.top + cardPosition.height / 2;
+
+            //모달의 중앙을 카드 중앙에 맞추기
+            modalElement.style.left = `${cardCenterX - modalPosition.width / 2}px`;
+            modalElement.style.top = `${cardCenterY - modalPosition.height / 2}px`;
 
             hoverModalWrapper.append(modalElement);
             gsap.fromTo(modalElement, { opacity:0 }, { opacity:1, duration:0.3 });
@@ -62,6 +69,12 @@ export const hoverModal = async (data, id, e) => {
                 await detailModal(hoveredContent);
                 hoverModalWrapper.classList.remove("active");
             })
+            
+            const removeModalOnScroll = () => {
+                hoverModalWrapper.classList.remove("active");
+                window.removeEventListener("scroll", removeModalOnScroll);
+            }
+            window.addEventListener("scroll", removeModalOnScroll);
         }
     }
     catch(error){

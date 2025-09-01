@@ -446,6 +446,7 @@ body {
     transition: .5s ; 
     z-index: 2;
     transform: translateY(100%);
+    pointer-events: none;
 }
 
 .grid-item:hover::before {
@@ -614,22 +615,16 @@ body {
     display: flex;
     gap: 20px;
 }
-
-.community-post-icon div .heart {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    bottom: -2px;
-}
-
 .community-post-icon div img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
 }
 
 .community-post-icon div>span{
     font-size: 16px;
     font-weight: 300;
+    line-height: 20px;
 }
 
 .community-post-icon div {

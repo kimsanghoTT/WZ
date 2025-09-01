@@ -1,3 +1,21 @@
+/* 서브 헤더 창열기 */
+$(function () {
+    $('.nav-list').on('click', function (e) {
+        e.preventDefault();
+        let subHeader = $('.subHeader');
+        $(subHeader).stop().animate({
+            left: 0
+        }, 1500, 'easeOutExpo')
+    })
+
+    $('.headerClose').on('click', function () {
+        let subHeader = $('.subHeader');
+        $(subHeader).stop().animate({
+            left: '-100%'
+        }, 1500, 'easeOutExpo')
+    })
+})
+
 
 $(function () {
   $('.optWrap > div > p').attr('tabindex', '0');

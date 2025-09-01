@@ -11,12 +11,12 @@ export const bindCardHoverEvent = async () => {
     let hideModalTimer;
 
     cards.forEach(each => {
-        each.addEventListener("mouseenter", async (e) => {
+        each.addEventListener("mouseenter", async () => {
             clearTimeout(hideModalTimer);
 
             const cardId = each.getAttribute("id");
             showModalTimer = setTimeout(async () => {
-                await hoverModal(data, cardId, e);
+                await hoverModal(data, cardId, each);
             }, 300);
         });
 

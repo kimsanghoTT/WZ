@@ -37,7 +37,7 @@ body{
 .category-detail-container {
     position: relative;
     width: 1600px;
-    margin: 50px;
+    margin: 50px auto;
     padding-bottom: 300px;
 }
 

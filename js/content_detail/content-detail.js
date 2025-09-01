@@ -85,6 +85,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         
 
         const kor = korCategory[DataAll.category] || DataAll.category;
+        const tagList = DataAll.tag.slice(0,3).map(tag => {
+            return `<span><span class="hash">#</span>${tag}</span>`
+        }).join("");
 
         InfoDiv02.innerHTML = `
                         <h3><span style="background-color: ${backgroundColor};">${DataAll.rating}</span>작품정보</h3>
@@ -93,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <li><span>장르 :</span> ${korCategory[DataAll.category]}</li>
                             <li><span>감독 :</span> ${DataAll.director}</li>
                             <li><span>제작사 :</span> ${DataAll.production}</li>
-                            <li>${DataAll.tag.map(tag => `#${tag.trim()}`).join(' ')}</li>
+                            <li class="tag-list">${tagList}</li>
                         </ul>
                         <div class="info02-ico">
                         </div>`;
