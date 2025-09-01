@@ -13,7 +13,7 @@ body {
 
 h2 {
     max-width: 1600px;
-    margin: 120px auto 40px;
+    margin: 130px auto -75px;
     color: #fff;
     font-weight: 500;
     font-size: 35px;
@@ -25,6 +25,9 @@ h2 {
     font-weight: 400;
 }
  */
+ .accordion-wrapper {
+    margin-top: 100px;
+ }
 .accordion-container .accordion-wrapper {
     display: flex;
     width: 60%;

@@ -1,6 +1,4 @@
-const container = document.querySelector(".accordion-section-02");
-
-if (container) {
+document.querySelectorAll(".accordion-section-02").forEach(container => {
     const wrapper = container.querySelector(".accordion-wrapper02");
     const contentBoxes = container.querySelectorAll(".accordion-content-box");
     const contentText = container.querySelector(".accordion-content-text02");
@@ -31,4 +29,4 @@ if (container) {
             contentText.classList.remove("fade-out");
         }
     });
-}
+});
