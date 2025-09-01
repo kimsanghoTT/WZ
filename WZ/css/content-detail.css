@@ -1,4 +1,6 @@
-
+body {
+    background: #21252B;
+}
 .content-detail-wrapper>.container {
     max-width: 1600px;
     margin: 0 auto;

@@ -13,7 +13,7 @@ document.querySelector("#searchForm").addEventListener("submit", function (e) {
 });
 /* json */
 const fetchData = async () => {
-    const res = await fetch('./data.json');
+    const res = await fetch('./source/data.json');
     const data = await res.json();
     const dataArray = Object.values(data);
     return dataArray;
@@ -25,7 +25,6 @@ const fetchData = async () => {
 document.addEventListener('DOMContentLoaded', async () => {
     const URL = new URLSearchParams(window.location.search);
     const query = URL.get('query')?.toLowerCase() || '';
-    console.log(query);
 
     if (!query) return;
 
@@ -164,50 +163,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-/* 댓글 렌더링 */
+const renderComments = (reviewText, reviewList, target = "prepend") => {
+  const user = JSON.parse(sessionStorage.getItem("member")) || {
+    name: "user",
+    profile: "source/image/profile.png"
+  };
 
-document.querySelectorAll('.review-text-icons .xi-heart').forEach(item => {
-    item.addEventListener('click', function () {
-        const Hspan = item.nextElementSibling;
-        const HNum = parseInt(Hspan.textContent);
-        Hspan.textContent = HNum + 1;
-    }, { once: true })
-})
+  const reviewRender = document.createElement('div');
+  reviewRender.classList.add('list');
 
-document.querySelectorAll('.review-text-icons .xi-emoticon-sad').forEach(item => {
-    item.addEventListener('click', function () {
-        const Sspan = item.nextElementSibling;
-        const SNum = parseInt(Sspan.textContent);
-        Sspan.textContent = SNum + 1;
-    }, { once: true })
-})
+  reviewRender.innerHTML = `
+    <img src="${user.profile}" alt="">
+    <span>${user.name}</span>
+    <div class="review-text">
+      <p>${reviewText}</p>
+      <ul class="review-text-icons">
+        <li><i class="xi-heart"></i><span class="hNum">0</span></li>
+        <li><i class="xi-emoticon-sad"></i><span class="sNum">0</span></li>
+      </ul>
+    </div>
+  `;
 
-
-document.getElementById('review-button').addEventListener('click', function (e) {
-    e.preventDefault();
-    const reviewResult = document.getElementById('review-input');
-    const reviewText = reviewResult.value.trim();
-    if (reviewText === '') return;
-
-    const reviewList = document.getElementsByClassName('review-list')[0];
-
-    const reviewRender = document.createElement('div');
-    reviewRender.classList.add('list');
-
-    reviewRender.innerHTML = `<img src="source/image/profile.png" alt=""><span>user</span>
-                            <div class="review-text">
-                                <p>${reviewText}</p>
-                                <ul class="review-text-icons">
-                                    <li><i class="xi-heart"></i><span class="hNum">0</span></li>
-                                    <li><i class="xi-emoticon-sad"></i><span class="sNum">0</span></li>
-                                </ul>
-                            </div>`
-    reviewList.appendChild(reviewRender);
-
+  if (target === "prepend") {
     reviewList.prepend(reviewRender);
+  } else {
+    reviewList.appendChild(reviewRender);
+  }
 
-    reviewResult.value = '';
-
+  
     const Heart = reviewRender.querySelector('.xi-heart');
     const Sad = reviewRender.querySelector('.xi-emoticon-sad');
     const HNum = reviewRender.querySelector('.hNum');
@@ -227,8 +210,45 @@ document.getElementById('review-button').addEventListener('click', function (e) 
         sadNum++;
         sNum.textContent = sadNum;
     }, { once: true })
+};
+
+/* 댓글 클릭이벤트 */
+document.getElementById('review-button').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const reviewInput = document.getElementById('review-input');
+  const reviewText = reviewInput.value.trim();
+  if (reviewText === '') return;
+
+  const reviewList = document.getElementsByClassName('review-list')[0];
+
+  renderComments(reviewText, reviewList, 'prepend');
+
+  reviewInput.value = ''; 
+
 })
 
+
+/* 댓글 좋아요*/
+
+document.querySelectorAll('.review-text-icons .xi-heart').forEach(item => {
+    item.addEventListener('click', function () {
+        const Hspan = item.nextElementSibling;
+        const HNum = parseInt(Hspan.textContent);
+        Hspan.textContent = HNum + 1;
+    }, { once: true })
+})
+
+document.querySelectorAll('.review-text-icons .xi-emoticon-sad').forEach(item => {
+    item.addEventListener('click', function () {
+        const Sspan = item.nextElementSibling;
+        const SNum = parseInt(Sspan.textContent);
+        Sspan.textContent = SNum + 1;
+    }, { once: true })
+})
+
+
+/* 공유클릭시 링크복사 */
 document.querySelector('.share').addEventListener('click', function () {
     const URL = window.location.href;
 
