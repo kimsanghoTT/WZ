@@ -13,7 +13,7 @@ body {
 
 h2 {
     max-width: 1600px;
-    margin: 120px auto 40px;
+    margin: 120px auto -70px;
     color: #fff;
     font-weight: 500;
     font-size: 35px;
@@ -29,6 +29,7 @@ h2 {
     display: flex;
     width: 60%;
     height: 600px;
+    margin-top: 100px;
     overflow: hidden;
     position: relative;
     transition: width 0.8s ease;
@@ -71,7 +72,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 0.63) 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 0.850) 100%);
 }
 
 .accordion-content-box.active .content-box-img {
@@ -93,7 +94,7 @@ h2 {
     left: 0;
     writing-mode: vertical-rl;
     letter-spacing: 10px;
-    padding: 0 0 10px 20px;
+    padding: 0 0 10px 8px;
     font-size: 30px;
     color: #ffffff;
     z-index: 2;
