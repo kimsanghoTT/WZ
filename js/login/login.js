@@ -91,7 +91,7 @@ const handleGoogleLogin = () => {
 }
 
 const handleKakaoLogin = () => {
-    const kakaoBtn = document.querySelector(".oauth-login-box .kakao").addEventListener("click", () => {
+    document.querySelector(".oauth-login-box .kakao").addEventListener("click", () => {
         Kakao.Auth.authorize({
             redirectUri: 'https://wzplay.netlify.app/home.html'
         });
