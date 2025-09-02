@@ -42,12 +42,15 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    height: 72px;
 }
-.logo span{
-    font-family: 'SBAggroB';
-    font-size: 60px;
-    color: #D33A3C;
-    letter-spacing: -16px;
+.logo {
+    width: 100%;
+    height: 100%;
+}
+.logo img{
+    height: 100%;
+    object-fit: contain;
 }
 .nav-list{
     display: flex;

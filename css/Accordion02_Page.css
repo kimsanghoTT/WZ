@@ -111,7 +111,9 @@
 }
 
 /* play-icon */
-
+.accordion-wrapper02 .accordion-content-box.active .content-box-img p{
+    pointer-events: none;
+}
 .accordion-play-icon {
     position: absolute;
     bottom: 50px;

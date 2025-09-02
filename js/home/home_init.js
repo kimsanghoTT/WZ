@@ -87,9 +87,9 @@ const renderExclusiveContentGrid = async () => {
     `
         ${upperContents.map(content => gridItem(content)).join("")}
 
-        <!-- <div class="grid-item center-logo"><span>WZ</span>play</div> -->
+
         <div class="logo-wrapper">
-            <span class="logo-wz">WZ</span>
+            <img src="./source/image/wz_logo.png" alt="logo" class="logo-wz">
             <div class="logo-play">play</div>
         </div>
 
