@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     login();
     handleGoogleLogin();
+    handleKakaoLogin();
 })
 
 const renderHeader = async () => {
@@ -87,4 +88,13 @@ const handleGoogleLogin = () => {
         }
 
     })
+}
+
+const handleKakaoLogin = () => {
+    const kakaoBtn = document.querySelector(".oauth-login-box .kakao").addEventListener("click", () => {
+        Kakao.Auth.authorize({
+            redirectUri: 'https://wzplay.netlify.app/home.html'
+        });
+    });
+
 }
