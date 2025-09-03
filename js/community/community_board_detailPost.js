@@ -71,8 +71,8 @@ export const detailPost = (modalElement, post, closeModal) => {
         post.like++;
         await updatePost(post);
 
-        likedPosts.push(post.id);
-        localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+        //likedPosts.push(post.id);
+        //localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
 
         modalElement.querySelector(".like-count").textContent = post.like;
         likeBtn.querySelector("span").textContent = post.like;
