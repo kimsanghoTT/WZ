@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const Main = document.getElementById('detail-main');
         const Info1 = document.getElementById('work-info');
         const Episode = document.getElementById('episode-list');
+        const mainVisualContentBox = Main.querySelector(".main-visual-content-box");
 
         const MainDiv = document.createElement('div');
         const InfoDiv02 = document.createElement('div');
@@ -145,7 +146,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                             </div>
                                     </div>`
         }
-        Main.appendChild(MainDiv);
+        mainVisualContentBox.appendChild(MainDiv);
         Info1.appendChild(InfoDiv02);
         Episode.appendChild(EpisodeDiv);
 

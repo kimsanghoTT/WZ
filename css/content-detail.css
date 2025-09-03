@@ -18,17 +18,22 @@
     position: relative;
     margin-bottom:100px;
 }
-
-.content-detail-wrapper>#detail-main>.main-text {
+.content-detail-wrapper>#detail-main .main-visual-content-box{
+    max-width: 1600px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.content-detail-wrapper>#detail-main> .main-visual-content-box .main-text {
     position: absolute;
     display: flex;
     align-items: flex-end;
     bottom: 15%;
-    left: 10%;
+    left: 0;
     gap: 15px;
 }
 
-.content-detail-wrapper>#detail-main>.main-text>h2 {
+.content-detail-wrapper>#detail-main>.main-visual-content-box .main-text>h2 {
     font-size: 50px;
     font-weight: 600;
     color: #fff;
@@ -36,12 +41,12 @@
     letter-spacing: 2px;
 }
 
-.content-detail-wrapper>#detail-main>.main-text>img {
+.content-detail-wrapper>#detail-main>.main-visual-content-box .main-text>img {
     width: 32px;
     height: 32px;
 }
 
-.content-detail-wrapper>#detail-main>.main-text>img+img {
+.content-detail-wrapper>#detail-main>.main-visual-content-box .main-text>img+img {
     width: 28px;
     height: 28px;
 }
