@@ -7,6 +7,10 @@ html.modal-active{
 body {
     background: #21252B;
 }
+section * {
+    -webkit-user-drag: none;
+    user-select: none;
+}
 .main-video {
     width: 100%;
     height: 100vh;

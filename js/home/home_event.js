@@ -17,7 +17,7 @@ export const bindCardHoverEvent = async () => {
             const cardId = each.getAttribute("id");
             showModalTimer = setTimeout(async () => {
                 await hoverModal(data, cardId, each);
-            }, 300);
+            }, 500);
         });
 
         each.addEventListener("mouseleave", () => {
@@ -26,7 +26,7 @@ export const bindCardHoverEvent = async () => {
             hideModalTimer = setTimeout(() => {
                 hoverModalWrapper.innerHTML = '';
                 hoverModalWrapper.classList.remove("active");
-            }, 300);
+            }, 500);
         });
     });
 
