@@ -4,6 +4,8 @@ Kakao.isInitialized();
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
+const redirectUri = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5501/login.html" : "https://wzplay.netlify.app/login.html";
+
 if (code) {
   fetch("https://kauth.kakao.com/oauth/token", {
     method: "POST",
@@ -11,7 +13,7 @@ if (code) {
     body: new URLSearchParams({
       grant_type: "authorization_code",
       client_id: "85aa9b67b11cb10e750ed2db9f5da229",
-      redirect_uri: "https://wzplay.netlify.app/home.html",
+      redirect_uri: redirectUri,
       code: code,
     }),
   })
@@ -27,6 +29,7 @@ if (code) {
     .then((userData) => {
       const nickname = userData.kakao_account.profile.nickname;
       const profile = userData.kakao_account.profile.profile_image_url;
+
 
       const member = {
         name: nickname,

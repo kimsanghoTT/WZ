@@ -91,9 +91,10 @@ const handleGoogleLogin = () => {
 }
 
 const handleKakaoLogin = () => {
+    const redirectUri = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:5501/login.html" : "https://wzplay.netlify.app/login.html";
     document.querySelector(".oauth-login-box .kakao").addEventListener("click", () => {
         Kakao.Auth.authorize({
-            redirectUri: 'https://wzplay.netlify.app/home.html'
+            redirectUri: redirectUri
         });
     });
 
