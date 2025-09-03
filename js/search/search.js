@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 /* 인기 순위 */
 
-const TargetTitle = ["단다단", "폭싹 속았수다", "귀멸의 칼날: 도공마을 편", "악마가 이사왔다", "발레리나", "F1 더 무비", "장송의 프리렌", "탑건 매버릭", "극한직업", "웬즈데이"]
+const TargetTitle = ["단다단", "폭싹 속았수다", "귀멸의 칼날: 도공마을 편", "악마가 이사왔다", "발레리나", "F1 더 무비", "장송의 프리렌", "탑건 매버릭", "극한직업", "브레이킹 배드"]
 window.addEventListener('DOMContentLoaded', async () => {
   const data = await fetchData();
   const FilterItems = data.filter(item => TargetTitle.includes(item.title));

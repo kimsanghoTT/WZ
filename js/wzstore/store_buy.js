@@ -1,24 +1,37 @@
+const getUrl = window.location.search;
+const getId = getUrl.split("=")[1];
+const order = JSON.parse(sessionStorage.getItem(getId));
+
 function stripWonKeepComma(t) { return (t || '').toString().trim().replace(/[^\d,]/g, ''); }
 function uncomma(s) { return parseInt(String(s || '').replace(/,/g, ''), 10) || 0; }
+
+function updateOrder(updates) {
+  if (!window.order) window.order = {}; 
+  order = { ...order, ...updates };       
+  sessionStorage.setItem(getId, JSON.stringify(order)); 
+}
 
 //  저장 함수 (주소/결제수단/총액)S
 function saveCheckoutPayload() {
   // 1) 배송지
   const addrInputs = document.querySelectorAll('#payBefore .sendinfo, #payBefore .address input[type="text"]');
   const address = Array.from(addrInputs).map(i => i.value.trim()).filter(Boolean).join(' ');
-  sessionStorage.setItem('sendMethod', address || '');
+  sessionStorage.setItem(getId, address || '');
 
   // 2) 결제수단
-  let payMethod = sessionStorage.getItem('payMethod') || '';
+let payMethod = order.payMethod || '';
+
+if (!payMethod) {
+  const activeBtn = document.querySelector('.carduse.btn.active, .carduse.btn.is-pressed, .carduse.btn.on');
+  if (activeBtn) payMethod = activeBtn.textContent.trim();
+
   if (!payMethod) {
-    const activeBtn = document.querySelector('.carduse.btn.active, .carduse.btn.is-pressed, .carduse.btn.on');
-    if (activeBtn) payMethod = activeBtn.textContent.trim();
-    if (!payMethod) {
-      const useBtn = document.querySelector('.use.btn');
-      if (useBtn) payMethod = useBtn.textContent.trim();
-    }
-    if (payMethod) sessionStorage.setItem('payMethod', payMethod);
+    const useBtn = document.querySelector('.use.btn');
+    if (useBtn) payMethod = useBtn.textContent.trim();
   }
+
+  if (payMethod) updateOrder({ payMethod }); 
+}
 
   // 3) 총 결제금액 (우선 화면 최종합계 → 없으면 직접 계산)
   const pick = s => document.querySelector(s);
@@ -86,7 +99,7 @@ $(function () {
     $('#wrap #payBefore .innerBox .sale').removeClass('is-active');
     $(this).addClass('is-active');
 
-    const basePrice = 243000;
+    const basePrice = order.totalPrice;
     const percent = parseInt($(this).find('span').text(), 10) || 0;
     const discount = Math.floor(basePrice * percent / 100);
     const finalPrice = basePrice - discount;
@@ -259,7 +272,7 @@ $(function () {
 
   /* 초기 금액 세팅 */
   (function () {
-    const basePrice = 243000;
+    const basePrice = order.totalPrice;
     const $right = $('#payBefore .right');
     const $calc = $('#payAfter .calculation');
 

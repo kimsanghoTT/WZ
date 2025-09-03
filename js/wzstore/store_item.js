@@ -1,3 +1,159 @@
+const fetchData = async () => {
+    const res = await fetch('./source/store_item.json');
+    const data = await res.json();
+    return Object.values(data);
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  /* ---------------- 상품 데이터 렌더링 ---------------- */
+  const getUrl = window.location.search;
+  const getId = getUrl.split("=")[1];
+
+  const data = await fetchData();
+  const findItem = data.find(item => item.id === getId);
+
+  // 태그 리스트 변환
+  const tagList = findItem.tags.map(tag => {
+    return `<span class="tag">${tag}</span>`;
+  }).join("");
+
+  // 메인 아이템 영역
+  document.getElementById("mainItem").innerHTML = `
+    <div class="item" >
+      <div class="colorPack">
+        <figure style="background-color: ${findItem.colorSwatches[0]}" class="on"></figure>
+        <figure style="background-color: ${findItem.colorSwatches[1]}"></figure>
+        <figure style="background-color: ${findItem.colorSwatches[2]}"></figure>
+        <figure style="background-color: ${findItem.colorSwatches[3]}"></figure>
+      </div>
+      <div class="imageBox">
+        <img src="${findItem.images[0].src}" alt="">
+        <img src="${findItem.images[1].src}" alt="">
+        <img src="${findItem.images[2].src}" alt="">
+        <img src="${findItem.images[3].src}" alt="">
+      </div>
+      <div class="itemSummary">
+        ${findItem.summary}
+      </div>
+      <div class="itemFixed">
+        <div class="itemTitle">
+          <h2>${findItem.id}</h2>
+          <div class="tagArea">${tagList}</div>
+          <p class="price" style="color: #d33a3c;">${findItem.discountPercent}%</p>
+          <p class="price price2"><span>${findItem.price.toLocaleString()}</span>원</p>
+        </div>
+        
+        <div class="buyOpt">
+          <div class="buyOptionBox">
+            <div class="number">
+              <span>-</span>
+              <span class="quantity">1</span>
+              <span>+</span>
+            </div>  
+            <div class="optChoice">
+              <div class="optWrap">
+                <div>
+                  <p>Metalic Black</p>
+                  <p>pure white</p>
+                  <p>burgundy red</p>
+                  <p>melo orange</p>
+                </div>
+                <a href="#"><span class="selectedOption"> 옵션선택</span><i class="fa-solid fa-angle-up"></i></a>
+              </div>
+            </div> 
+          </div>
+          <button class="buy"><span>구매하기</span></button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 상세 텍스트 영역
+  document.querySelector(".infoTextBox").innerHTML = `
+    <article class="itemTxt1">
+      <img src="${findItem.itemTexts[0].img}" alt="${findItem.id}">
+      <p>${findItem.itemTexts[0].p[0]}</p>
+      <p>${findItem.itemTexts[0].p[1]}</p>
+    </article>
+    <article class="itemTxt2">
+      <img src="${findItem.itemTexts[1].img}" alt="${findItem.id}">
+      <p>${findItem.itemTexts[1].p[0]}</p>
+      <p>${findItem.itemTexts[1].p[1]}</p>
+    </article>
+    <article class="itemTxt3">
+      <img src="${findItem.itemTexts[2].img}" alt="${findItem.id}">
+      <p>${findItem.itemTexts[2].p[0]}</p>
+      <p>${findItem.itemTexts[2].p[1]}</p>
+    </article>
+  `;
+
+  const adArea = document.querySelector(".adArea");
+  adArea.style.backgroundImage = `url(${findItem.ad[2].bgImage})`;
+  adArea.innerHTML = `
+    <h2>${findItem.ad[0].label}</h2>
+    <span><a href="${findItem.ad[1].href}">원작 보러가기🏃‍♀️</a></span>
+
+  `
+
+  /* ---------------- 스크롤 애니메이션 ---------------- */
+  const targets = document.querySelectorAll(".itemTxt1, .itemTxt2, .itemTxt3");
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("itemTxt--show");
+        obs.unobserve(entry.target); // 한번만 실행
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: "0px 0px -10% 0px"
+  });
+
+  targets.forEach(el => io.observe(el));
+
+  /* ---------------- 구매 버튼 이벤트 ---------------- */
+  orderBuyBtn(findItem);
+  initColorPack();
+});
+
+const orderBuyBtn = (findItem) => {  
+  document.querySelector(".buyOpt button.buy").addEventListener("click", () => {
+    const quantity = document.querySelector(".quantity").textContent;
+    const totalPrice = findItem.price * quantity;
+    const selectedOption = document.querySelector(".selectedOption").textContent.trim();
+    const isLogined = sessionStorage.getItem("member");
+
+    if (!isLogined) {
+      alert("로그인 후 이용가능합니다.");
+      window.location.href = "login.html";
+      return;
+    } 
+
+    if(selectedOption === "옵션선택") {
+      alert("옵션을 선택해주세요.");
+      return;
+    }
+
+    const order = {
+      itemId: findItem.id,
+      quantity : quantity,
+      totalPrice: totalPrice,
+      selectedOption:selectedOption,
+      discountPercent:findItem.discountPercent,
+      payMethod:"",
+      sendMethod:"",
+      msgInfo:""
+    }
+
+    const orderId = `${findItem.id}_${Date.now()}`;
+
+    sessionStorage.setItem(orderId, JSON.stringify(order));
+    window.location.href = `store_buy.html?id=${orderId}`;
+  });
+}
+
+
 /* 서브 헤더 창열기 */
 $(function () {
     $('.nav-list').on('click', function (e) {
@@ -104,11 +260,12 @@ $(document).on('click', '.number span:last-child', function () {
 
 
 /* 컬러선택 */
-$(function () {
+function initColorPack() {
   const $pack  = $('.colorPack');
-  const $imgs  = $pack.nextAll('img').slice(0, 4);
-  const $stage = $imgs.first().parent(); // 이미지 부모 컨테이너
-  const $texts = $('.itemSummary, .itemTitle .price2, .itemTitle .tagArea');
+  const $imgs = $('.imageBox').find('img').slice(0, 4);
+
+  const $stage = $pack.closest('.item'); 
+  const $texts = $('.itemSummary, .itemTitle .price2, .itemTitle .tagArea'); 
   const baseCol = $texts.css('color');
 
   const gradients = [
@@ -121,39 +278,10 @@ $(function () {
   // 초기 셋업
   $stage.css({ position: 'relative', overflow: 'hidden', background: gradients[0] });
 
-  // ★ 중앙 정렬: 컨테이너를 가득 채우되 비율 유지 + 중앙 배치
   $imgs.css({
     position: 'absolute', top: '50%', left: '50%', width: '60%', height: '80%',
     objectFit: 'contain', objectPosition: 'center', zIndex: 1, display: 'none'
   }).eq(0).show();
-
-  // 컨테이너 높이 고정(낙하 방지)
-  const ratios = new Array($imgs.length);
-  function updateStageMinH(){
-    const r = Math.max.apply(null, ratios.filter(Boolean));
-    if (r) $stage.css('minHeight', Math.round($stage.width() * r));
-  }
-  $imgs.each(function(i, img){
-    const set = ()=>{ if (img.naturalWidth) { ratios[i] = img.naturalHeight / img.naturalWidth; updateStageMinH(); } };
-    img.complete ? set() : $(img).one('load', set);
-  });
-  $(window).on('resize', updateStageMinH);
-
-  // 배경 그라디언트 페이드(오버레이는 이미지 아래)
-  function fadeStageBG(gradient) {
-    $stage.find('.bgFade').remove();
-    const $ov = $('<div class="bgFade">').css({
-      position: 'absolute', inset: 0, pointerEvents: 'none',
-      zIndex: 0, opacity: 0, transition: 'opacity .25s ease',
-      background: gradient
-    });
-    $stage.append($ov);
-    requestAnimationFrame(() => $ov.css('opacity', 1));
-    $ov.on('transitionend', function () {
-      $stage.css('background', gradient);
-      $ov.remove();
-    });
-  }
 
   // 색상 클릭 핸들러
   $pack.on('click', 'figure', function () {
@@ -165,24 +293,35 @@ $(function () {
     if ($cur[0] === $next[0]) return;
 
     // 배경 전환
-    fadeStageBG(gradients[idx]);
+    fadeStageBG($stage, gradients[idx]);
 
-    // #121212일 때 텍스트 색상
-    if (idx === 3) $texts.css('color', '#fefefe');
-    else           $texts.css('color', baseCol);
+    // 텍스트 색상 변경
+    $texts.css('color', idx === 3 ? '#fefefe' : baseCol);
 
-    // 이전 이미지: 빠른 페이드아웃 + 오른쪽 10px
-    $cur.stop(true, true)
-        .animate({ opacity: 0, marginRight: '10px' }, 100, 'linear', function () {
-          $(this).hide().css({ marginRight: 0, opacity: 1 });
-        });
-
-    // 다음 이미지: 왼쪽 -10px → 0으로 페이드인
-    $next.stop(true, true)
-         .css({ opacity: 0, marginLeft: '-10px', display: 'block' })
+    // 이미지 전환 애니메이션
+    $cur.stop(true, true).animate({ opacity: 0, marginRight: '10px' }, 100, 'linear', function () {
+      $(this).hide().css({ marginRight: 0, opacity: 1 });
+    });
+    $next.stop(true, true).css({ opacity: 0, marginLeft: '-10px', display: 'block' })
          .animate({ opacity: 1, marginLeft: 0 }, 220, 'swing');
   });
-});
+}
+
+// 배경 그라디언트 페이드 함수 따로 분리
+function fadeStageBG($stage, gradient) {
+  $stage.find('.bgFade').remove();
+  const $ov = $('<div class="bgFade">').css({
+    position: 'absolute', inset: 0, pointerEvents: 'none',
+    zIndex: 0, opacity: 0, transition: 'opacity .25s ease',
+    background: gradient
+  });
+  $stage.append($ov);
+  requestAnimationFrame(() => $ov.css('opacity', 1));
+  $ov.on('transitionend', function () {
+    $stage.css('background', gradient);
+    $ov.remove();
+  });
+}
 
 
 
@@ -210,25 +349,6 @@ if(window.location.pathname.includes('store_item.html')){
 
     /* 스크롤하면 아이템설명이 나오도록 함 */
 
-    // 진입 시 1회만 애니메이션
-document.addEventListener('DOMContentLoaded', () => {
-  const targets = document.querySelectorAll('.itemTxt1, .itemTxt2, .itemTxt3');
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('itemTxt--show');
-        obs.unobserve(entry.target); // 한번만 실행 (반복 원하면 이 줄 제거하고 else로 removeClass)
-      }
-    });
-  }, {
-    threshold: 0.2,                // 요소의 20%가 보이면
-    rootMargin: '0px 0px -10% 0px' // 살짝 일찍 트리거
-  });
-
-  targets.forEach(el => io.observe(el));
-});
-
 /* 광고 플레이아이콘 */
 $(document).on('click', '.playBtn', function(){
   const $btn = $(this);
@@ -244,15 +364,3 @@ $(document).on('click', '.playBtn', function(){
   // (원클릭만 원하면) 다음 줄 주석 해제:
   // $(this).off('click');
 });
-
-document.querySelector(".buyOpt button.buy").addEventListener("click", () => {
-    const isLogined = sessionStorage.getItem("member");
-
-    if(!isLogined){
-      alert("로그인 후 이용가능합니다.");
-      window.location.href = "login.html";
-    }
-    else{
-      window.location.href = "store_buy.html";
-    }
-})

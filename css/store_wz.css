@@ -299,7 +299,8 @@ section>h2+span {
 /* product 영역 */
 
 #product {
-    background: linear-gradient(90deg, #e7ac74, rgba(0, 0, 0, 0));
+    /* background: linear-gradient(90deg, #d1f6ff, rgba(0, 0, 0, 0)); */
+    background-color: #d6ebf0;
     width: 100vw;
      padding: 50px 175px; 
 }

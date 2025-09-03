@@ -638,6 +638,21 @@ section * {
 .community-post-icon div {
     display: flex;
 }
+.community-post-icon div .community-post-heart-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    bottom: -5px;
+    margin-right: 5px;
+}
+
+.community-post-icon div .community-post-chat-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    bottom: -4px;
+    margin-right: 5px;
+}
 
 /* 삼각형 */
 .overlay-text-btn {

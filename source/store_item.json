@@ -1,0 +1,601 @@
+[
+    {
+      "title": "p-shirts",
+      "id": "p-slamdunk-shirts",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/t-shirts/slamdunk5.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/slamdunk3.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/slamdunk6.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/t-shirts/slamdunk8.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#슬램덩크","#강백호","#티셔츠","#남녀공용","#오타쿠패션","#20주년","#위즈와함께","#콜라보상품"],
+      "discountPercent": 8,
+      "price": 65000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/t-shirts/slamdunk5.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/t-shirts/slamdunk6.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/t-shirts/slamdunk8.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/t-shirts/slamdunk8.png"}
+      ]
+    },
+    {
+      "title": "p-shirts",
+      "id": "p-onepiece-shirts",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/t-shirts/onepiece4.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/onepiece5.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/onepiece1.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/t-shirts/onepiece2.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#원피스","#원피스루피","#티셔츠","#남녀공용","#오타쿠패션","#20주년","#위즈와함께","#콜라보상품"],
+      "discountPercent": 13,
+      "price": 33000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/t-shirts/onepiece4.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/t-shirts/onepiece1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/t-shirts/onepiece2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/t-shirts/onepiece4.png"}
+      ]
+    },
+    {
+      "title": "p-shirts",
+      "id": "p-attackontitan-shirts",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/t-shirts/attackontitan.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/attackontitan2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/attackontitan1.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/t-shirts/attackontitan3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#진격의 거인","#조사병단","#티셔츠","#남녀공용","#오타쿠패션","#20주년","#위즈와함께","#콜라보상품"],
+      "discountPercent": 22,
+      "price": 69000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/t-shirts/attackontitan3.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/t-shirts/attackontitan2.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/t-shirts/onepiece1.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/t-shirts/attackontitan3.png"}
+      ]
+    },
+    {
+      "title": "p-shirts",
+      "id": "p-sinjang-shirts",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/t-shirts/sinjang_t.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/sinjang_t2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/t-shirts/sinjang_t3.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/t-shirts/sinjang_t4.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#크레용신짱","#짱구는못말려","#티셔츠","#커플티","#오타쿠패션","#20주년","#위즈와함께","#콜라보상품"],
+      "discountPercent": 10,
+      "price": 19000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/t-shirts/sinjang_t.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/t-shirts/sinjang_t2.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/t-shirts/sinjang_t4.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/t-shirts/sinjang_t3.png"}
+      ]
+    },
+
+
+    {
+      "title": "p-bag",
+      "id": "p-message-bag",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/bag/message_bag0.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/message_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/message_bag2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/bag/message_bag3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#굿즈전용","#메신저백","#데일리가방","#남녀공용","#오타쿠패션","#위즈시그니처","#위즈와함께","#탁월한선택"],
+      "discountPercent": 22,
+      "price": 22000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/bag/message_bag0.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/bag/message_bag2.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/bag/message_bag3.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/bag/message_bag0.png"}
+      ]
+    },
+    {
+      "title": "p-bag",
+      "id": "p-cross-bag",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/bag/cross_bag.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/cross_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/cross_bag2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/bag/cross_bag3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#굿즈전용","#크로스백","#데일리가방","#남녀공용","#오타쿠패션","#위즈시그니처","#위즈와함께","#탁월한선택"],
+      "discountPercent": 22,
+      "price": 22000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/bag/cross_bag.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/bag/cross_bag1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/bag/cross_bag2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/bag/cross_bag.png"}
+      ]
+    },
+    {
+      "title": "p-bag",
+      "id": "p-back-bag",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/bag/backpack.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/backpack1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/backpack2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/bag/backpack8.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#굿즈전용","#백팩","#학생가방","#남녀공용","#오타쿠패션","#위즈시그니처","#위즈와함께","#탁월한선택"],
+      "discountPercent": 22,
+      "price": 33000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/bag/backpack.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/bag/backpack4.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/bag/backpack1.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/bag/backpack8.png"}
+      ]
+    },
+    {
+      "title": "p-bag",
+      "id": "p-echo-bag",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/bag/echo_bag.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/echo_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/bag/echo_bag2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/bag/echo_bag3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#굿즈전용","#에코백","#데일리가방","#친환경제품","#뱃지전용","#위즈시그니처","#위즈와함께","#탁월한선택"],
+      "discountPercent": 22,
+      "price": 10000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/bag/echo_bag.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/bag/echo_bag1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/bag/echo_bag2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/bag/echo_bag.png"}
+      ]
+    },
+
+
+    {
+      "title": "p-dolls",
+      "id": "p-april-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/april.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/april1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/april2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/brown3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#4월은너의거짓말","#넨도로이드","#일코굿즈","#피규어","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 5,
+      "price": 125000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/april.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/april1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/april2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "원작 보러가기🏃‍♀️"},
+        {"href": "/content-detail.html?query=ani-13"},
+        {"bgImage": "./source/image/store_img/rag-dolls/april.png"}
+      ]
+    },
+    {
+      "title": "p-dolls",
+      "id": "p-brown-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/brown.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/brown1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/brown5.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/brown4.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#괴담출근","#폼폼토끼","#착한친구","#봉제인형","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 5,
+      "price": 39000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/brown.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/brown5.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/brown4.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/rag-dolls/brown.png"}
+      ]
+    },
+    {
+      "title": "p-dolls",
+      "id": "p-hamtori-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/hamtori.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/hamtori1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/hamtori2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/hamtori3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#방가방가햄토리","#넨도로이드","#일코굿즈","#피규어","#추억상품","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 20,
+      "price": 54000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/hamtori.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/hamtori1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/hamtori2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/rag-dolls/hamtori"}
+      ]
+    },
+    {
+      "title": "p-dolls",
+      "id": "p-sakamotodaz-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/sakamotodaz1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/sakamotodaz2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/sakamotodaz3.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/sakamotodaz4.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#사카모토데이즈","#신인형","#마피아인형","#봉제인형","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 11,
+      "price": 77000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/sakamotodaz1.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/sakamotodaz2_vactor.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/sakamotodaz_vactor.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/rag-dolls/sakamotodaz1.png"}
+      ]
+    },
+       {
+      "title": "p-dolls",
+      "id": "p-kdh-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/kdh.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/kdh1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/kdh2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/kdh3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#케이팝데몬헌터스","#더피인형","#금주잇템","#봉제인형","#오타쿠굿즈","#위즈시그니처","#위즈와함께","#탁월한선택"],
+      "discountPercent": 0,
+      "price": 89000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/kdh.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/kdh1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/kdh2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/bg_kdh.jpg"}
+      ]
+    },
+       {
+      "title": "p-dolls",
+      "id": "p-hxh-dolls",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/rag-dolls/hxh.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/hxh1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/rag-dolls/hxh2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/rag-dolls/hxh2_vactor.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#헌터x헌터","#곤키르아","#귀염둥이","#봉제인형","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 8,
+      "price": 138000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/rag-dolls/hxh.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/rag-dolls/hxh1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/rag-dolls/hxh2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/rag-dolls/hxh.png"}
+      ]
+    },
+
+
+
+     {
+      "title": "p-acc",
+      "id": "p-botchi-acc",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/acc/botchi.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/botchi.png1","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/botchi.png2","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/acc/botchi.png5","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#봇치더락","#결속밴드","#결속목걸이","#우정템","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 13,
+      "price": 15000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/acc/botchi.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/acc/botchi1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/acc/botchi2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/acc/botchi2.png"}
+      ]
+    },
+    {
+      "title": "p-acc",
+      "id": "p-sailormoon-acc",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/acc/saliormoon.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/saliormoon1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/saliormoon2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/acc/saliormoon3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#달의요정","#세일러문","#정의의이름으로","#우정템","#오타쿠굿즈","#30주년","#위즈와함께","#탁월한선택"],
+      "discountPercent": 20,
+      "price": 59000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/acc/saliormoon.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/acc/saliormoon2.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/acc/saliormoon3.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/acc/saliormoon.png"}
+      ]
+    },
+    {
+      "title": "p-acc",
+      "id": "p-sinjang-acc",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/acc/sinjang.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/sinjang1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/sinjang2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/acc/sinjang3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#크레용신짱","#짱구는못말려","#초코비","#열쇠고리","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
+      "discountPercent": 33,
+      "price": 16000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/acc/sinjang.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/acc/sinjang1.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/acc/sinjang2.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/acc/sinjang.png"}
+      ]
+    },
+
+
+
+    {
+      "title": "p-others",
+      "id": "p-tiniping-others",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/others/tiniping.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/others/tiniping1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/others/tiniping2.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/others/tiniping3.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#캐치티니핑","#사랑의하츄핑","#하츄핑","#유아용우산","#캐릭터우산","#핑크색우산","#안전지킴이","#베스트선물"],
+      "discountPercent": 5,
+      "price": 33000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/others/tiniping1.png","p":["덕심은 숨기지 말고 입으세요—오늘의 메인퀘스트: 간지 + 편안함.","행사장부터 카페까지, NPC 시선 어그로 확정."]},
+        {"img":"./source/image/store_img/others/tiniping2.png","p":["고해상도 프린트로 픽셀 깨짐 제로—작품 퀄리티 그대로.","30수 코튼의 S급 촉감—하루 종일 버프 유지."]},
+        {"img":"./source/image/store_img/others/tiniping3.png","p":["선물 각 나오면 포장 옵션 ON—친구 호감도 상승 확정.","세탁 가이드: 뒤집고 찬물, 건조기 금지—수명 연장 버프."]}
+      ],
+      "ad": [
+        {"label": "위즈 신작 보러가기🏃‍♀️"},
+        {"href": "./home.html"},
+        {"bgImage": "./source/image/store_img/others/tiniping1.png"}
+      ]
+    },
+    {
+      "title": "aviot-friren",
+      "id": "AVIOTxWZ",
+      "summary": "상세소개 문단( .itemSummary )",
+      "images": [
+        {"src":"./source/image/store_img/others/aviot_w.webp","gradient":"radial-gradient(#fff 20%, #7ad3d1 80%)"},
+        {"src":"./source/image/store_img/others/aviot_p.webp","gradient":"radial-gradient(#fff 20%, #ffa9b5 80%)"},
+        {"src":"./source/image/store_img/others/aviot_g.webp","gradient":"radial-gradient(#fff 10%, #d8ebac 50%)"},
+        {"src":"./source/image/store_img/others/aviot_b.webp","gradient":"radial-gradient(#fff 10%, #2a2a2a 50%)","textOnDark":true}
+      ],
+      "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
+      "tags": ["#AVIOT","#무선이어폰","#블루투스","#이어폰","#시그니처","#Extension","#위즈플레이","#굿즈"],
+      "discountPercent": 17,
+      "price": 243000,
+      "options": [
+        {"label":"Metalic Black","priceDelta":0},
+        {"label":"pure white","priceDelta":0},
+        {"label":"burgundy red","priceDelta":0},
+        {"label":"melo orange","priceDelta":0}
+      ],
+      "itemTexts": [
+        {"img":"./source/image/store_img/others/aviot_w.webp","p":["itemTxt1 문장1","감자2"]},
+        {"img":"./source/image/store_img/others/aviot_g.webp","p":["itemTxt2 문장1","고구마2"]},
+        {"img":"./source/image/store_img/others/aviot_b.webp","p":["itemTxt3 문장1","김치2"]}
+      ],
+      "ad": [
+        {"label": "원작 보러가기🏃‍♀️"},
+        {"href": "/content-detail.html?query=ani-16"},
+        {"bgImage": "./source/image/store_img/bg_friren.webp"}
+      ]
+    }
+]
