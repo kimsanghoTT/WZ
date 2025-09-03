@@ -88,8 +88,8 @@ export const detailPost = (modalElement, post, closeModal) => {
         post.dislike++;
         await updatePost(post);
 
-        dislikedPosts.push(post.id);
-        localStorage.setItem("dislikedPosts", JSON.stringify(dislikedPosts));
+        //dislikedPosts.push(post.id);
+        //localStorage.setItem("dislikedPosts", JSON.stringify(dislikedPosts));
 
         dislikeBtn.querySelector("span").textContent = post.dislike;
     });
