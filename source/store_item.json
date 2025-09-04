@@ -1341,7 +1341,7 @@
     ],
     "ad": [
       { "label": "원작 보러가기🏃‍♀️" },
-      { "href": "/content-detail.html?query=ani-16" },
+      { "href": "/content-detail.html?query=ani-15" },
       { "bgImage": "./source/image/store_img/bg_friren.webp" }
     ]
   }
