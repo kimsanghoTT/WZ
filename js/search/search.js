@@ -42,7 +42,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     loop: true,
     grabCursor: true,
     loopAdditionalSlides: 5,
-    preloadImages: true
+    preloadImages: true,
+    autoplay:true
   });
 
   scroll();

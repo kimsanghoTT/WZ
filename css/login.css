@@ -29,7 +29,7 @@
     z-index: 4;
 }
 .content-box{
-    width: 500px;
+    width: 400px;
     color: #fff;
 }
 .content-box h2{
@@ -97,7 +97,7 @@
     align-items: center;
 }
 .content-box .line-box .line{
-    width: 200px;
+    width: 160px;
     height: 1px;
     background: #999;
 }

@@ -220,7 +220,7 @@
 
 .search-recommend>.swiper-top {
     width: 130%;
-    height: 130px;
+    height: 140px;
     border-radius: 100%;
     position: absolute;
     top: 0px;
@@ -230,7 +230,7 @@
 
 .search-recommend>.swiper-bottom {
     width: 130%;
-    height: 130px;
+    height: 140px;
     border-radius: 40%;
     position: absolute;
     bottom: 0px;
