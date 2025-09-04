@@ -89,6 +89,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     </article>
   `;
 
+  if(getId !== "AVIOTxWZ"){
+    document.querySelector(".itemPoint").style.display = "none";
+    document.querySelector(".pint").style.display = "none";
+  }
+
   const adArea = document.querySelector(".adArea");
   adArea.style.backgroundImage = `url(${targetItem.ad[2].bgImage})`;
   adArea.innerHTML = `

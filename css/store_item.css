@@ -443,7 +443,6 @@ width: 100%;
   margin: auto;
   text-align: center;
   line-height: 1.5;
-  margin-bottom: 150px;
 }
 .caution {
   padding: 50px;
@@ -478,7 +477,8 @@ width: 100%;
 
 /* 광고영역 */
 .adArea {
-  width: 1400px;
+  margin-top: 150px;
+  width: 100%;
   height: 300px;
   background: url(../source/image/store_img/bg_friren.webp) no-repeat center/cover;
   filter: blur(3px);

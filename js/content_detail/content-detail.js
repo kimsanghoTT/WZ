@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (let i = 0; i < DataAll.episodeGuide.length; i++) {
             const ep = DataAll.episodeGuide[i];
             const starspan = randomstar(3.8, 5.0);
-            const percentspan = randompercent(45, 55);
+            const percentspan = Math.random() < 0.5 ? 0 : Math.floor(Math.random() * (100 - 87 + 1)) + 87;
             
 
             episodehtml.innerHTML += `
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                                 <h4>${DataAll.title} ${ep.number}화 ${ep.title}</h4>
                                                 <div class="list-icons">
                                                 <i class="xi-star"><span>${starspan}</span></i> 
-                                                <span>${percentspan}</span>
+                                                <span>${percentspan}%</span>
                                                 <a href=""><img src="source/image/ico/share.png" alt=""></a>
                                                 </div>
                                             </div>
