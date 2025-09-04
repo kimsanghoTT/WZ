@@ -283,7 +283,6 @@
       { "bgImage": "./source/image/store_img/t-shirts/sinjang_t3.png" }
     ]
   },
-
   {
     "title": "위즈 메신저백",
     "id": "p-message-bag",
@@ -568,7 +567,6 @@
       { "bgImage": "./source/image/store_img/bag/echo_bag.png" }
     ]
   },
-
   {
     "title": "위즈x4월은 너의 거짓말",
     "id": "p-april-dolls",
@@ -995,7 +993,6 @@
       { "bgImage": "./source/image/store_img/rag-dolls/hxh.png" }
     ]
   },
-
   {
     "title": "봇치더락 결속밴드",
     "id": "p-botchi-acc",
@@ -1206,7 +1203,6 @@
       { "bgImage": "./source/image/store_img/acc/sinjang.png" }
     ]
   },
-
   {
     "title": "위즈x캐치! 티니핑 우산",
     "id": "p-tiniping-others",
