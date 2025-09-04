@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const data = await fetchData();
   const targetItem = data.find(item => item.id === getId);
-  const pageTitle = document.querySelector("title").textContent = `${targetItem.title} | WZ 스토어`;
+  document.querySelector("title").textContent = `${targetItem.title} | WZ 스토어`;
 
   /* ---------------- 상품 데이터 렌더링 ---------------- */
 

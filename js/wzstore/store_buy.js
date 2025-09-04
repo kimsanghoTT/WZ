@@ -92,15 +92,28 @@ $(function () {
   function toggleFilled(el) { $(el).toggleClass('filled', $(el).val().trim().length > 0); }
   $('#payBefore .sendinfo, #payBefore textarea').each(function () { toggleFilled(this); });
   $(document).on('input blur', '#payBefore .sendinfo, #payBefore textarea', function () { toggleFilled(this); });
+  $(document).find(".summer.sale").find('span').text(`${order.discountPercent}%`);
 
   /* 쿠폰 적용하기 */
   $(document).on('click', '.sale', function (e) {
     e.preventDefault();
-    $('#wrap #payBefore .innerBox .sale').removeClass('is-active');
+    $('#payBefore .innerBox .sale').removeClass('is-active');
     $(this).addClass('is-active');
 
+    let percent = 0;
+    if ($(this).hasClass('summer')) {
+        // summer 버튼
+        percent = order.discountPercent;
+        $(this).find('span').text(`${percent}%`);
+
+    } else if ($(this).hasClass('first')) {
+        // first 버튼
+        percent = 20;
+        $(this).find('span').text(`${percent}%`);
+    }
+
+    // 할인 계산
     const basePrice = order.totalPrice;
-    const percent = parseInt($(this).find('span').text(), 10) || 0;
     const discount = Math.floor(basePrice * percent / 100);
     const finalPrice = basePrice - discount;
 
