@@ -5,15 +5,17 @@ const fetchData = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
-  /* ---------------- 상품 데이터 렌더링 ---------------- */
   const getUrl = window.location.search;
   const getId = getUrl.split("=")[1];
 
   const data = await fetchData();
-  const findItem = data.find(item => item.id === getId);
+  const targetItem = data.find(item => item.id === getId);
+  const pageTitle = document.querySelector("title").textContent = `${targetItem.title} | WZ 스토어`;
+
+  /* ---------------- 상품 데이터 렌더링 ---------------- */
 
   // 태그 리스트 변환
-  const tagList = findItem.tags.map(tag => {
+  const tagList = targetItem.tags.map(tag => {
     return `<span class="tag">${tag}</span>`;
   }).join("");
 
@@ -21,26 +23,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("mainItem").innerHTML = `
     <div class="item" >
       <div class="colorPack">
-        <figure style="background-color: ${findItem.colorSwatches[0]}" class="on"></figure>
-        <figure style="background-color: ${findItem.colorSwatches[1]}"></figure>
-        <figure style="background-color: ${findItem.colorSwatches[2]}"></figure>
-        <figure style="background-color: ${findItem.colorSwatches[3]}"></figure>
+        <figure style="background-color: ${targetItem.colorSwatches[0]}" class="on"></figure>
+        <figure style="background-color: ${targetItem.colorSwatches[1]}"></figure>
+        <figure style="background-color: ${targetItem.colorSwatches[2]}"></figure>
+        <figure style="background-color: ${targetItem.colorSwatches[3]}"></figure>
       </div>
       <div class="imageBox">
-        <img src="${findItem.images[0].src}" alt="">
-        <img src="${findItem.images[1].src}" alt="">
-        <img src="${findItem.images[2].src}" alt="">
-        <img src="${findItem.images[3].src}" alt="">
+        <img src="${targetItem.images[0].src}" alt="">
+        <img src="${targetItem.images[1].src}" alt="">
+        <img src="${targetItem.images[2].src}" alt="">
+        <img src="${targetItem.images[3].src}" alt="">
       </div>
       <div class="itemSummary">
-        ${findItem.summary}
+        ${targetItem.summary}
       </div>
       <div class="itemFixed">
         <div class="itemTitle">
-          <h2>${findItem.id}</h2>
+          <h2>${targetItem.title}</h2>
           <div class="tagArea">${tagList}</div>
-          <p class="price" style="color: #d33a3c;">${findItem.discountPercent}%</p>
-          <p class="price price2"><span>${findItem.price.toLocaleString()}</span>원</p>
+          <p class="price" style="color: #d33a3c;">${targetItem.discountPercent}%</p>
+          <p class="price price2"><span>${targetItem.price.toLocaleString()}</span>원</p>
         </div>
         
         <div class="buyOpt">
@@ -71,27 +73,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 상세 텍스트 영역
   document.querySelector(".infoTextBox").innerHTML = `
     <article class="itemTxt1">
-      <img src="${findItem.itemTexts[0].img}" alt="${findItem.id}">
-      <p>${findItem.itemTexts[0].p[0]}</p>
-      <p>${findItem.itemTexts[0].p[1]}</p>
+      <img src="${targetItem.itemTexts[0].img}" alt="${targetItem.id}">
+      <p>${targetItem.itemTexts[0].p[0]}</p>
+      <p>${targetItem.itemTexts[0].p[1]}</p>
     </article>
     <article class="itemTxt2">
-      <img src="${findItem.itemTexts[1].img}" alt="${findItem.id}">
-      <p>${findItem.itemTexts[1].p[0]}</p>
-      <p>${findItem.itemTexts[1].p[1]}</p>
+      <img src="${targetItem.itemTexts[1].img}" alt="${targetItem.id}">
+      <p>${targetItem.itemTexts[1].p[0]}</p>
+      <p>${targetItem.itemTexts[1].p[1]}</p>
     </article>
     <article class="itemTxt3">
-      <img src="${findItem.itemTexts[2].img}" alt="${findItem.id}">
-      <p>${findItem.itemTexts[2].p[0]}</p>
-      <p>${findItem.itemTexts[2].p[1]}</p>
+      <img src="${targetItem.itemTexts[2].img}" alt="${targetItem.id}">
+      <p>${targetItem.itemTexts[2].p[0]}</p>
+      <p>${targetItem.itemTexts[2].p[1]}</p>
     </article>
   `;
 
   const adArea = document.querySelector(".adArea");
-  adArea.style.backgroundImage = `url(${findItem.ad[2].bgImage})`;
+  adArea.style.backgroundImage = `url(${targetItem.ad[2].bgImage})`;
   adArea.innerHTML = `
-    <h2>${findItem.ad[0].label}</h2>
-    <span><a href="${findItem.ad[1].href}">원작 보러가기🏃‍♀️</a></span>
+    <h2>${targetItem.ad[0].label}</h2>
+    <span><a href="${targetItem.ad[1].href}">원작 보러가기🏃‍♀️</a></span>
 
   `
 
@@ -113,14 +115,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   targets.forEach(el => io.observe(el));
 
   /* ---------------- 구매 버튼 이벤트 ---------------- */
-  orderBuyBtn(findItem);
+  orderBtn(targetItem);
   initColorPack();
 });
 
-const orderBuyBtn = (findItem) => {  
+const orderBtn = (targetItem) => {  
   document.querySelector(".buyOpt button.buy").addEventListener("click", () => {
     const quantity = document.querySelector(".quantity").textContent;
-    const totalPrice = findItem.price * quantity;
+    const totalPrice = targetItem.price * quantity;
     const selectedOption = document.querySelector(".selectedOption").textContent.trim();
     const isLogined = sessionStorage.getItem("member");
 
@@ -136,17 +138,18 @@ const orderBuyBtn = (findItem) => {
     }
 
     const order = {
-      itemId: findItem.id,
+      itemId: targetItem.id,
+      itemImage:targetItem.images[0].src,
       quantity : quantity,
       totalPrice: totalPrice,
       selectedOption:selectedOption,
-      discountPercent:findItem.discountPercent,
+      discountPercent:targetItem.discountPercent,
       payMethod:"",
-      sendMethod:"",
+      address:"",
       msgInfo:""
     }
 
-    const orderId = `${findItem.id}_${Date.now()}`;
+    const orderId = `${targetItem.id}_${Date.now()}`;
 
     sessionStorage.setItem(orderId, JSON.stringify(order));
     window.location.href = `store_buy.html?id=${orderId}`;

@@ -9,7 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WZstoreMAIN</title>
+    <title>WZ 스토어 - 오직 WZ에서만 만나는 아이템</title>
+    <link rel="icon" type="image/png" href="source/image/favicon.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/store_wz.css">
     <link rel="stylesheet" href="css/subheader.css">
@@ -125,8 +126,8 @@
                             <div class="textBox">
                                 <span>아비오트가 선사하는 즐거움!</span>
                                 <h2>WZ x 아비오트</h2>
-                                <button class="detail"><a href="store_item.html">자세히 보기</a></button>
-                                <button class="buy"><a href="store_item.html">구매하기</a></button>
+                                <button class="detail"><a href="store_item.html?id=AVIOTxWZ">자세히 보기</a></button>
+                                <button class="buy"><a href="store_item.html?id=AVIOTxWZ">구매하기</a></button>
                             </div>
                             <img src="source/image/store_img/others/aviot_w.webp" alt="이어폰" class="mainItem">
                         </div>
@@ -136,8 +137,8 @@
                             <div class="textBox">
                                 <span>나도 이제 결속 밴드에 합류? 내 포지션 확보!</span>
                                 <h2>WZ x 봇치더락</h2>
-                                <button class="detail"><a href="store_item.html">자세히 보기</a></button>
-                                <button class="buy"><a href="store_item.html">구매하기</a></button>
+                                <button class="detail"><a href="store_item.html?id=p-botchi-acc">자세히 보기</a></button>
+                                <button class="buy"><a href="store_item.html?id=p-botchi-acc">구매하기</a></button>
                             </div>
                             <img src="source/image/store_img/acc/botchi2_vactor.png" alt="목걸이" class="mainItem">
                         </div>
@@ -147,8 +148,8 @@
                             <div class="textBox">
                                 <span>추억 속 햄토리와 다시 만났다.</span>
                                 <h2>WZ x 방가방가 햄토리</h2>
-                                <button class="detail"><a href="store_item.html">자세히 보기</a></button>
-                                <button class="buy"><a href="store_item.html">구매하기</a></button>
+                                <button class="detail"><a href="store_item.html?id=p-hamtori-dolls">자세히 보기</a></button>
+                                <button class="buy"><a href="store_item.html?id=p-hamtori-dolls">구매하기</a></button>
                             </div>
                             <img src="source/image/store_img/rag-dolls/hamtori1_vactor.png" alt="피규어" class="mainItem">
                         </div>
@@ -158,8 +159,8 @@
                             <div class="textBox">
                                 <span style="color: #fff;">모두의 귀염둥이 더피를 우리 집에 입양하기?</span>
                                 <h2 style="color: #fff;">WZ x 케이팝데몬헌터스</h2>
-                                <button class="detail"><a href="store_item.html">자세히 보기</a></button>
-                                <button class="buy"><a href="store_item.html">구매하기</a></button>
+                                <button class="detail"><a href="store_item.html?id=p-kdh-dolls">자세히 보기</a></button>
+                                <button class="buy"><a href="store_item.html?id=p-kdh-dolls">구매하기</a></button>
                             </div>
                             <img src="source/image/store_img/rag-dolls/kdh_dupy.png" alt="솜인형" class="mainItem">
                         </div>
@@ -878,6 +879,7 @@
         /* Initialize Swiper */
 
         var swiper = new Swiper(".mainSwiper", {
+            loop:true,
             scrollbar: {
                 el: ".swiper-scrollbar",
                 draggable: true,

@@ -1,8 +1,8 @@
 [
     {
-      "title": "p-shirts",
+      "title": "위즈x슬램덩크 20주년 티셔츠",
       "id": "p-slamdunk-shirts",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "농구 코트 위의 전설, 슬램덩크와 위즈의 특별한 20주년 기념 티셔츠입니다. 작품 속 열정과 땀방울을 그대로 담아낸 디자인으로, 단순한 패션을 넘어 추억과 감동을 입을 수 있는 아이템이에요. 행사장, 모임, 일상 코디 어디에나 어울리는 팬심 충만 티셔츠로 덕심을 자신 있게 드러내 보세요.",
       "images": [
         {"src":"./source/image/store_img/t-shirts/slamdunk5.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/t-shirts/slamdunk3.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -31,9 +31,9 @@
       ]
     },
     {
-      "title": "p-shirts",
+      "title": "위즈x원피스 남녀공용 반팔 티셔츠",
       "id": "p-onepiece-shirts",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "루피와 동료들의 모험심을 담아낸 원피스 콜라보 티셔츠입니다. 남녀 누구나 부담 없이 입을 수 있는 세미 오버핏으로 제작되어 편안함과 스타일을 동시에 챙겼습니다. 원피스 팬이라면 소장 가치 100%, 일상에서도 포인트 아이템으로 손색없는 특별한 굿즈입니다.",
       "images": [
         {"src":"./source/image/store_img/t-shirts/onepiece4.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/t-shirts/onepiece5.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -62,9 +62,9 @@
       ]
     },
     {
-      "title": "p-shirts",
+      "title": "진격의 거인 조사병단 티셔츠",
       "id": "p-attackontitan-shirts",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "벽 너머의 자유를 향해 싸우는 조사병단의 상징을 담은 티셔츠입니다. ‘자유의 날개’ 문양이 시선을 끄는 디자인으로, 팬들에게는 자부심이자 패션 아이템이 됩니다. 진격의 거인의 웅장함과 긴장감을 일상 속에서도 느껴보세요.",
       "images": [
         {"src":"./source/image/store_img/t-shirts/attackontitan.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/t-shirts/attackontitan2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -93,9 +93,9 @@
       ]
     },
     {
-      "title": "p-shirts",
+      "title": "짱구 커플티 남녀공용",
       "id": "p-sinjang-shirts",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "짱구는 못말려의 바보 커플이 입던 그 티셔츠! 심플하면서도 위트 있는 디자인으로, 가볍고 시원한 소재로 여름철에도 쾌적하게 착용할 수 있으며, 다양한 컬러 옵션으로 개성에 맞춰 고를 수 있습니다. 저렴한 가격과 높은 활용도로 ‘가성비 굿즈’라 불릴 만큼 만족도가 높은 아이템이에요",
       "images": [
         {"src":"./source/image/store_img/t-shirts/sinjang_t.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/t-shirts/sinjang_t2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -126,9 +126,9 @@
 
 
     {
-      "title": "p-bag",
+      "title": "위즈 메신저백",
       "id": "p-message-bag",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "실용성과 디자인을 모두 잡은 위즈의 시그니처 메신저백입니다. 위즈 감성을 담아낸 포인트 디자인은 데일리룩에 자연스럽게 녹아들고, 장시간 사용에도 편안함을 유지할 수 있도록 제작되었습니다. 실용적이면서도 개성을 살리고 싶은 분들에게 강력 추천합니다.",
       "images": [
         {"src":"./source/image/store_img/bag/message_bag0.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/bag/message_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -157,9 +157,9 @@
       ]
     },
     {
-      "title": "p-bag",
+      "title": "위즈 미니크로스백",
       "id": "p-cross-bag",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "작지만 알찬 수납력을 자랑하는 위즈 미니크로스백은 간단한 외출이나 행사장에서도 부담 없이 메기 좋은 아이템입니다. 위즈 시그니처 디자인으로 개성과 덕심을 자연스럽게 드러낼 수 있으며, 다양한 컬러 옵션으로 어떤 스타일에도 매치가 쉬워 데일리 패션은 물론 특별한 날에도 빛을 발합니다.",
       "images": [
         {"src":"./source/image/store_img/bag/cross_bag.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/bag/cross_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -188,9 +188,9 @@
       ]
     },
     {
-      "title": "p-bag",
+      "title": "위즈시그니처 백팩",
       "id": "p-back-bag",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "위즈시그니처 백팩은 학생부터 직장인까지 누구에게나 어울리는 다용도 아이템입니다.  위즈 특유의 디자인 감각과 실용성과 개성을 담, 일상적인 사용은 물론, 높은 기능성으로 남녀공용 부담 없이 착용할 수 있습니다.",
       "images": [
         {"src":"./source/image/store_img/bag/backpack.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/bag/backpack1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -219,9 +219,9 @@
       ]
     },
     {
-      "title": "p-bag",
+      "title": "위즈 에코백",
       "id": "p-echo-bag",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "가볍고 활용도 높은 위즈 에코백은 데일리룩에 자연스럽게 어울리며, 환경까지 생각한 친환경 제품입니다. 부담 없이 들고 다니기 좋아 학생과 직장인 모두에게 추천할 만한 머스트 해브 아이템입니다. 위즈만의 감성을 담아 일상 속 개성을 표현해보세요.",
       "images": [
         {"src":"./source/image/store_img/bag/echo_bag.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/bag/echo_bag1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -252,9 +252,9 @@
 
 
     {
-      "title": "p-dolls",
+      "title": "위즈x4월은 너의 거짓말",
       "id": "p-april-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "감성을 자극하는 ‘4월은 너의 거짓말’과 위즈의 특별한 콜라보 굿즈입니다. 디테일한 마감과 고급스러운 퀄리티 덕분에 컬렉션 아이템으로 손색이 없으며, 팬이라면 절대 놓칠 수 없는 한정판 아이템입니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/april.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/april1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -283,9 +283,9 @@
       ]
     },
     {
-      "title": "p-dolls",
+      "title": "괴담출근 브라운 인형",
       "id": "p-brown-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "‘괴담출근’ 속 귀여운 브라운 캐릭터가 인형으로 탄생했습니다. 폭신한 촉감과 귀여운 디테일이 살아 있어 침실이나 책상 위에 두면 포근한 분위기를 더해줍니다. 팬심을 자극하는 굿즈로, 하루의 피곤함을 달래주는 든든한 친구가 되어줄 인형입니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/brown.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/brown1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -314,9 +314,9 @@
       ]
     },
     {
-      "title": "p-dolls",
+      "title": "방가방가 햄토리 먹보 피규어",
       "id": "p-hamtori-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "추억 속 그때 그 시절을 소환하는 방가방가 햄토리 먹보 피규어입니다. 앙증맞은 디테일과 귀여운 표정 하나하나가 마치 애니메이션 속 장면을 그대로 옮겨놓은 듯, 팬들에게는 소장 가치 100%의 아이템입니다. 데스크 위, 책장 한켠, 어디에 두어도 햄토리 특유의 따뜻하고 유쾌한 에너지가 전해집니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/hamtori.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/hamtori1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -345,9 +345,9 @@
       ]
     },
     {
-      "title": "p-dolls",
+      "title": "사카모토 데이즈 신 인형",
       "id": "p-sakamotodaz-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "카리스마와 귀여움이 공존하는 사카모토 데이즈 ‘신’ 캐릭터가 봉제인형으로 재탄생했습니다. 작품 팬이라면 놓칠 수 없는 한정판 감성으로, 방 안의 인테리어 포인트는 물론 포근한 힐링 아이템으로도 완벽합니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/sakamotodaz1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/sakamotodaz2.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -376,9 +376,9 @@
       ]
     },
        {
-      "title": "p-dolls",
+      "title": "K.D.H 더피&까치 솜인형",
       "id": "p-kdh-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "K-팝 덕심과 귀여움의 정점을 찍는 K.D.H 더피&까치 솜인형입니다. 더피와 까치의 매력을 듬뿍 담아내어 팬이라면 소장용, 선물용 모두 만족스러운 아이템이 될 것입니다. 귀여움과 개성이 동시에 살아 있는 굿즈를 원한다면 강력 추천합니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/kdh.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/kdh1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -407,9 +407,9 @@
       ]
     },
        {
-      "title": "p-dolls",
+      "title": "헌터X위즈X헌터 곤&키르아 인형",
       "id": "p-hxh-dolls",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "헌터x헌터의 명콤비, 곤과 키르아가 귀여운 봉제인형으로 찾아왔습니다. 작품 속 개성과 분위기를 살린 디테일로 팬심을 자극하는 디자인으로 장식용, 선물용, 수집용 모두 훌륭하며, 덕심을 제대로 보여줄 수 있는 필수 굿즈입니다.",
       "images": [
         {"src":"./source/image/store_img/rag-dolls/hxh.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/rag-dolls/hxh1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -441,14 +441,14 @@
 
 
      {
-      "title": "p-acc",
+      "title": "봇치더락 결속밴드",
       "id": "p-botchi-acc",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "친구들과의 특별한 순간을 더욱 끈끈하게 이어줄 봇치더락 결속밴드입니다. 작품 속 상징성을 그대로 담아내어 팬들에게는 단순한 액세서리를 넘어 의미 있는 아이템이 됩니다. 가볍고 착용감이 좋아 일상에서 자연스럽게 착용 가능하며, 우정템이나 커플 아이템으로도 제격입니다.",
       "images": [
         {"src":"./source/image/store_img/acc/botchi.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
-        {"src":"./source/image/store_img/acc/botchi.png1","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
-        {"src":"./source/image/store_img/acc/botchi.png2","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
-        {"src":"./source/image/store_img/acc/botchi.png5","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
+        {"src":"./source/image/store_img/acc/botchi.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
+        {"src":"./source/image/store_img/acc/botchi.png","gradient":"radial-gradient(#fff 20%, #fff 90%)"},
+        {"src":"./source/image/store_img/acc/botchi.png","gradient":"radial-gradient(#fff 10%, #fff 50%)","textOnDark":true}
       ],
       "colorSwatches": ["#ffffff","#FF8F95","#056800","#121212"],
       "tags": ["#봇치더락","#결속밴드","#결속목걸이","#우정템","#오타쿠굿즈","#위즈콜라보","#위즈와함께","#탁월한선택"],
@@ -467,14 +467,14 @@
       ],
       "ad": [
         {"label": "위즈 신작 보러가기🏃‍♀️"},
-        {"href": "./home.html"},
+        {"href": "./content-detail.html?query=ani-07"},
         {"bgImage": "./source/image/store_img/acc/botchi2.png"}
       ]
     },
     {
-      "title": "p-acc",
+      "title": "세일러문 30주년 한정 팬던트",
       "id": "p-sailormoon-acc",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "세일러문 30주년을 기념하여 출시된 한정판 팬던트입니다. 달의 요정 감성을 고스란히 담아낸 디자인과 고급스러운 소재가 어우러져, 팬심과 소장 욕구를 동시에 자극합니다. 자신만의 컬렉션 아이템으로 완벽하며, 세일러문과 함께한 추억을 간직하기에 가장 좋은 선택입니다.",
       "images": [
         {"src":"./source/image/store_img/acc/saliormoon.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/acc/saliormoon1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -503,9 +503,9 @@
       ]
     },
     {
-      "title": "p-acc",
+      "title": "짱구는 못말려 초코비 자석",
       "id": "p-sinjang-acc",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "짱구와 함께라면 지루할 틈 없는 생활! 초코비 디자인이 돋보이는 귀여운 자석으로 냉장고, 화이트보드 어디든 개성을 더할 수 있습니다. 작지만 강력한 존재감을 친구들에게 자랑해 보세요.",
       "images": [
         {"src":"./source/image/store_img/acc/sinjang.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/acc/sinjang1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -537,9 +537,9 @@
 
 
     {
-      "title": "p-others",
+      "title": "위즈x캐치! 티니핑 우산",
       "id": "p-tiniping-others",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "비 오는 날에도 사랑스러움을 잃지 않게 해주는 위즈x티니핑 우산입니다. 하츄핑의 밝고 귀여운 에너지를 그대로 담아낸 디자인으로, 어린이부터 성인까지 모두 즐겁게 사용할 수 있습니다.",
       "images": [
         {"src":"./source/image/store_img/others/tiniping.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
         {"src":"./source/image/store_img/others/tiniping1.png","gradient":"radial-gradient(#fff 20%, #fff 80%)"},
@@ -568,9 +568,9 @@
       ]
     },
     {
-      "title": "aviot-friren",
+      "title": "위즈x장송의 프리렌 이어폰",
       "id": "AVIOTxWZ",
-      "summary": "상세소개 문단( .itemSummary )",
+      "summary": "감성과 기술이 만난 위즈x장송의 프리렌 무선 이어폰입니다. 작품의 세계관을 담아낸 컬러와 디자인은 팬들에게 특별한 소장 가치를 선사합니다. 고음질 사운드와 안정적인 착용감으로 일상과 팬심을 동시에 만족시키는 프리미엄 아이템입니다.",
       "images": [
         {"src":"./source/image/store_img/others/aviot_w.webp","gradient":"radial-gradient(#fff 20%, #7ad3d1 80%)"},
         {"src":"./source/image/store_img/others/aviot_p.webp","gradient":"radial-gradient(#fff 20%, #ffa9b5 80%)"},

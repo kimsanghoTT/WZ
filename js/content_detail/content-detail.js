@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const data = await fetchData();
     const DataAll = data.find(item => item.id.toLowerCase() === query);
+    const pageTitle = document.querySelector("title").textContent = `${DataAll.title} | WZ`;
 
     if (DataAll) {
         const Main = document.getElementById('detail-main');
@@ -86,6 +87,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         
 
         const kor = korCategory[DataAll.category] || DataAll.category;
+        const genre = DataAll.genre.map(each => {
+            return `<span>${each}</span>`
+        }).join(", ");
+
         const tagList = DataAll.tag.slice(0,3).map(tag => {
             return `<span><span class="hash">#</span>${tag}</span>`
         }).join("");
@@ -93,8 +98,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         InfoDiv02.innerHTML = `
                         <h3><span style="background-color: ${backgroundColor};">${DataAll.rating}</span>작품정보</h3>
                         <ul class="info02-text">
+                            <li>유형 : ${kor}</li>
                             ${DataAll.cast && DataAll.cast.length > 0 ? `<li><span>출연 :</span> ${DataAll.cast}</li>` : ''}
-                            <li><span>장르 :</span> ${korCategory[DataAll.category]}</li>
+                            <li><span>장르 :</span>${genre}</li>
                             <li><span>감독 :</span> ${DataAll.director}</li>
                             <li><span>제작사 :</span> ${DataAll.production}</li>
                             <li class="tag-list">${tagList}</li>

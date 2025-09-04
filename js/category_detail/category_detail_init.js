@@ -7,6 +7,31 @@ export const fetchData = async () => {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const category = window.location.search.slice(1);
+    const pageTitle = document.querySelector("title");
+    switch (category) {
+        case "animation":
+            pageTitle.textContent = "애니메이션 | WZ"
+            break;
+        case "movie":
+            pageTitle.textContent = "영화 | WZ"
+            break;
+        case "documentary":
+            pageTitle.textContent = "다큐멘터리 | WZ"
+            break;
+        case "varietyShow":
+            pageTitle.textContent = "예능 | WZ"
+            break;
+        case "drama":
+            pageTitle.textContent = "드라마 | WZ"
+            break;
+        case "musical":
+            pageTitle.textContent = "뮤지컬 | WZ"
+            break;
+        default:
+            break;
+    }
+    
     //헤더 렌더링
     const renderHeader = async () => {
         const mainHeader = document.getElementById("mainHeader");

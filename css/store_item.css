@@ -203,6 +203,7 @@ width: 100%;
   font-size: 18px;
   color: #121212;
   line-height: 1.5;
+  z-index: 2;
 }
 #mainItem .buyOptionBox{
   width: 100%;
