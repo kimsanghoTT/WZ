@@ -101,6 +101,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     <span><a href="${targetItem.ad[1].href}">원작 보러가기🏃‍♀️</a></span>
 
   `
+/* 한줄리뷰 가로 스와이프 */
+  var swiper = new Swiper('#oneSentense', {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        direction: getDirection(),
+        on: {
+          resize: function () {
+            this.changeDirection(getDirection());
+          },
+        },
+  });
+
+  function getDirection() {
+    return window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+  }
 
   /* ---------------- 스크롤 애니메이션 ---------------- */
   const targets = document.querySelectorAll(".itemTxt1, .itemTxt2, .itemTxt3");
@@ -330,30 +345,6 @@ function fadeStageBG($stage, gradient) {
     $ov.remove();
   });
 }
-
-
-
-/* 한줄리뷰 가로 스와이프 */
-if(window.location.pathname.includes('store_item.html')){
-  var swiper = new Swiper('#oneSentense', {
-        slidesPerView: 3,
-        spaceBetween: 15,
-        direction: getDirection(),
-        on: {
-          resize: function () {
-            swiper.changeDirection(getDirection());
-          },
-        },
-      });
-
-      function getDirection() {
-        var windowWidth = window.innerWidth;
-        var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
-
-        return direction;
-      }
-}
-
 
     /* 스크롤하면 아이템설명이 나오도록 함 */
 
