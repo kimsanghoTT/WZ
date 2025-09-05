@@ -335,7 +335,7 @@ function fadeStageBG($stage, gradient) {
 
 /* 한줄리뷰 가로 스와이프 */
 if(window.location.pathname.includes('store_item.html')){
-  var swiper = new Swiper('#oneSentense.swiper', {
+  var swiper = new Swiper('#oneSentense', {
         slidesPerView: 3,
         spaceBetween: 15,
         direction: getDirection(),
