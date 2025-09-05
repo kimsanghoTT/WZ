@@ -3,10 +3,11 @@
 /* 공통 */
 section {
     width: 1400px;
-    height: 1080px;
     margin: 0 auto;
     margin-bottom: 100px;
 }
+.proWrap { padding-bottom: 50px; transition: height .25s ease; }
+.proWrap.h60 { padding-bottom: 50px; }
 
 section>h2 {
     font-size: 48px;
@@ -307,7 +308,6 @@ section>h2+span {
 
 #product .proWrap {
     width: 1400px;
-    height: 1080px;
     margin: auto;
 }
 

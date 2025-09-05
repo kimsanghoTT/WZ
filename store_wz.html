@@ -890,6 +890,34 @@
                 disableOnInteraction: false,
             }
         });
+        
+        $(function () {
+            const ragIdx = 2;
+            const $wrap  = $('.proWrap');
+            $('.tabMenu li').on('click', function (e) {
+                e.preventDefault();
+                const i = $(this).index();
+                console.log(i);
+                
+                // 탭 on 토글
+                $('.tabMenu li').removeClass('on');
+                $(this).addClass('on');
+                // 리스트 on 토글
+                const $lists = $('.tabOpen > .productList');
+                $lists.removeClass('on').eq(i).addClass('on');
+                // ★ 라그돌이면 크게, 아니면 60%
+                if (i === 2) {
+                    $wrap.removeClass('h60');          // 전체(기본) 높이
+                // 또는 인라인로 하고 싶으면: $wrap.css('height', '100%');
+                } else {
+                    $wrap.addClass('h60');             // 60%
+                // 또는 인라인: $wrap.css('height', '60%');
+                }
+            });
+            // 초기 상태(페이지 진입 시 현재 활성 탭 기준으로 세팅)
+            const init = $('.tabMenu li.on').index();
+            if (init !== -1 && init !== ragIdx) $wrap.addClass('h60');
+        });
     </script>
 </body>
 
