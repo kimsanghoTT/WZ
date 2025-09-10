@@ -1,4 +1,4 @@
-import { bindCardClickEvent, bindCardHoverEvent, bindHomeAnimation } from "./home_event.js";
+import { bindCardHoverEvent, bindHomeAnimation } from "./home_event.js";
 import { initAutoplaySwiper, renderHomeSwiper, renderAutoplaySwiper } from "./home_swiper.js";
 
 export const fetchData = async () => {
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //이벤트 바인딩
     bindCardHoverEvent();
-    bindCardClickEvent();
     bindHomeAnimation();
 })
 

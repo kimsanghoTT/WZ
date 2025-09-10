@@ -1,5 +1,5 @@
 import { fetchData } from "./home_init.js";
-import { hoverModal } from "./home_hover_modal.js";
+import { hoverModal } from "./home_modal.js";
 
 export const bindCardHoverEvent = async () => {
     const cards = document.querySelectorAll(".swiper-slide.common");
@@ -39,10 +39,6 @@ export const bindCardHoverEvent = async () => {
         hoverModalWrapper.classList.remove("active");
     });
 };
-
-export const bindCardClickEvent = () => {
-    
-}
 
 export const bindHomeAnimation = () => {
     //h2 애니메이션

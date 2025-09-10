@@ -74,7 +74,3 @@ const reelsUtil = (modalElement, reels, type, value) => {
         localStorage.setItem(`reels-${reels.id}-${type}-count`, value);
     }
 }
-
-export const sortReels = () => {
-
-}
