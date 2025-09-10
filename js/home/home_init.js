@@ -58,7 +58,8 @@ const bannerVideo = () => {
             detail: "/content-detail.html?query=docu-02"
         },
     ]
-    const randomBanner = bannerVideoList[Math.floor(Math.random() * bannerVideoList.length)];
+    const index = Math.floor(Math.random() * bannerVideoList.length);
+    const randomBanner = bannerVideoList[index];
     document.getElementById("bannerVideo").src = randomBanner.video;
     document.querySelector(".watch-btn").href = randomBanner.iframe;
     document.querySelector(".more-btn").href = randomBanner.detail;
